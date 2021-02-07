@@ -11,5 +11,6 @@ namespace Bet.Models
         LinkedList<Group> SetGroups();
         int GetMaxNumber();
         int GetSmallestNumber();
+        bool IsBetConfirmed();
     }
 }
