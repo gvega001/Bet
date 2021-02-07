@@ -7,6 +7,7 @@ namespace Bet.Models
     {
         string DateOfEvent { get; set; }
         int GetScore();
+        int SetScore();
         string GetEventName();
         string SetEventName();
         int GetGuess();
