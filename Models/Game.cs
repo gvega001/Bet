@@ -5,6 +5,7 @@ namespace Bet.Models
 {
     public interface Game
     {
+        string DateOfEvent { get; set; }
         int GetScore();
         string GetEventName();
         string SetEventName();
