@@ -2,6 +2,8 @@
 {
     public interface MessageGenerator
     {
-        
+        string GetMainMessage();
+        string GetResultsMessage();
+
     }
 }
