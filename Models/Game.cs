@@ -1,4 +1,5 @@
-﻿using System.Dynamic;
+﻿using System.Collections.Generic;
+using System.Dynamic;
 
 namespace Bet.Models
 {
@@ -13,7 +14,9 @@ namespace Bet.Models
         int SetSmallestPossibleGuess();
         int GetBiggestPossibleGuess();
         int SetBiggestPossibleGuess();
-        BetImpl Bet();
+        LinkedList <Bet> GetBetImpl();
+        LinkedList<Bet> SetBets();
+
         void Reset();
         bool IsGameLocked();
         bool IsValidGuess();
