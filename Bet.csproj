@@ -188,11 +188,15 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bet.cs" />
+    <Compile Include="Models\BetImpl.cs" />
     <Compile Include="Models\Game.cs" />
+    <Compile Include="Models\GameImpl.cs" />
     <Compile Include="Models\Group.cs" />
+    <Compile Include="Models\GroupImpl.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MessageGenerator.cs" />
+    <Compile Include="Models\MessageGeneratorImpl.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
