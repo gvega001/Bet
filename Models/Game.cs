@@ -24,6 +24,7 @@ namespace Bet.Models
         bool IsValidGuess();
         bool IsBetWon();
         bool IsBetLost();
+        bool IsGameConfirmed();
 
     }
 }
