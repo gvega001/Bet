@@ -1,15 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Bet.Models
 {
     public class GameImpl :Game
     {
         public string DateOfEvent { get; set; }
+        LinkedList<Bet> bets;
         public double GetScore()
         {
             throw new System.NotImplementedException();
         }
-
         public void SetScore(double score)
         {
             throw new System.NotImplementedException();
@@ -62,7 +63,16 @@ namespace Bet.Models
 
         public void SetBets(LinkedList<Bet> betsSets)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                //set bets
+                bets = betsSets;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         public void Reset()
