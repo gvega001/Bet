@@ -13,9 +13,12 @@ namespace Bet.Models
         private LinkedList<Player> playerList;
         private int _joinCode;
         private Bet bet;
+        private bool _confirmGame =false;
+        private bool _isBetOutComeConfirmed = false;
+        public enum _groupStatus { Confirmed, Cancel, }
 
         public GroupImpl(Random groupId, string groupName, Player player, LinkedList<Player> playerList, int joinCode,
-            Bet bet)
+            Bet bet, bool confirmGame, bool isBetOutComeConfirmed)
         {
             _groupId = groupId ?? throw new ArgumentNullException(nameof(groupId));
             _groupName = groupName ?? throw new ArgumentNullException(nameof(groupName));
@@ -23,6 +26,8 @@ namespace Bet.Models
             this.playerList = playerList ?? throw new ArgumentNullException(nameof(playerList));
             _joinCode = joinCode;
             this.bet = bet ?? throw new ArgumentNullException(nameof(bet));
+            _confirmGame = confirmGame;
+            _isBetOutComeConfirmed = isBetOutComeConfirmed;
         }
 
         //*****====== Public Methods =======**********
@@ -78,6 +83,39 @@ namespace Bet.Models
         public int GetJoinCode(Group group)
         {
             return _joinCode;
+        }
+
+        public void ConfirmGame(Player player)
+        {
+            if(_player != null && _player == player)
+            {
+                _confirmGame = true;
+            }
+         
+        }
+
+        public void ConfirmGameOutcome(Player player)
+        {
+            foreach (var checkPlayer in playerList)
+            {
+                if (player == checkPlayer)
+                {
+                    if (player != null)
+                    {
+                        _isBetOutComeConfirmed = true;
+                    }
+                }
+            }
+            
+        }
+        public bool IsGameConfirmed()
+        {
+            return _confirmGame;
+        }
+
+        public bool GetIsBetOutComeConfirmed()
+        {
+            return _isBetOutComeConfirmed;
         }
     }
 }

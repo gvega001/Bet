@@ -13,7 +13,10 @@ namespace Bet.Models
         private double _maxScorePossible;
         private double _lowestScorePossible;
         
-
+        private enum BetStatus
+        {
+            Valid, Invalid,
+        }
 
         //***===========  public methods *********===========
         public Random GetBetId()

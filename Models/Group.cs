@@ -14,5 +14,7 @@ namespace Bet.Models
         LinkedList<Player> GetPlayers();
         int GetJoinCode(Group group);
         void JoinGroupWithJoinCode(int joinCode, Player player);
+        bool GetIsBetOutComeConfirmed();
+        bool IsGameConfirmed();
     }
 }
