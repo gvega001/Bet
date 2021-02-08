@@ -7,23 +7,17 @@ namespace Bet.Models
     {
         
         //*****========  fields ========*******
-        private LinkedList<Group> playerGroups;
-        internal Random playerId;
+        internal Random PlayerId;
 
         //*****=======  methods =======********
-        public LinkedList<Group> GetGroups(Player player)
-        {
-            return playerGroups;
-        }
-
+   
         void JoinGroup(string joinCode)
         {
             // After implementing groups
         }
         private void SetPlayerId()
         {
-            Random randomNumber = new Random(DateTime.Now.GetHashCode());
-            playerId = randomNumber;
+            PlayerId = new Random(Int32.MaxValue);
         }
     }
 }
