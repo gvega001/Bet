@@ -3,8 +3,8 @@
     public interface MessageGenerator
     {
         string GetMainMessage();
-        string SetMainMessage();
+        void SetMainMessage();
         string GetResultsMessage();
-        string SetResultsMessage();
+        void SetResultsMessage();
     }
 }

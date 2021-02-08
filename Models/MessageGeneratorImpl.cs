@@ -2,24 +2,29 @@
 {
     public class MessageGeneratorImpl: MessageGenerator
     {
+        private Game _game;
+        private MessageGenerator _messageGenerator;
+        private string  _mainMessage;
+        private string _resultMessage;
+
         public string GetMainMessage()
         {
-            throw new System.NotImplementedException();
+            return _mainMessage;
         }
 
-        public string SetMainMessage()
+        public void SetMainMessage()
         {
-            throw new System.NotImplementedException();
+            _mainMessage = _game.ToString();
         }
 
         public string GetResultsMessage()
         {
-            throw new System.NotImplementedException();
+            return _resultMessage;
         }
 
-        public string SetResultsMessage()
+        public void  SetResultsMessage()
         {
-            throw new System.NotImplementedException();
+            _resultMessage = _game.IsBetWon().ToString();
         }
     }
 }

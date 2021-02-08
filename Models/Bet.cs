@@ -17,7 +17,7 @@ namespace Bet.Models
         double GetSmallestNumber();
         void SetSmallestNumber(double minNumber);
         bool IsBetConfirmed();
-        void ConfirmBet(LinkedList<Player> atLeastTwoPlayers);
+        bool ConfirmBet(LinkedList<Player> atLeastTwoPlayers);
 
         bool PaymentsConfirmed(LinkedList<Player> playersPaymentList);
     }

@@ -1,18 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
+using Microsoft.Owin.Security.Provider;
 
 namespace Bet.Models
 {
     public class BetImpl: Bet
     {
         //***===========   private fields *********=========
+        private Player _player;
         private Group _betGroup;
         private Random _betId;
         private SqlMoney _betMoney;
         private double _maxScorePossible;
         private double _lowestScorePossible;
+        private Game _game;
         
+
+        //*****======  Constructor ************=================
+        public BetImpl(Player player, Group betGroup, Random betId, SqlMoney betMoney, double maxScorePossible,
+            double lowestScorePossible)
+        {
+            _player = player ?? throw new ArgumentNullException(nameof(player));
+            _betGroup = betGroup ?? throw new ArgumentNullException(nameof(betGroup));
+            _betId = betId ?? throw new ArgumentNullException(nameof(betId));
+            _betMoney = betMoney;
+            _maxScorePossible = maxScorePossible;
+            _lowestScorePossible = lowestScorePossible;
+        }
+
         private enum BetStatus
         {
             Valid, Invalid,
@@ -72,17 +88,49 @@ namespace Bet.Models
 
         public bool IsBetConfirmed()
         {
-            throw new System.NotImplementedException();
+            if (_betGroup.GetIsBetOutComeConfirmed())
+            {
+                return true;
+            }
+
+            return false;
         }
 
-        public void ConfirmBet(LinkedList<Player> atLeastTwoPlayers)
+        public bool ConfirmBet(LinkedList<Player> atLeastTwoPlayers)
         {
-            throw new System.NotImplementedException();
+            int count = 0;
+            bool checkPlayer = false;
+            foreach (var check  in atLeastTwoPlayers)
+            {
+                if (atLeastTwoPlayers.Find(_player) !=null )
+                {
+                    checkPlayer = true;
+                    count++;
+                }
+                else if (atLeastTwoPlayers.Find(_player)==null)
+                {
+                    checkPlayer = false;
+                }
+            }
+
+            if (count >= 2 && checkPlayer)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         public bool PaymentsConfirmed(LinkedList<Player> playersPaymentList)
         {
-            throw new System.NotImplementedException();
+            foreach (var confirmPaymentPlayer in playersPaymentList)
+            {
+                if (_game.IsGameConfirmed() == true)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
