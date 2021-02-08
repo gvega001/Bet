@@ -8,7 +8,13 @@ namespace Bet.Models
         //*****=======++++++++ fields =========********
         private LinkedList<Bet> bets;
         private LinkedList<double> scoresList;
+        private string eventName;
+        private double guess;
+        private double smallestPossibleNumber;
+        private double largestNumberPossible;
+        private BetImpl betImpl;
 
+        
 
         //********========== public methods ******=============
         public string DateOfEvent { get; set; }
@@ -24,32 +30,32 @@ namespace Bet.Models
 
         public string GetEventName()
         {
-            throw new System.NotImplementedException();
+            return  eventName;
         }
 
         public void SetEventName(string eventName)
         {
-            throw new System.NotImplementedException();
+            this.eventName = eventName;
         }
 
         public double GetGuess()
         {
-            throw new System.NotImplementedException();
+            return guess;
         }
 
         public void SetGuess(double guess)
         {
-            throw new System.NotImplementedException();
+            this.guess = guess;
         }
 
         public double GetSmallestPossibleGuess()
         {
-            throw new System.NotImplementedException();
+            return smallestPossibleNumber;
         }
 
-        public void SetSmallestPossibleGuess(double smallestPossibleNumber)
+        public void SetSmallestPossibleGuess()
         {
-            throw new System.NotImplementedException();
+            this.smallestPossibleNumber = betImpl.GetSmallestNumber();
         }
 
         public double GetBiggestPossibleGuess()

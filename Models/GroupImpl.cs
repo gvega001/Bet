@@ -1,57 +1,70 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Security.AccessControl;
 
 namespace Bet.Models
 {
     public class GroupImpl:Group
     {
-        public int GetGroupId()
+        //*****======= private fields ******==========
+        private Random _groupId;
+        private string _groupName;
+        private Player _player;
+        private LinkedList<Player> playerList;
+        private int _joinCode;
+        private Bet bet;
+        public Random GetGroupId()
         {
-            throw new System.NotImplementedException();
+            return _groupId;
         }
 
         public void SetGroupId()
         {
-            throw new System.NotImplementedException();
+            _groupId = new Random(Int32.MaxValue);
         }
 
         public string GetGroupName()
         {
-            throw new System.NotImplementedException();
+           return _groupName;
         }
 
         public void SetGroupName(string groupName)
         {
-            throw new System.NotImplementedException();
+            this._groupName = groupName;
         }
 
         public Player GetPlayer()
         {
-            throw new System.NotImplementedException();
+            return _player;
         }
 
         public void SetPlayer(Player player)
         {
-            throw new System.NotImplementedException();
+            _player = player;
+            playerList.AddLast(player);
         }
 
         public LinkedList<Player> GetPlayers()
         {
-            throw new System.NotImplementedException();
+            return playerList;
         }
 
-        public void SetPlayers(LinkedList<Player> atLeastTwoPlayers)
+        public void JoinGroupWithJoinCode(int joinCode, Player player)
         {
-            throw new System.NotImplementedException();
-        }
-
-        public string GetJoinCode()
-        {
-            throw new System.NotImplementedException();
+            if (_joinCode == joinCode && player != null)
+            {
+                playerList.AddLast(player);
+            }
         }
 
         public void SetJoinCode()
         {
-            throw new System.NotImplementedException();
+            _joinCode = GetHashCode();
+        }
+
+        public int GetJoinCode(Group group)
+        {
+            return _joinCode;
         }
     }
 }

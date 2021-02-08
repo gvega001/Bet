@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlTypes;
 
 namespace Bet.Models
 {
     public interface Bet
     {
-        int GetBetId();
+        Random GetBetId();
         void SetBetId();
         SqlMoney GetMoneyBet();
         void SetMoneyBet(SqlMoney betMoney);
@@ -14,7 +15,7 @@ namespace Bet.Models
         double GetMaxNumber();
         void SetMaxNumber(double maxNumber);
         double GetSmallestNumber();
-        void SetSmallestNumber();
+        void SetSmallestNumber(double minNumber);
         bool IsBetConfirmed();
         void ConfirmBet(LinkedList<Player> atLeastTwoPlayers);
 

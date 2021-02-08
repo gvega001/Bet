@@ -1,18 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Bet.Models
 {
     public interface Group
     {
-        int GetGroupId();
+        Random GetGroupId();
         void SetGroupId();
         string GetGroupName();
         void SetGroupName(string groupName);
         Player GetPlayer();
         void SetPlayer(Player player);
         LinkedList<Player> GetPlayers();
-        void SetPlayers(LinkedList<Player> atLeastTwoPlayers);
-        string GetJoinCode();
-        void SetJoinCode();
+        int GetJoinCode(Group group);
+        void JoinGroupWithJoinCode(int joinCode, Player player);
     }
 }

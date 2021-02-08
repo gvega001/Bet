@@ -1,58 +1,70 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlTypes;
 
 namespace Bet.Models
 {
     public class BetImpl: Bet
     {
-        public int GetBetId()
+        //***===========   private fields *********=========
+        private Group _betGroup;
+        private Random _betId;
+        private SqlMoney _betMoney;
+        private double _maxScorePossible;
+        private double _lowestScorePossible;
+        
+
+
+        //***===========  public methods *********===========
+        public Random GetBetId()
         {
-            throw new System.NotImplementedException();
+            return _betId;
         }
 
         public void SetBetId()
         {
-            throw new System.NotImplementedException();
+            _betId = new Random(Int32.MaxValue);
         }
 
         public SqlMoney GetMoneyBet()
         {
-            throw new System.NotImplementedException();
+            return _betMoney;
         }
 
         public void SetMoneyBet(SqlMoney betMoney)
         {
-            throw new System.NotImplementedException();
+            this._betMoney = betMoney;
         }
 
         public Group GetGroup()
         {
-            throw new System.NotImplementedException();
+            return _betGroup;
         }
 
         public void SetGroup(Group setGroup)
         {
-            throw new System.NotImplementedException();
+            this._betGroup = setGroup;
         }
 
         public double GetMaxNumber()
         {
-            throw new System.NotImplementedException();
+
+            return _maxScorePossible;
         }
 
         public void SetMaxNumber(double maxNumber)
         {
-            throw new System.NotImplementedException();
+            this._maxScorePossible = maxNumber;
         }
 
         public double GetSmallestNumber()
         {
-            throw new System.NotImplementedException();
+            return _lowestScorePossible;
         }
 
-        public void SetSmallestNumber()
+        public void SetSmallestNumber(double lowestNumberPossible)
         {
-            throw new System.NotImplementedException();
+            this._lowestScorePossible = lowestNumberPossible;
         }
 
         public bool IsBetConfirmed()

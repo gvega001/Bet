@@ -13,7 +13,7 @@ namespace Bet.Models
         double GetGuess();
         void SetGuess(double guess);
         double GetSmallestPossibleGuess();
-        void SetSmallestPossibleGuess(double smallestPossibleNumber);
+        void SetSmallestPossibleGuess();
         double GetBiggestPossibleGuess();
         void SetBiggestPossibleGuess(double biggestPossibleNumber);
         LinkedList <Bet> GetBetImpl();
