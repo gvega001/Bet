@@ -5,15 +5,21 @@ namespace Bet.Models
 {
     public class GameImpl :Game
     {
+        //*****=======++++++++ fields =========********
+        private LinkedList<Bet> bets;
+        private LinkedList<double> scoresList;
+
+
+        //********========== public methods ******=============
         public string DateOfEvent { get; set; }
-        LinkedList<Bet> bets;
-        public double GetScore()
+    
+        public LinkedList<double> GetScores()
         {
-            throw new System.NotImplementedException();
+            return scoresList;
         }
         public void SetScore(double score)
         {
-            throw new System.NotImplementedException();
+            scoresList.AddLast(score);
         }
 
         public string GetEventName()

@@ -6,7 +6,7 @@ namespace Bet.Models
     public interface Game
     {
         string DateOfEvent { get; set; }
-        double GetScore();
+        LinkedList<double> GetScores();
         void SetScore(double score);
         string GetEventName();
         void SetEventName(string eventName);
