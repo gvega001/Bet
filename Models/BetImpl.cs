@@ -8,7 +8,7 @@ namespace Bet.Models
     public class BetImpl: Bet
     {
         //***===========   private fields *********=========
-        private Player _player;
+        private readonly Player _player;
         private Group _betGroup;
         private Random _betId;
         private SqlMoney _betMoney;
@@ -19,7 +19,7 @@ namespace Bet.Models
 
         //*****======  Constructor ************=================
         public BetImpl(Player player, Group betGroup, Random betId, SqlMoney betMoney, double maxScorePossible,
-            double lowestScorePossible)
+            double lowestScorePossible, Game game)
         {
             _player = player ?? throw new ArgumentNullException(nameof(player));
             _betGroup = betGroup ?? throw new ArgumentNullException(nameof(betGroup));
@@ -27,9 +27,19 @@ namespace Bet.Models
             _betMoney = betMoney;
             _maxScorePossible = maxScorePossible;
             _lowestScorePossible = lowestScorePossible;
+            _game = game ?? throw new ArgumentNullException(nameof(game));
         }
 
-        private enum BetStatus
+        public void SetGame(Game game)
+        {
+            _game = game;
+        }
+
+        public Game GetGame()
+        {
+            return _game;
+        }
+        public enum BetStatus
         {
             Valid, Invalid,
         }
