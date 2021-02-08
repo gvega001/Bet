@@ -4,7 +4,7 @@ using System.Diagnostics.Eventing.Reader;
 
 namespace Bet.Models
 {
-    public class GameImpl : Game
+    public class GameImpl : iGame
     {
         //*****=======++++++++ fields =========********
         private LinkedList<Bet> _bets;
@@ -95,7 +95,7 @@ namespace Bet.Models
 
         public void SetSmallestPossibleGuess(double smallestNumberPossible)
         {
-            this._smallestPossibleNumber = smallestNumberPossible;
+            this._bet.SetSmallestNumber(smallestNumberPossible);
         }
 
         public double GetBiggestPossibleGuess()
@@ -105,7 +105,7 @@ namespace Bet.Models
 
         public void SetBiggestPossibleGuess(double largestNumberPossible)
         {
-            this._largestNumberPossible = largestNumberPossible;
+            this._bet.SetMaxNumber(largestNumberPossible);
         }
 
         public LinkedList<Bet> GetBet()
@@ -134,12 +134,8 @@ namespace Bet.Models
 
         public bool IsGameLocked()
         {
-
-
             return _isGameLocked;
         }
-
-
 
         public bool IsValidGuess()
         {
@@ -196,7 +192,6 @@ namespace Bet.Models
         }
 
         public string LastDateAndTimeToBest { get; set; }
-
 
     }
 
