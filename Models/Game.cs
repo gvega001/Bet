@@ -6,25 +6,26 @@ namespace Bet.Models
     public interface Game
     {
         string DateOfEvent { get; set; }
-        int GetScore();
-        int SetScore();
+        double GetScore();
+        void SetScore(double score);
         string GetEventName();
-        string SetEventName();
-        int GetGuess();
-        int SetGuess();
-        int GetSmallestPossibleGuess();
-        int SetSmallestPossibleGuess();
-        int GetBiggestPossibleGuess();
-        int SetBiggestPossibleGuess();
+        void SetEventName(string eventName);
+        double GetGuess();
+        void SetGuess(double guess);
+        double GetSmallestPossibleGuess();
+        void SetSmallestPossibleGuess(double smallestPossibleNumber);
+        double GetBiggestPossibleGuess();
+        void SetBiggestPossibleGuess(double biggestPossibleNumber);
         LinkedList <Bet> GetBetImpl();
-        LinkedList<Bet> SetBets();
+        void SetBets(LinkedList<Bet> betsSets);
 
         void Reset();
         bool IsGameLocked();
+        void LockGame();
         bool IsValidGuess();
         bool IsBetWon();
         bool IsBetLost();
         bool IsGameConfirmed();
-
+        void ConfirmGame(LinkedList<Player> atLeastTwoPlayers);
     }
 }
