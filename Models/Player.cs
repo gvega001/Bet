@@ -9,6 +9,12 @@ namespace Bet.Models
         //*****========  fields ========*******
         internal Random PlayerId;
 
+
+        //******======= constructor ========*******
+        public Player(Random playerId)
+        {
+            PlayerId = playerId ?? throw new ArgumentNullException(nameof(playerId));
+        }
         //*****=======  methods =======********
    
         void JoinGroup(string joinCode)

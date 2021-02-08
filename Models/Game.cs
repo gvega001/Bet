@@ -15,7 +15,7 @@ namespace Bet.Models
         double GetSmallestPossibleGuess();
         void SetSmallestPossibleGuess();
         double GetBiggestPossibleGuess();
-        void SetBiggestPossibleGuess(double biggestPossibleNumber);
+        void SetBiggestPossibleGuess();
         LinkedList <Bet> GetBetImpl();
         void SetBets(LinkedList<Bet> betsSets);
 

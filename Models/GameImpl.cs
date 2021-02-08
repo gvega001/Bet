@@ -11,8 +11,8 @@ namespace Bet.Models
         private string eventName;
         private double guess;
         private double smallestPossibleNumber;
-        private double largestNumberPossible;
-        private BetImpl betImpl;
+        private double _largestNumberPossible;
+        private Bet _bet;
 
         
 
@@ -55,17 +55,17 @@ namespace Bet.Models
 
         public void SetSmallestPossibleGuess()
         {
-            this.smallestPossibleNumber = betImpl.GetSmallestNumber();
+            this.smallestPossibleNumber = _bet.GetSmallestNumber();
         }
 
         public double GetBiggestPossibleGuess()
         {
-            throw new System.NotImplementedException();
+            return _bet.GetMaxNumber();
         }
 
-        public void SetBiggestPossibleGuess(double biggestPossibleNumber)
+        public void SetBiggestPossibleGuess()
         {
-            throw new System.NotImplementedException();
+            this._largestNumberPossible = _bet.GetMaxNumber();
         }
 
         public LinkedList<Bet> GetBetImpl()

@@ -13,6 +13,19 @@ namespace Bet.Models
         private LinkedList<Player> playerList;
         private int _joinCode;
         private Bet bet;
+
+        public GroupImpl(Random groupId, string groupName, Player player, LinkedList<Player> playerList, int joinCode,
+            Bet bet)
+        {
+            _groupId = groupId ?? throw new ArgumentNullException(nameof(groupId));
+            _groupName = groupName ?? throw new ArgumentNullException(nameof(groupName));
+            _player = player ?? throw new ArgumentNullException(nameof(player));
+            this.playerList = playerList ?? throw new ArgumentNullException(nameof(playerList));
+            _joinCode = joinCode;
+            this.bet = bet ?? throw new ArgumentNullException(nameof(bet));
+        }
+
+        //*****====== Public Methods =======**********
         public Random GetGroupId()
         {
             return _groupId;
