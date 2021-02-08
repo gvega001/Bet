@@ -1,13 +1,15 @@
-﻿namespace Bet.Models
+﻿
+
+namespace Bet.Models
 {
     public class ConsoleBetGame
     {
-        private GameImpl _game;
+        private Game _game;
         private MessageGenerator _message;
 
-        public void SetGame(GameImpl gameImpl)
+        public void SetGame(Game game)
         {
-            _game = gameImpl;
+            _game = game;
         }
 
         public Game GetGame()

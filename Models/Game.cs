@@ -3,7 +3,7 @@ using System.Dynamic;
 
 namespace Bet.Models
 {
-    public interface iGame
+    public interface Game
     {
     
         LinkedList<double> GetScores();

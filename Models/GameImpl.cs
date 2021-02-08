@@ -4,7 +4,7 @@ using System.Diagnostics.Eventing.Reader;
 
 namespace Bet.Models
 {
-    public class GameImpl : iGame
+    public class GameImpl : Game
     {
         //*****=======++++++++ fields =========********
         private LinkedList<Bet> _bets;
