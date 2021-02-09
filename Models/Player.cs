@@ -11,15 +11,13 @@ namespace Bet.Models
 
         //*****========  fields ========*******
         internal Random PlayerId;
-        private ApplicationUser _user;
-
-
+        private Player _player;
+        private ApplicationUser user;
+        
         //******======= constructor ========*******
-        public Player(Random playerId)
+        public Player( )
         {
-            
-            PlayerId = playerId ?? throw new ArgumentNullException(nameof(playerId));
-
+            PlayerId = new Random(Int32.MaxValue);
         }
 
         //*****=======  methods =======********
@@ -28,9 +26,10 @@ namespace Bet.Models
             // After implementing groups
         }
 
-        private void SetPlayerId()
+
+        private Random GetPlayerId(ApplicationUser user)
         {
-            PlayerId = new Random(Int32.MaxValue);
+            return PlayerId;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using Bet.Models;
+using Bet.Models.ViewModels;
 
 namespace Bet.Controllers
 {
@@ -8,7 +9,8 @@ namespace Bet.Controllers
         // GET Player/
         public ActionResult Index()
         {
-            return View();
+            var playerViewModel = new PlayerViewModels();
+            return View(playerViewModel);
         }
     }
 }
