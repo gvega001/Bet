@@ -12,5 +12,6 @@ namespace Bet.Controllers
             var playerViewModel = new PlayerViewModels();
             return View(playerViewModel);
         }
+
     }
 }
