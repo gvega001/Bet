@@ -4,6 +4,15 @@ namespace Bet.Models
 {
     public class MessageGeneratorImpl: MessageGenerator
     {
+
+        public Game Game { get; set; }
+
+        public MessageGeneratorImpl Message { get; set; }
+
+        public string MainMessage { get; set; }
+
+        public string ResultsMessage { get; set; }
+
         //*****======= fields **********============
         private Game _game;
         private MessageGenerator _messageGenerator;

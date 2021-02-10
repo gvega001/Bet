@@ -198,6 +198,22 @@
     <Compile Include="Migrations\202102101835251_AddIsSubcribed.Designer.cs">
       <DependentUpon>202102101835251_AddIsSubcribed.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102101905299_PropertiesAddedToDB.cs" />
+    <Compile Include="Migrations\202102101905299_PropertiesAddedToDB.Designer.cs">
+      <DependentUpon>202102101905299_PropertiesAddedToDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102101915141_PlayerUpdated.cs" />
+    <Compile Include="Migrations\202102101915141_PlayerUpdated.Designer.cs">
+      <DependentUpon>202102101915141_PlayerUpdated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102101916528_PlayerUpdated2.cs" />
+    <Compile Include="Migrations\202102101916528_PlayerUpdated2.Designer.cs">
+      <DependentUpon>202102101916528_PlayerUpdated2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102101928138_BetPropsAdded.cs" />
+    <Compile Include="Migrations\202102101928138_BetPropsAdded.Designer.cs">
+      <DependentUpon>202102101928138_BetPropsAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bet.cs" />
@@ -308,6 +324,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102101835251_AddIsSubcribed.resx">
       <DependentUpon>202102101835251_AddIsSubcribed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102101905299_PropertiesAddedToDB.resx">
+      <DependentUpon>202102101905299_PropertiesAddedToDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102101915141_PlayerUpdated.resx">
+      <DependentUpon>202102101915141_PlayerUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102101916528_PlayerUpdated2.resx">
+      <DependentUpon>202102101916528_PlayerUpdated2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102101928138_BetPropsAdded.resx">
+      <DependentUpon>202102101928138_BetPropsAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

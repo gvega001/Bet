@@ -10,7 +10,17 @@ namespace Bet.Models
         public int Id { get; set; }
 
         public int PlayerId { get; set; }
-        //***===========   private fields *********=========
+
+        public Group Group { get; set; }
+
+        public SqlMoney MoneyBet { get; set; }
+
+        public double MaxPossibleNumber { get; set; }
+
+        public double LowestPossibleNumber { get; set; }
+
+        public Game Game { get; set; }
+        //***===========   public fields *********=========
         private readonly Player _player;
         private Group _betGroup;
         private Random _betId;

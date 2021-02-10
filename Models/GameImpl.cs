@@ -8,6 +8,9 @@ namespace Bet.Models
     {
         public int Id { get; set; }
         public int GroupId { get; set; }
+        public string Team1Name { get; set; }
+        public string Team2Name { get; set; }
+
            
         //*****=======++++++++ fields =========********
         private LinkedList<Bet> _bets;

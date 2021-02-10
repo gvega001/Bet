@@ -4,6 +4,9 @@ namespace Bet.Models
 {
     public class ConsoleBetGame
     {
+        public Game Game { get; set; }
+        public MessageGeneratorImpl MessageGeneratorImpl { get; set; }
+
         private Game _game;
         private MessageGenerator _message;
 
