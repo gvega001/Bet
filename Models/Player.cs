@@ -11,8 +11,8 @@ namespace Bet.Models
 
         //*****========  fields ========*******
         internal Random PlayerId;
-        private Player _player;
         private ApplicationUser user;
+        private Bet _bet;
         
         //******======= constructor ========*******
         public Player( )
