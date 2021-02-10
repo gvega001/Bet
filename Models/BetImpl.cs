@@ -18,12 +18,12 @@ namespace Bet.Models
         
 
         //*****======  Constructor ************=================
-        public BetImpl(Player player, Group betGroup, Random betId, SqlMoney betMoney, double maxScorePossible,
+        public BetImpl(Player player, Group betGroup, SqlMoney betMoney, double maxScorePossible,
             double lowestScorePossible, Game game)
         {
             _player = player ?? throw new ArgumentNullException(nameof(player));
             _betGroup = betGroup ?? throw new ArgumentNullException(nameof(betGroup));
-            _betId = betId ?? throw new ArgumentNullException(nameof(betId));
+            _betId = new Random(Int32.MaxValue); 
             _betMoney = betMoney;
             _maxScorePossible = maxScorePossible;
             _lowestScorePossible = lowestScorePossible;

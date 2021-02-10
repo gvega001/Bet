@@ -17,10 +17,10 @@ namespace Bet.Models
         private bool _isBetOutComeConfirmed = false;
         public enum _groupStatus { Confirmed, Cancel, }
 
-        public GroupImpl(Random groupId, string groupName, Player player, LinkedList<Player> playerList, int joinCode,
+        public GroupImpl( string groupName, Player player, LinkedList<Player> playerList, int joinCode,
             Bet bet, bool confirmGame, bool isBetOutComeConfirmed)
         {
-            _groupId = groupId ?? throw new ArgumentNullException(nameof(groupId));
+            _groupId = new Random(Int32.MaxValue); 
             _groupName = groupName ?? throw new ArgumentNullException(nameof(groupName));
             _player = player ?? throw new ArgumentNullException(nameof(player));
             this.playerList = playerList ?? throw new ArgumentNullException(nameof(playerList));

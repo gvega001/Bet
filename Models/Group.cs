@@ -6,7 +6,6 @@ namespace Bet.Models
     public interface Group
     {
         Random GetGroupId();
-        void SetGroupId();
         string GetGroupName();
         void SetGroupName(string groupName);
         Player GetPlayer();

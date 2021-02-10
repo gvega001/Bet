@@ -7,6 +7,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@ViewData["PlayerViewModels"]</h2>
-<p>@ViewData["PlayerViewModels"]</p>
+<h2>@Model.Player.UserName</h2>
+<p>Hi @Model.Player</p>
+<p>Here are your bets:</p>
+
 

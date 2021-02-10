@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
 using Bet.Models;
 using Bet.Models.ViewModels;
 
@@ -10,10 +11,8 @@ namespace Bet.Controllers
         public ActionResult Index()
         {
             var playerViewModel = new PlayerViewModels();
-            playerViewModel.FirstName = "Gabriel";
-            playerViewModel.LastName = "Vega";
             Player player = new Player();
-            playerViewModel._player = player;
+            playerViewModel.Player = player;
             return View(playerViewModel);
         }
 

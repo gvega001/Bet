@@ -1,10 +1,10 @@
-﻿@model Bet.Models.ViewModels.BetViewModel
+﻿@model Bet.Models.ViewModels.BetViewModels
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@ViewData["BetViewModels"]</h2>
-<p>@ViewData["BetViewModels"].ToString()</p>
+<h2>@Model.Bets</h2>
+<p>Bet Group: @Model.Group.GetGroupName()</p>
 

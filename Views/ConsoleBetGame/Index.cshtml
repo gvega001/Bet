@@ -1,0 +1,10 @@
+﻿@model Bet.Models.ViewModels.ConsoleBetGameViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Game.GetEventName()</h2>
+<p>@Model.Game.ToString()</p>
+
