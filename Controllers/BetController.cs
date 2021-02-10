@@ -10,7 +10,7 @@ namespace Bet.Controllers
         // GET
         public ActionResult Index()
         {
-            var betViewModel = new BetViewModel();
+            var betViewModel = new BetViewModels();
             betViewModel.Player = new Player();
 
             return View(betViewModel);

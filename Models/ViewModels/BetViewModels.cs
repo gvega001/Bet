@@ -2,7 +2,7 @@
 
 namespace Bet.Models.ViewModels
 {
-    public class BetViewModel
+    public class BetViewModels
     {
         public Bet Bets { get; set; }
         public Player Player { get; set; }
