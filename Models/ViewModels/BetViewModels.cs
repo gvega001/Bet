@@ -13,4 +13,6 @@ namespace Bet.Models.ViewModels
         public Game Game { get; set; }
 
     }
+
+   
 }

@@ -9,15 +9,30 @@ namespace Bet.Models.ViewModels
         public Player Player { get; set; }
         public BetImpl Bet { get; set; }
   
-
-    }
-
-    public class Details
-    {
-        public BetImpl Bet { get; set; }
-        
         public LinkedList<BetImpl> Bets { get; set; }
+        public PlayerViewModels Details { get; set; }
+
+
+        public PlayerViewModels GetDetails()
+        {
+
+            return (Details);
+        }
+    }
+
+    public class GetBets
+    {
+        public LinkedList<BetImpl> Bets;
+        public Player GetPlayer { get; set; }
+
+
+        public LinkedList<BetImpl> GetBetImpl()
+        {
+            return GetPlayer.Bets;
+        }
+
 
     }
+
 
 }

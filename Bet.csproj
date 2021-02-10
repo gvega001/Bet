@@ -313,6 +313,7 @@
     <Content Include="Views\Group\Index.cshtml" />
     <Content Include="Views\MessageGenerator\Index.cshtml" />
     <Content Include="Views\ConsoleBetGame\Index.cshtml" />
+    <Content Include="Views\Player\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

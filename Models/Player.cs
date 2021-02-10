@@ -10,6 +10,7 @@ namespace Bet.Models
 {
     public class Player:User
     {
+      
         public bool IsSubscribed { get; set; }
         [Required]
         public int MembershipId { get; set; }
@@ -19,13 +20,13 @@ namespace Bet.Models
 
         //*****========  fields ========*******
      
-        private LinkedList<Bet> _bets;
+        private LinkedList<BetImpl> _bets;
         private string _firstName;
         private string _lastName;
         private MembershipTypes _membership;
         
         //******======= constructor ========*******
-        public Player(LinkedList<Bet> bets, string firstName, string lastName, MembershipTypes membership,
+        public Player(LinkedList<BetImpl> bets, string firstName, string lastName, MembershipTypes membership,
             bool isSubscribed, int membershipId)
         {
             _bets = bets ?? throw new ArgumentNullException(nameof(bets));
@@ -36,6 +37,10 @@ namespace Bet.Models
             MembershipId = membershipId;
         }
 
+        public Player()
+        {
+           
+        }
         //*****=======  methods =======********
         void JoinGroup(string joinCode)
         {
