@@ -11,11 +11,7 @@ namespace Bet.Controllers
         public ActionResult Index()
         {
             var playerViewModel = new PlayerViewModels();
-            Player player = new Player(MembershipTypes.Active);
-            player.Email = "gvega001@gmail.com";
-            player.FirstName = "Gabriel";
-            player.LastName = "Vega";
-            playerViewModel.Player = player;
+   
             return View(playerViewModel);
         }
 
