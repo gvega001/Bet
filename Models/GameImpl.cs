@@ -9,9 +9,24 @@ namespace Bet.Models
         public int Id { get; set; }
         public int GroupId { get; set; }
         public string Team1Name { get; set; }
+        public double Team1Score { get; set; }
+        public double Team2Score { get; set; }
         public string Team2Name { get; set; }
+        public double PlayerGuess { get; set; }
+        public double SmallestPossibleNumber { get; set; }
+        public double LargestPossibleNumber { get; set; }
 
-           
+        public LinkedList<BetImpl> Bets { get; set; }
+
+        public Group Group { get; set; }
+
+        public bool GameConfirmed { get; set; }
+
+        public bool BetsConfirmed { get; set; }
+
+        public bool LockGame { get; set; }
+
+        public bool GameWon { get; set; }
         //*****=======++++++++ fields =========********
         private LinkedList<Bet> _bets;
         private LinkedList<double> _scoresList;

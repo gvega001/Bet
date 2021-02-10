@@ -49,6 +49,7 @@ namespace Bet.Models
         public void SetFirstName(string firstName)
         {
             _firstName = firstName;
+            FirstName = _firstName;
         }
         public string GetLastName()
         {
@@ -57,7 +58,8 @@ namespace Bet.Models
 
         public void SetLastName(string lastName)
         {
-            LastName = lastName;
+            _lastName = lastName;
+            LastName = _lastName;
         }
     }
 }

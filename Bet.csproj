@@ -218,6 +218,10 @@
     <Compile Include="Migrations\202102101944506_AllPropsAdded.Designer.cs">
       <DependentUpon>202102101944506_AllPropsAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102102012198_GameImplePropsAdded.cs" />
+    <Compile Include="Migrations\202102102012198_GameImplePropsAdded.Designer.cs">
+      <DependentUpon>202102102012198_GameImplePropsAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bet.cs" />
@@ -343,6 +347,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102101944506_AllPropsAdded.resx">
       <DependentUpon>202102101944506_AllPropsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102102012198_GameImplePropsAdded.resx">
+      <DependentUpon>202102102012198_GameImplePropsAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
