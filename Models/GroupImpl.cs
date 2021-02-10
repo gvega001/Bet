@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Security.AccessControl;
 
 namespace Bet.Models
@@ -9,20 +10,22 @@ namespace Bet.Models
 
         public int Id { get; set; }
         public int BetId { get; set; }
-
+        [Required]
+        [StringLength(250)]
         public string GroupName { get; set; }
-
+        [Required]
         public Player Player { get; set; }
-
+        [Required]
         public LinkedList<Player> Players { get; set; }
+        [Required]
         public int JoinCode { get; set; }
 
         public BetImpl Bet { get; set; }
-
+        [Required]
         public LinkedList<BetImpl> Bets { get; set; }
 
         public bool GameIsConfirmed { get; set; }
-        public bool BetsAreConfirme { get; set; }
+        public bool BetsAreConfirmed { get; set; }
 
         //*****======= private fields ******==========
         private string _groupName;

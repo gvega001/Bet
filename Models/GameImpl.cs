@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.Eventing.Reader;
 
 namespace Bet.Models
@@ -8,16 +9,22 @@ namespace Bet.Models
     {
         public int Id { get; set; }
         public int GroupId { get; set; }
+        [Required]
+        [StringLength(250)]
         public string Team1Name { get; set; }
         public double Team1Score { get; set; }
         public double Team2Score { get; set; }
+        [Required]
+        [StringLength(250)]
         public string Team2Name { get; set; }
         public double PlayerGuess { get; set; }
+        [Range(0,1.0)]
         public double SmallestPossibleNumber { get; set; }
+        [Range(0,100000.0)]
         public double LargestPossibleNumber { get; set; }
-
+        [Required]
         public LinkedList<BetImpl> Bets { get; set; }
-
+        [Required]
         public Group Group { get; set; }
 
         public bool GameConfirmed { get; set; }

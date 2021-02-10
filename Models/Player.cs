@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Security.AccessControl;
 using System.Web.Security;
 using Bet.Controllers;
@@ -10,9 +11,8 @@ namespace Bet.Models
     public class Player:User
     {
         public bool IsSubscribed { get; set; }
-
+        [Required]
         public int MembershipId { get; set; }
-
         public LinkedList<BetImpl> Bets { get; set; }
 
     

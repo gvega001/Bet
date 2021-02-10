@@ -4,7 +4,7 @@ namespace Bet.Models
 {
     public class MessageGeneratorImpl: MessageGenerator
     {
-
+        
         public Game Game { get; set; }
 
         public MessageGeneratorImpl Message { get; set; }

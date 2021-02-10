@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data.SqlTypes;
 using Microsoft.Owin.Security.Provider;
 
@@ -8,15 +9,16 @@ namespace Bet.Models
     public class BetImpl: Bet
     {
         public int Id { get; set; }
-
+        [Required]
         public int PlayerId { get; set; }
-
+        [Required]
         public Group Group { get; set; }
-
+        [Required]
+        [Range(0,1000)]
         public SqlMoney MoneyBet { get; set; }
-
+        [Range(0,100000.0)]
         public double MaxPossibleNumber { get; set; }
-
+        [Range(0,1)]
         public double LowestPossibleNumber { get; set; }
 
         public Game Game { get; set; }
