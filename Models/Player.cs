@@ -25,10 +25,15 @@ namespace Bet.Models
         private MembershipTypes _membership;
         
         //******======= constructor ========*******
-        public Player(MembershipTypes membership)
+        public Player(LinkedList<Bet> bets, string firstName, string lastName, MembershipTypes membership,
+            bool isSubscribed, int membershipId)
         {
-           
+            _bets = bets ?? throw new ArgumentNullException(nameof(bets));
+            _firstName = firstName ?? throw new ArgumentNullException(nameof(firstName));
+            _lastName = lastName ?? throw new ArgumentNullException(nameof(lastName));
             _membership = membership;
+            IsSubscribed = isSubscribed;
+            MembershipId = membershipId;
         }
 
         //*****=======  methods =======********
@@ -36,6 +41,23 @@ namespace Bet.Models
         {
             // After implementing groups
         }
+        public string GetFirstName()
+        {
+            return _firstName;
+        }
 
+        public void SetFirstName(string firstName)
+        {
+            _firstName = firstName;
+        }
+        public string GetLastName()
+        {
+            return _lastName;
+        }
+
+        public void SetLastName(string lastName)
+        {
+            LastName = lastName;
+        }
     }
 }
