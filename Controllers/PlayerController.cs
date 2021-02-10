@@ -10,6 +10,8 @@ namespace Bet.Controllers
         public ActionResult Index()
         {
             var playerViewModel = new PlayerViewModels();
+            playerViewModel.FirstName = "Gabriel";
+            playerViewModel.LastName = "Vega";
             return View(playerViewModel);
         }
 
