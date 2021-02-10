@@ -6,18 +6,21 @@ using Microsoft.Owin.Security.MicrosoftAccount;
 
 namespace Bet.Models
 {
-    public class Player:ApplicationUser
+    public class Player:User
     {
 
         //*****========  fields ========*******
         internal Random PlayerId;
-        private ApplicationUser user;
-        private Bet _bet;
+        private LinkedList<Bet> _bets;
+        private string _firstName;
+        private string _lastName;
+        private MembershipTypes _membership;
         
         //******======= constructor ========*******
-        public Player( )
+        public Player(MembershipTypes membership)
         {
-            PlayerId = new Random(Int32.MaxValue);
+           
+            _membership = membership;
         }
 
         //*****=======  methods =======********
