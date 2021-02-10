@@ -7,7 +7,8 @@ namespace Bet.Models
     public class GameImpl : Game
     {
         public int Id { get; set; }
-        
+        public int GroupId { get; set; }
+           
         //*****=======++++++++ fields =========********
         private LinkedList<Bet> _bets;
         private LinkedList<double> _scoresList;

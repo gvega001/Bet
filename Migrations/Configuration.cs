@@ -9,7 +9,7 @@ namespace Bet.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(Bet.Models.ApplicationDbContext context)

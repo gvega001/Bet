@@ -8,6 +8,8 @@ namespace Bet.Models
     public class BetImpl: Bet
     {
         public int Id { get; set; }
+
+        public int PlayerId { get; set; }
         //***===========   private fields *********=========
         private readonly Player _player;
         private Group _betGroup;

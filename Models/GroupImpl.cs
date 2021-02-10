@@ -8,6 +8,7 @@ namespace Bet.Models
     {
 
         public int Id { get; set; }
+        public int BetId { get; set; }
         //*****======= private fields ******==========
      
         private string _groupName;
