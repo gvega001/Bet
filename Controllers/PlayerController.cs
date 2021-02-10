@@ -12,6 +12,8 @@ namespace Bet.Controllers
             var playerViewModel = new PlayerViewModels();
             playerViewModel.FirstName = "Gabriel";
             playerViewModel.LastName = "Vega";
+            Player player = new Player();
+            playerViewModel._player = player;
             return View(playerViewModel);
         }
 
