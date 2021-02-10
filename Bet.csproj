@@ -194,6 +194,10 @@
     <Compile Include="Migrations\202102100434444_InitialModel.Designer.cs">
       <DependentUpon>202102100434444_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102101835251_AddIsSubcribed.cs" />
+    <Compile Include="Migrations\202102101835251_AddIsSubcribed.Designer.cs">
+      <DependentUpon>202102101835251_AddIsSubcribed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bet.cs" />
@@ -301,6 +305,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202102100434444_InitialModel.resx">
       <DependentUpon>202102100434444_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102101835251_AddIsSubcribed.resx">
+      <DependentUpon>202102101835251_AddIsSubcribed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

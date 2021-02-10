@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.AccessControl;
 using System.Web.Security;
 using Bet.Controllers;
 using Microsoft.Owin.Security.MicrosoftAccount;
@@ -8,7 +9,7 @@ namespace Bet.Models
 {
     public class Player:User
     {
-
+        public bool IsSubscribed { get; set; }
         //*****========  fields ========*******
         internal Random PlayerId;
         private LinkedList<Bet> _bets;
