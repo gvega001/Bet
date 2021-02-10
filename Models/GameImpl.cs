@@ -6,6 +6,8 @@ namespace Bet.Models
 {
     public class GameImpl : Game
     {
+        public int Id { get; set; }
+        
         //*****=======++++++++ fields =========********
         private LinkedList<Bet> _bets;
         private LinkedList<double> _scoresList;
@@ -20,14 +22,13 @@ namespace Bet.Models
         private bool _isBetConfirmedByAll;
         private Group _group;
         private bool _isBetWon;
-        private Random _GroupId;
 
         public GameImpl(LinkedList<Bet> bets, LinkedList<double> scoresList, string eventName, double guess,
             double smallestPossibleNumber, double largestNumberPossible, Bet bet, GameStatus gameStatus,
             bool isGameConfirmed, bool isGameLocked, bool isBetConfirmedByAll, Group @group, string dateOfEvent,
             string lastDateAndTimeToBest)
         {
-            _GroupId = new Random(Int32.MaxValue);
+            
             _bets = bets ?? throw new ArgumentNullException(nameof(bets));
             _scoresList = scoresList ?? throw new ArgumentNullException(nameof(scoresList));
             _eventName = eventName ?? throw new ArgumentNullException(nameof(eventName));
@@ -44,7 +45,7 @@ namespace Bet.Models
             LastDateAndTimeToBest =
                 lastDateAndTimeToBest ?? throw new ArgumentNullException(nameof(lastDateAndTimeToBest));
         }
-
+        
         public enum GameStatus
         {
             Running,

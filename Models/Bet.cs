@@ -6,8 +6,6 @@ namespace Bet.Models
 {
     public interface Bet
     {
-        Random GetBetId();
-        void SetBetId();
         SqlMoney GetMoneyBet();
         void SetMoneyBet(SqlMoney betMoney);
         Group GetGroup();

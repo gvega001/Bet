@@ -6,8 +6,10 @@ namespace Bet.Models
 {
     public class GroupImpl:Group
     {
+
+        public int Id { get; set; }
         //*****======= private fields ******==========
-        private Random _groupId;
+     
         private string _groupName;
         private Player _player;
         private LinkedList<Player> playerList;
@@ -20,7 +22,6 @@ namespace Bet.Models
         public GroupImpl( string groupName, Player player, LinkedList<Player> playerList, int joinCode,
             Bet bet, bool confirmGame, bool isBetOutComeConfirmed)
         {
-            _groupId = new Random(Int32.MaxValue); 
             _groupName = groupName ?? throw new ArgumentNullException(nameof(groupName));
             _player = player ?? throw new ArgumentNullException(nameof(player));
             this.playerList = playerList ?? throw new ArgumentNullException(nameof(playerList));
@@ -31,15 +32,6 @@ namespace Bet.Models
         }
 
         //*****====== Public Methods =======**********
-        public Random GetGroupId()
-        {
-            return _groupId;
-        }
-
-        public void SetGroupId()
-        {
-            _groupId = new Random(Int32.MaxValue);
-        }
 
         public string GetGroupName()
         {

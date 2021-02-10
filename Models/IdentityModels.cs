@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Security.AccessControl;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -20,6 +21,10 @@ namespace Bet.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Player> Players { get; set; }
+        public DbSet<BetImpl> Bets { get; set; }
+        public DbSet<GameImpl> Games { get; set; }
+        public DbSet<GroupImpl> Groups { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

@@ -7,6 +7,7 @@ namespace Bet.Models
 {
     public class BetImpl: Bet
     {
+        public int Id { get; set; }
         //***===========   private fields *********=========
         private readonly Player _player;
         private Group _betGroup;
@@ -45,15 +46,7 @@ namespace Bet.Models
         }
 
         //***===========  public methods *********===========
-        public Random GetBetId()
-        {
-            return _betId;
-        }
 
-        public void SetBetId()
-        {
-            _betId = new Random(Int32.MaxValue);
-        }
 
         public SqlMoney GetMoneyBet()
         {
