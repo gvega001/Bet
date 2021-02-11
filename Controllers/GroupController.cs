@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using Bet.Models;
+using Bet.Models.ViewModels;
 
 namespace Bet.Controllers
 {
@@ -18,7 +19,20 @@ namespace Bet.Controllers
         }
         public ActionResult Index()
         {
-            return View();
+            var groupViewModel = new GroupViewModels();
+            var bets = _context.Bets.Find(groupViewModel.Bets);
+            var player = _context.Players.Find(groupViewModel.Players);
+            var game = _context.Games.FindAsync(groupViewModel);
+            return View(groupViewModel);
+        }
+
+        public ActionResult Details()
+        {
+            var groupViewModel = new GroupViewModels();
+            var bets = _context.Bets.Find(groupViewModel.Bets);
+            var player = _context.Players.Find(groupViewModel.Players);
+            var game = _context.Games.FindAsync(groupViewModel);
+            return View(groupViewModel);
         }
         public ActionResult New()
         {

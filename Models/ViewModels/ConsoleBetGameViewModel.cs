@@ -5,6 +5,10 @@ namespace Bet.Models.ViewModels
 {
     public class ConsoleBetGameViewModel
     {
+        public ConsoleBetGameViewModel()
+        {
+
+        }
         public int Id { get; set; }
         public int GroupId { get; set; }
         public HashSet<string> Teams { get; set; }
@@ -13,7 +17,6 @@ namespace Bet.Models.ViewModels
         public string TeamName { get; set; }
         public double TeamScore { get; set; }
 
-        [StringLength(250)]
         public double PlayerGuess { get; set; }
         [Range(0, 1.0)]
         public double SmallestPossibleNumber { get; set; }

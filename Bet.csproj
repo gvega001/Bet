@@ -251,6 +251,14 @@
     <Compile Include="Migrations\202102110452593_UpdatedControllersWithForms.Designer.cs">
       <DependentUpon>202102110452593_UpdatedControllersWithForms.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102110535389_UpdatedControllersWithForms1.cs" />
+    <Compile Include="Migrations\202102110535389_UpdatedControllersWithForms1.Designer.cs">
+      <DependentUpon>202102110535389_UpdatedControllersWithForms1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102110540218_UpdatedConsoleBetGames.cs" />
+    <Compile Include="Migrations\202102110540218_UpdatedConsoleBetGames.Designer.cs">
+      <DependentUpon>202102110540218_UpdatedConsoleBetGames.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bet.cs" />
@@ -333,15 +341,19 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
-    <Content Include="Views\Group\Index.cshtml" />
     <Content Include="Views\MessageGenerator\Index.cshtml" />
-    <Content Include="Views\ConsoleBetGame\Index.cshtml" />
     <Content Include="Views\Player\Index.cshtml" />
     <Content Include="Views\Player\Details.cshtml" />
     <Content Include="Views\Player\New.cshtml" />
     <Content Include="Views\Bet\Index.cshtml" />
     <Content Include="Views\Bet\Details.cshtml" />
     <Content Include="Views\Bet\New.cshtml" />
+    <Content Include="Views\Group\Index.cshtml" />
+    <Content Include="Views\Group\Details.cshtml" />
+    <Content Include="Views\Group\New.cshtml" />
+    <Content Include="Views\ConsoleBetGame\Index.cshtml" />
+    <Content Include="Views\ConsoleBetGame\Details.cshtml" />
+    <Content Include="Views\ConsoleBetGame\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -404,6 +416,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102110452593_UpdatedControllersWithForms.resx">
       <DependentUpon>202102110452593_UpdatedControllersWithForms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102110535389_UpdatedControllersWithForms1.resx">
+      <DependentUpon>202102110535389_UpdatedControllersWithForms1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102110540218_UpdatedConsoleBetGames.resx">
+      <DependentUpon>202102110540218_UpdatedConsoleBetGames.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

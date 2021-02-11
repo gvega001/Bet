@@ -1,9 +1,12 @@
 ﻿
 
+using System.Security.AccessControl;
+
 namespace Bet.Models
 {
     public class ConsoleBetGame
     {
+        public int Id { get; set; }
         public Game Game { get; set; }
         public MessageGeneratorImpl MessageGeneratorImpl { get; set; }
 

@@ -6,6 +6,21 @@ namespace Bet.Models.ViewModels
 {
     public class GroupViewModels
     {
+        public GroupViewModels(){}
+        public GroupViewModels(int id, int betId, string groupName, Player player, LinkedList<Player> players, int joinCode, BetImpl bet, LinkedList<BetImpl> bets, bool gameIsConfirmed, bool betsAreConfirmed, Group @group)
+        {
+            Id = id;
+            BetId = betId;
+            GroupName = groupName;
+            Player = player;
+            Players = players;
+            JoinCode = joinCode;
+            Bet = bet;
+            Bets = bets;
+            GameIsConfirmed = gameIsConfirmed;
+            BetsAreConfirmed = betsAreConfirmed;
+            Group = @group;
+        }
         public int Id { get; set; }
         public int BetId { get; set; }
         [Required]

@@ -5,9 +5,95 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.Game.GetEventName()</h2>
-<p>Hi @Model.Player.UserName.ToString()</p>
-<p>@Model.Group.GetGroupName()</p>
-<p>@Model.MessageGenerator.GetMainMessage()</p>
-<p>@Model.MessageGenerator.GetResultsMessage()</p>
+<h2>Index</h2>
 
+<div>
+    <h4>ConsoleBetGameViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroupId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeamName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeamName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeamScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeamScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlayerGuess)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlayerGuess)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SmallestPossibleNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SmallestPossibleNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LargestPossibleNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LargestPossibleNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GameConfirmed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameConfirmed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BetsConfirmed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BetsConfirmed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LockGame)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LockGame)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GameWon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameWon)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
