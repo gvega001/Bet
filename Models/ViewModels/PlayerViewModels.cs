@@ -1,12 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using Microsoft.Ajax.Utilities;
 
 namespace Bet.Models.ViewModels
 {
     public class PlayerViewModels
     {
-
+        [Required]
+        [StringLength(250)]
+        [DisplayName("First Name:")]
+        public string FirstName { get; set; }
+        [Required]
+        [StringLength(250)]
+        [DisplayName("Last Name:")]
+        public string LastName { get; set; }
+        [Required]
+        [DisplayName("Membership:")]
+        public MembershipTypes MembershipType { get; set; }
+        [Required]
+        [DisplayName("Date of Birth:")]
+        public DateTime DateOfBirth { get; set; }
         public Player Player { get; set; }
         public BetImpl Bet { get; set; }
   

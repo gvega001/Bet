@@ -9,5 +9,10 @@ namespace Bet.Controllers
         {
             return View();
         }
+        public ActionResult New()
+        {
+
+            return View();
+        }
     }
 }

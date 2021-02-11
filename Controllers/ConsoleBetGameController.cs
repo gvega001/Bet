@@ -1,13 +1,15 @@
 ﻿using System.Web.Mvc;
+using Bet.Models.ViewModels;
 
 namespace Bet.Controllers
 {
     public class ConsoleBetGameController : Controller
     {
         // GET
-        public ActionResult Index()
+        public ViewResult Index()
         {
-            return View();
+            var console = new ConsoleBetGameViewModel();
+            return View(console);
         }
     }
 }
