@@ -1,18 +1,51 @@
-﻿
-@using Microsoft.Ajax.Utilities
-@model Bet.Models.ViewModels.PlayerViewModels
+﻿@model Bet.Models.ViewModels.PlayerViewModels
 
 @{
-    ViewBag.Title = "Player";
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Hello @Model.Player.FirstName!</h1>
-<h3>Account Information:</h3>
+<h2>Index</h2>
 
-<h4>Last Name: @Model.Player.LastName</h4>
-<h4>Membership Type: @Model.Player.MembershipType</h4>
-<h4>Email: @Model.Player.Email</h4>
-<p></p>
+<div>
+    <h4>PlayerViewModels</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MembershipType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MembershipType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfBirth)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

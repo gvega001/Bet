@@ -8,6 +8,7 @@ namespace Bet.Models.ViewModels
 {
     public class PlayerViewModels
     {
+        public int Id { get; set; }
         [Required]
         [StringLength(250)]
         [DisplayName("First Name:")]

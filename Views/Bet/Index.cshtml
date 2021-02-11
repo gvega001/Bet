@@ -5,6 +5,47 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Bets!</h2>
-<p>@Model.Player.GetFirstName()</p>
+<h2>Index</h2>
 
+<div>
+    <h4>BetViewModels</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PlayerId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlayerId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxPossibleNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxPossibleNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LowestPossibleNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LowestPossibleNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Guess)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Guess)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

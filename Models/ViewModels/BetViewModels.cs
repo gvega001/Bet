@@ -6,6 +6,10 @@ namespace Bet.Models.ViewModels
 {
     public class BetViewModels
     {
+        public BetViewModels()
+        {
+            
+        }
         public int Id { get; set; }
         [Required]
         public int PlayerId { get; set; }

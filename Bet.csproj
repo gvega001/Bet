@@ -243,6 +243,10 @@
     <Compile Include="Migrations\202102110356391_UpdatedAccountControllers1.Designer.cs">
       <DependentUpon>202102110356391_UpdatedAccountControllers1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102110436479_UpdatedPlayerViewModel.cs" />
+    <Compile Include="Migrations\202102110436479_UpdatedPlayerViewModel.Designer.cs">
+      <DependentUpon>202102110436479_UpdatedPlayerViewModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bet.cs" />
@@ -325,13 +329,14 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
-    <Content Include="Views\Player\Index.cshtml" />
-    <Content Include="Views\Bet\Index.cshtml" />
     <Content Include="Views\Group\Index.cshtml" />
     <Content Include="Views\MessageGenerator\Index.cshtml" />
     <Content Include="Views\ConsoleBetGame\Index.cshtml" />
+    <Content Include="Views\Player\Index.cshtml" />
     <Content Include="Views\Player\Details.cshtml" />
     <Content Include="Views\Player\New.cshtml" />
+    <Content Include="Views\Bet\Index.cshtml" />
+    <Content Include="Views\Bet\Details.cshtml" />
     <Content Include="Views\Bet\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -389,6 +394,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102110356391_UpdatedAccountControllers1.resx">
       <DependentUpon>202102110356391_UpdatedAccountControllers1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102110436479_UpdatedPlayerViewModel.resx">
+      <DependentUpon>202102110436479_UpdatedPlayerViewModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

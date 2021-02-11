@@ -34,5 +34,9 @@ namespace Bet.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Bet.Models.ViewModels.PlayerViewModels> PlayerViewModels { get; set; }
+
+        public System.Data.Entity.DbSet<Bet.Models.ViewModels.BetViewModels> BetViewModels { get; set; }
     }
 }
