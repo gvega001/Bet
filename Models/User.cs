@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace Bet.Models
@@ -13,7 +14,11 @@ namespace Bet.Models
         [StringLength(250)]
         [DisplayName("Last Name:")]
         public string LastName { get; set; }
-        [DisplayName("Membership Type:")]
+        [Required]
+        [DisplayName("Membership:")]
         public MembershipTypes MembershipType { get; set; }
+        [Required]
+        [DisplayName("Date of Birth:")]
+        public DateTime DateOfBirth { get; set; }
     }
 }

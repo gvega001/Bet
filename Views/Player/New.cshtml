@@ -9,7 +9,10 @@
 <h2>New Player</h2>
 
 @using (Html.BeginForm("New", "Player"))
-{
+{    <div class="form-group">
+         @Html.LabelFor(p =>p.Id )
+         @Html.TextBoxFor(p=>p.Id, new {@class ="form-control"})
+     </div>
 
     <div class="form-group">
         @Html.LabelFor(p =>p.FirstName )
@@ -19,7 +22,10 @@
         @Html.LabelFor(p =>p.LastName )
         @Html.TextBoxFor(p=>p.LastName, new {@class ="form-control"})
     </div>
-
+    <div class="form-group">
+        @Html.LabelFor(p =>p.DateOfBirth)
+        @Html.TextBoxFor(p =>p.DateOfBirth)
+    </div>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Create" class="btn btn-default" />
