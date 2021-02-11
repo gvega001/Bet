@@ -14,5 +14,11 @@ namespace Bet.Controllers
 
             return View(betViewModel);
         }
+
+        public ActionResult New()
+        {
+
+            return View();
+        }
     }
 }

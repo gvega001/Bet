@@ -315,6 +315,7 @@
     <Content Include="Views\ConsoleBetGame\Index.cshtml" />
     <Content Include="Views\Player\Details.cshtml" />
     <Content Include="Views\Player\New.cshtml" />
+    <Content Include="Views\Bet\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

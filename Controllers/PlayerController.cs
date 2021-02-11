@@ -44,6 +44,7 @@ namespace Bet.Controllers
 
         public ActionResult New()
         {
+
             return View();
         }
 

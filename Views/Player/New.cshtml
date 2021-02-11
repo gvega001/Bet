@@ -13,11 +13,11 @@
 
     <div class="form-group">
         @Html.LabelFor(p =>p.FirstName )
-        @Html.TextBoxFor(p=>p.FirstName)
+        @Html.TextBoxFor(p=>p.FirstName, new {@class ="form-control"})
     </div>
     <div class="form-group">
         @Html.LabelFor(p =>p.LastName )
-        @Html.TextBoxFor(p=>p.LastName)
+        @Html.TextBoxFor(p=>p.LastName, new {@class ="form-control"})
     </div>
 
 }
