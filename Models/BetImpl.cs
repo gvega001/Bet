@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Data.SqlTypes;
 using Microsoft.Owin.Security.Provider;
@@ -15,12 +16,14 @@ namespace Bet.Models
         public Group Group { get; set; }
         [Required]
         [Range(0,1000)]
+        [DisplayName("Amount: ")]
         public SqlMoney MoneyBet { get; set; }
         [Range(0,100000.0)]
         public double MaxPossibleNumber { get; set; }
         [Range(0,1)]
         public double LowestPossibleNumber { get; set; }
 
+        public double Guess { get; set; }
         public Game Game { get; set; }
         //***===========   public fields *********=========
         private readonly Player _player;
