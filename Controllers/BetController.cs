@@ -8,6 +8,16 @@ namespace Bet.Controllers
     public class BetController : Controller
     {
         // GET
+        private ApplicationDbContext _context;
+        public BetController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
         public ActionResult Index()
         {
             var betViewModel = new BetViewModels();
