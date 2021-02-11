@@ -1,0 +1,23 @@
+﻿@using Bet.Models
+@model Player
+
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Player</h2>
+
+@using (Html.BeginForm("New", "Player"))
+{
+
+    <div class="form-group">
+        @Html.LabelFor(p =>p.FirstName )
+        @Html.TextBoxFor(p=>p.FirstName)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(p =>p.LastName )
+        @Html.TextBoxFor(p=>p.LastName)
+    </div>
+
+}
