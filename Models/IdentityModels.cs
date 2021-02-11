@@ -2,6 +2,7 @@
 using System.Security.AccessControl;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Bet.Models.ViewModels;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -35,8 +36,8 @@ namespace Bet.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<Bet.Models.ViewModels.PlayerViewModels> PlayerViewModels { get; set; }
+        public System.Data.Entity.DbSet<ViewModels.PlayerViewModels> PlayerViewModels { get; set; }
 
-        public System.Data.Entity.DbSet<Bet.Models.ViewModels.BetViewModels> BetViewModels { get; set; }
+        public System.Data.Entity.DbSet<ViewModels.BetViewModels> BetViewModels { get; set; }
     }
 }
