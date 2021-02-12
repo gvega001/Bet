@@ -24,7 +24,8 @@ namespace Bet.Controllers
         public ActionResult Index(string id)
         {
             var playerViewModel = new PlayerViewModels();
-            playerViewModel.Player = _context.Players.SingleOrDefault(p => p.Id == id);
+               playerViewModel.Player = _context.Players.SingleOrDefault(p => p.Id == id);
+               var player = playerViewModel.Player;
             if (playerViewModel.Player == null)
                 return HttpNotFound();
             return View(playerViewModel);
@@ -34,15 +35,19 @@ namespace Bet.Controllers
         {
             var playerViewModel = new PlayerViewModels();
             playerViewModel.Player = _context.Players.SingleOrDefault(p => p.Id == id);
-            var getDetails = playerViewModel.GetDetails();
-            playerViewModel.Details = getDetails;
-            if (playerViewModel.Player == null || playerViewModel.Details == null)
+            var player = playerViewModel.Player;
+            if (playerViewModel.Player == null )
                 return HttpNotFound();
             return View(playerViewModel);
 
         }
 
-        public ActionResult New()
+        public ActionResult Edit()
+        {
+            var newPlayerViewModel = new NewPlayerViewModels();
+            return View();
+        }
+        public ActionResult Create()
         {
 
             return View();

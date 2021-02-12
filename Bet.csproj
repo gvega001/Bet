@@ -259,6 +259,10 @@
     <Compile Include="Migrations\202102110540218_UpdatedConsoleBetGames.Designer.cs">
       <DependentUpon>202102110540218_UpdatedConsoleBetGames.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102120012030_NewPlayerViewModelAdded.cs" />
+    <Compile Include="Migrations\202102120012030_NewPlayerViewModelAdded.Designer.cs">
+      <DependentUpon>202102120012030_NewPlayerViewModelAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bet.cs" />
@@ -344,7 +348,7 @@
     <Content Include="Views\MessageGenerator\Index.cshtml" />
     <Content Include="Views\Player\Index.cshtml" />
     <Content Include="Views\Player\Details.cshtml" />
-    <Content Include="Views\Player\New.cshtml" />
+    <Content Include="Views\Player\Create.cshtml" />
     <Content Include="Views\Bet\Index.cshtml" />
     <Content Include="Views\Bet\Details.cshtml" />
     <Content Include="Views\Bet\New.cshtml" />
@@ -422,6 +426,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102110540218_UpdatedConsoleBetGames.resx">
       <DependentUpon>202102110540218_UpdatedConsoleBetGames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102120012030_NewPlayerViewModelAdded.resx">
+      <DependentUpon>202102120012030_NewPlayerViewModelAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
