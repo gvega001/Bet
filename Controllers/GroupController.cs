@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using Bet.Models;
 using Bet.Models.ViewModels;
 
@@ -20,9 +21,7 @@ namespace Bet.Controllers
         public ActionResult Index()
         {
             var groupViewModel = new GroupViewModels();
-            var bets = _context.Bets.Find(groupViewModel.Bets);
-            var player = _context.Players.Find(groupViewModel.Players);
-            var game = _context.Games.FindAsync(groupViewModel);
+            groupViewModel.Player = _context.Players.SingleOrDefault();
             return View(groupViewModel);
         }
 
@@ -36,8 +35,23 @@ namespace Bet.Controllers
         }
         public ActionResult New()
         {
+            var groupView = new GroupViewModels();
+            return View(groupView.Group);
+        }
+        [HttpPost]
+        public ActionResult Create(GroupImpl gGroup)
+        {
+            _context.Groups.Add(gGroup);
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Group");
+        }
 
-            return View();
+
+        public ActionResult Edit(GroupImpl gGroup)
+        {
+            _context.Groups.Add(gGroup);
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Group");
         }
     }
 }

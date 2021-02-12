@@ -42,8 +42,23 @@ namespace Bet.Controllers
         }
         public ActionResult New()
         {
+            var groupView = new ConsoleBetGameViewModel();
+            return View(groupView);
+        }
+        [HttpPost]
+        public ActionResult Create(GroupImpl gGroup)
+        {
+            _context.Groups.Add(gGroup);
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Group");
+        }
 
-            return View();
+
+        public ActionResult Edit(GroupImpl gGroup)
+        {
+            _context.Groups.Add(gGroup);
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Group");
         }
     }
 }

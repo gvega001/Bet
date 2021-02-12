@@ -25,7 +25,7 @@ namespace Bet.Models.ViewModels
         [Required]
         public LinkedList<BetImpl> Bets { get; set; }
         [Required]
-        public Group Group { get; set; }
+        public GroupImpl Group { get; set; }
 
         public bool GameConfirmed { get; set; }
 
@@ -35,8 +35,8 @@ namespace Bet.Models.ViewModels
 
         public bool GameWon { get; set; }
         public Player Player { get; set; }
-        public Game Game { get; set; }
-        public Bet Bet { get; set; }
+        public GameImpl Game { get; set; }
+        public BetImpl Bet { get; set; }
        
     }
 }

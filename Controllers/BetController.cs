@@ -28,7 +28,12 @@ namespace Bet.Controllers
           
             return View(viewModel);
         }
-
+        public ActionResult New()
+        {
+            var player = _context.Players.SingleOrDefault(); 
+            var groupView = new BetViewModels(player);
+            return View(groupView.Bet);
+        }
         public ViewResult Details()
         {
             var player = _context.Players.SingleOrDefault();
