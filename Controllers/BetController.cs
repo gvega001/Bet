@@ -24,8 +24,8 @@ namespace Bet.Controllers
             
             var bets = _context.Bets.Find(player.Bets);
             var viewMdodel = new NewBetViewModels();
-            viewMdodel.Bet.PlayerId = 
-            return View(bets);
+            viewMdodel.Bet.PlayerId = player.Id;
+            return View(viewMdodel);
         }
 
         public ViewResult Details()

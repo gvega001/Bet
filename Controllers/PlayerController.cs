@@ -22,7 +22,7 @@ namespace Bet.Controllers
             _context.Dispose();
         }
 
-        public ViewResult Index(string id)
+        public ViewResult Index(int id)
         {
 
             var player = _context.Players.SingleOrDefault(p => p.Id == id);
@@ -30,7 +30,7 @@ namespace Bet.Controllers
             return View(player);
         }
 
-        public ViewResult Details(string id)
+        public ViewResult Details(int id)
         {
             var playerViewModel = new PlayerViewModels();
             playerViewModel.Player = _context.Players.SingleOrDefault(p => p.Id == id); 
