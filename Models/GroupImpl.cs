@@ -12,16 +12,16 @@ namespace Bet.Models
         public int BetId { get; set; }
         [Required]
         [StringLength(250)]
+        [Display(Name = "Group Name")]
         public string GroupName { get; set; }
         [Required]
         public Player Player { get; set; }
-        [Required]
         public LinkedList<Player> Players { get; set; }
         [Required]
         public int JoinCode { get; set; }
 
         public BetImpl Bet { get; set; }
-        [Required]
+
         public LinkedList<BetImpl> Bets { get; set; }
 
         public bool GameIsConfirmed { get; set; }

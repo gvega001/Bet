@@ -20,7 +20,7 @@ namespace Bet.Models
         public Group Group { get; set; }
         [Required]
         [Range(0,1000)]
-        [DisplayName("Amount: ")]
+        [Display(Name = "Amount: ")]
         public SqlMoney MoneyBet { get; set; }
         [Range(0,100000.0)]
         public double MaxPossibleNumber { get; set; }

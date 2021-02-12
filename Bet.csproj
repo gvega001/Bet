@@ -327,6 +327,10 @@
     <Compile Include="Migrations\202102122254524_playerModelUpdate1.Designer.cs">
       <DependentUpon>202102122254524_playerModelUpdate1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102122306204_playerModelUpdateWithIdForForm.cs" />
+    <Compile Include="Migrations\202102122306204_playerModelUpdateWithIdForForm.Designer.cs">
+      <DependentUpon>202102122306204_playerModelUpdateWithIdForForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bet.cs" />
@@ -342,7 +346,6 @@
     <Compile Include="Models\MessageGenerator.cs" />
     <Compile Include="Models\MessageGeneratorImpl.cs" />
     <Compile Include="Models\Player.cs" />
-    <Compile Include="Models\User.cs" />
     <Compile Include="Models\ViewModels\BetViewModels.cs" />
     <Compile Include="Models\ViewModels\ConsoleBetGameViewModel.cs" />
     <Compile Include="Models\ViewModels\GroupViewModels.cs" />
@@ -542,6 +545,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102122254524_playerModelUpdate1.resx">
       <DependentUpon>202102122254524_playerModelUpdate1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102122306204_playerModelUpdateWithIdForForm.resx">
+      <DependentUpon>202102122306204_playerModelUpdateWithIdForForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

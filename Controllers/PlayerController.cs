@@ -55,8 +55,6 @@ namespace Bet.Controllers
                 playerInDb.Bets = player.Bets;
                 playerInDb.IsSubscribed = player.IsSubscribed;
                 playerInDb.DateOfBirth = player.DateOfBirth;
-                playerInDb.Email = player.Email;
-                playerInDb.PhoneNumber = player.PhoneNumber;
             }
            
             _context.SaveChanges();

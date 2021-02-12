@@ -9,8 +9,9 @@ using Microsoft.Owin.Security.MicrosoftAccount;
 
 namespace Bet.Models
 {
-    public class Player:User
+    public class Player
     {
+
         [Required]
         [StringLength(250)]
         [DisplayName("First Name:")]
