@@ -331,6 +331,14 @@
     <Compile Include="Migrations\202102122306204_playerModelUpdateWithIdForForm.Designer.cs">
       <DependentUpon>202102122306204_playerModelUpdateWithIdForForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102122327547_playerViewModelUpdated.cs" />
+    <Compile Include="Migrations\202102122327547_playerViewModelUpdated.Designer.cs">
+      <DependentUpon>202102122327547_playerViewModelUpdated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102122346269_memberShipTypeNotRequired.cs" />
+    <Compile Include="Migrations\202102122346269_memberShipTypeNotRequired.Designer.cs">
+      <DependentUpon>202102122346269_memberShipTypeNotRequired.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bet.cs" />
@@ -548,6 +556,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102122306204_playerModelUpdateWithIdForForm.resx">
       <DependentUpon>202102122306204_playerModelUpdateWithIdForForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102122327547_playerViewModelUpdated.resx">
+      <DependentUpon>202102122327547_playerViewModelUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102122346269_memberShipTypeNotRequired.resx">
+      <DependentUpon>202102122346269_memberShipTypeNotRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

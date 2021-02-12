@@ -9,9 +9,9 @@ using Microsoft.Owin.Security.MicrosoftAccount;
 
 namespace Bet.Models
 {
-    public class Player
+    public class Player:ApplicationUser
     {
-
+        public int PlayerId { get; set; }
         [Required]
         [StringLength(250)]
         [DisplayName("First Name:")]
@@ -24,33 +24,22 @@ namespace Bet.Models
         public MembershipTypes MembershipType { get; set; }
         [DisplayName("Date of Birth:")]
         public DateTime DateOfBirth { get; set; }
-        public new int Id { get; set; }
+
+       
         [Display(Name = "Subscribe to newsletter")]
         public bool IsSubscribed { get; set; }
         [Required]
         public int MembershipId { get; set; }
         public LinkedList<BetImpl> Bets { get; set; }
 
-    
-
         //*****========  fields ========*******
-     
-        private LinkedList<BetImpl> _bets;
+
+      
         private string _firstName;
         private string _lastName;
-        private MembershipTypes _membership;
         
         //******======= constructor ========*******
-        public Player(LinkedList<BetImpl> bets, string firstName, string lastName, MembershipTypes membership,
-            bool isSubscribed, int membershipId)
-        {
-            _bets = bets ?? throw new ArgumentNullException(nameof(bets));
-            _firstName = firstName ?? throw new ArgumentNullException(nameof(firstName));
-            _lastName = lastName ?? throw new ArgumentNullException(nameof(lastName));
-            _membership = membership;
-            IsSubscribed = isSubscribed;
-            MembershipId = membershipId;
-        }
+      
 
         public Player()
         {
@@ -69,7 +58,7 @@ namespace Bet.Models
         public void SetFirstName(string firstName)
         {
             _firstName = firstName;
-            FirstName = _firstName;
+         
         }
         public string GetLastName()
         {
@@ -79,7 +68,6 @@ namespace Bet.Models
         public void SetLastName(string lastName)
         {
             _lastName = lastName;
-            LastName = _lastName;
         }
     }
 }

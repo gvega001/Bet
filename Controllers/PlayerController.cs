@@ -41,20 +41,15 @@ namespace Bet.Controllers
         [HttpPost]
         public ActionResult Save(Player player)
         {
-            if (player.Id == 0)
+            if (player.PlayerId == 0)
             {
                 _context.Players.Add(player);
             }
             else
             {
-                var playerInDb = _context.Players.Single(p => p.Id == player.Id);
+                var playerInDb = _context.Players.SingleOrDefault(p => p.Id == player.Id);
 
-                playerInDb.FirstName = player.FirstName;
-                playerInDb.LastName = player.LastName;
-                playerInDb.MembershipId = player.MembershipId;
-                playerInDb.Bets = player.Bets;
-                playerInDb.IsSubscribed = player.IsSubscribed;
-                playerInDb.DateOfBirth = player.DateOfBirth;
+           
             }
            
             _context.SaveChanges();
@@ -63,7 +58,7 @@ namespace Bet.Controllers
         public ActionResult Details(int id)
         {
             PlayerViewModels playerViewModel = new PlayerViewModels();
-            var player= _context.Players.Include(p=>p.MembershipType).SingleOrDefault(p => p.Id == id);
+            var player= _context.Players.SingleOrDefault(p => p.PlayerId == id);
             if (player == null)
             {
                 return HttpNotFound();
@@ -74,7 +69,7 @@ namespace Bet.Controllers
         }
         public ActionResult Edit(int id)
         {
-            var player = _context.Players.Include(p => p.MembershipType).SingleOrDefault(p => p.Id == id);
+            var player = _context.Players.Include(p => p.MembershipType).SingleOrDefault(p => p.PlayerId == id);
 
             if (player == null)
             {
