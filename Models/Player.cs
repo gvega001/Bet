@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Security.AccessControl;
 using System.Web.Security;
@@ -10,7 +11,21 @@ namespace Bet.Models
 {
     public class Player:User
     {
+        [Required]
+        [StringLength(250)]
+        [DisplayName("First Name:")]
+        public string FirstName { get; set; }
+        [Required]
+        [StringLength(250)]
+        [DisplayName("Last Name:")]
+        public string LastName { get; set; }
+        [Required]
+        [DisplayName("Membership:")]
+        public MembershipTypes MembershipType { get; set; }
+        [DisplayName("Date of Birth:")]
+        public DateTime DateOfBirth { get; set; }
         public new int Id { get; set; }
+        [Display(Name = "Subscribe to newsletter")]
         public bool IsSubscribed { get; set; }
         [Required]
         public int MembershipId { get; set; }

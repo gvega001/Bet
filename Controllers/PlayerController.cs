@@ -29,34 +29,61 @@ namespace Bet.Controllers
             return View(viewModels);
         }
 
-        public ViewResult Details(int id)
-        {
-            PlayerViewModels playerViewModel = new PlayerViewModels();
-            playerViewModel.Player = _context.Players.SingleOrDefault(p => p.Id == id); 
-            return View(playerViewModel);
-
-        }
         public ActionResult New()
         {
-            var playerView = new NewPlayerViewModels();
-            return View(playerView.Player);
+            var playerView = new PlayerFormViewModel();
+            return View("PlayerForm", playerView.Player);
         }
         [HttpPost]
-        public ActionResult Create(Player player)
+        public ActionResult Save(Player player)
         {
-            _context.Players.Add(player);
+            if (player.Id == 0)
+            {
+                _context.Players.Add(player);
+            }
+            else
+            {
+                var playerInDb = _context.Players.Single(p => p.Id == player.Id);
+
+                playerInDb.FirstName = player.FirstName;
+                playerInDb.LastName = player.LastName;
+                playerInDb.MembershipId = player.MembershipId;
+                playerInDb.Bets = player.Bets;
+                playerInDb.IsSubscribed = player.IsSubscribed;
+                playerInDb.DateOfBirth = player.DateOfBirth;
+                playerInDb.Email = player.Email;
+                playerInDb.PhoneNumber = player.PhoneNumber;
+            }
+           
             _context.SaveChanges();
             return RedirectToAction("Index", "Player");
         }
-
-    
-        public ActionResult Edit(Player player)
+        public ActionResult Details(int id)
         {
-            _context.Players.Add(player);
-            _context.SaveChanges();
+            PlayerViewModels playerViewModel = new PlayerViewModels();
+            var player= _context.Players.Include(p=>p.MembershipType).SingleOrDefault(p => p.Id == id);
+            if (player == null)
+            {
+                return HttpNotFound();
+            }
+            playerViewModel.Player = player;
+            return View(player);
 
-            return RedirectToAction("Index", "Player");
         }
-    
+        public ActionResult Edit(int id)
+        {
+            var player = _context.Players.Include(p => p.MembershipType).SingleOrDefault(p => p.Id == id);
+
+            if (player == null)
+            {
+                return HttpNotFound();
+            }
+            var playerViewModel = new PlayerFormViewModel
+            {
+                Player = player
+            };
+
+            return RedirectToAction("PlayerForm", player);
+        }
     }
 }

@@ -27,7 +27,7 @@ namespace Bet.Models.ViewModels
 
     }
 
-    public class NewPlayerViewModels
+    public class PlayerFormViewModel
     {
         public Player Player { get; set; }
 

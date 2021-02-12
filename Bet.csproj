@@ -315,6 +315,14 @@
     <Compile Include="Migrations\202102120644494_ConsoleBetGameViewModels1.Designer.cs">
       <DependentUpon>202102120644494_ConsoleBetGameViewModels1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102122232543_playerFormUpdated.cs" />
+    <Compile Include="Migrations\202102122232543_playerFormUpdated.Designer.cs">
+      <DependentUpon>202102122232543_playerFormUpdated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102122242407_playerModelUpdate.cs" />
+    <Compile Include="Migrations\202102122242407_playerModelUpdate.Designer.cs">
+      <DependentUpon>202102122242407_playerModelUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bet.cs" />
@@ -400,7 +408,7 @@
     <Content Include="Views\MessageGenerator\Index.cshtml" />
     <Content Include="Views\Player\Index.cshtml" />
     <Content Include="Views\Player\Details.cshtml" />
-    <Content Include="Views\Player\New.cshtml" />
+    <Content Include="Views\Player\PlayerForm.cshtml" />
     <Content Include="Views\Bet\Index.cshtml" />
     <Content Include="Views\Bet\Details.cshtml" />
     <Content Include="Views\Bet\New.cshtml" />
@@ -410,7 +418,6 @@
     <Content Include="Views\ConsoleBetGame\Index.cshtml" />
     <Content Include="Views\ConsoleBetGame\Details.cshtml" />
     <Content Include="Views\ConsoleBetGame\New.cshtml" />
-    <Content Include="Views\Player\Edit.cshtml" />
     <Content Include="Views\Bet\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -522,6 +529,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102120644494_ConsoleBetGameViewModels1.resx">
       <DependentUpon>202102120644494_ConsoleBetGameViewModels1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102122232543_playerFormUpdated.resx">
+      <DependentUpon>202102122232543_playerFormUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102122242407_playerModelUpdate.resx">
+      <DependentUpon>202102122242407_playerModelUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
