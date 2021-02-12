@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
+using Bet.Migrations;
 using Bet.Models;
 using Bet.Models.ViewModels;
 
@@ -31,8 +32,11 @@ namespace Bet.Controllers
 
         public ActionResult New()
         {
-            var playerView = new PlayerFormViewModel();
-            return View("PlayerForm", playerView.Player);
+            var viewModel = new PlayerFormViewModel
+            {
+                
+            };
+            return View("PlayerForm", viewModel.Player);
         }
         [HttpPost]
         public ActionResult Save(Player player)

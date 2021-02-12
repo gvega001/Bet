@@ -19,7 +19,6 @@ namespace Bet.Models
         [StringLength(250)]
         [DisplayName("Last Name:")]
         public string LastName { get; set; }
-        [Required]
         [DisplayName("Membership:")]
         public MembershipTypes MembershipType { get; set; }
         [DisplayName("Date of Birth:")]
