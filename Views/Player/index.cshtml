@@ -1,4 +1,5 @@
-﻿@model Bet.Models.Player
+﻿@using Bet.Models
+@model global::Bet.Models.ViewModels.PlayerViewModels
 
 @{
     ViewBag.Title = "Index";
@@ -8,61 +9,72 @@
 <h2>Index</h2>
 
 <div>
-    <h4>Hello @Html.DisplayFor(model => model.FirstName) !</h4>
+    <h4>Hello @Html.DisplayFor(model => model.Player.FirstName) !</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
+            @Html.DisplayNameFor(model => model.Player.FirstName)
        
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.FirstName)
+            @Html.DisplayFor(model => model.Player.FirstName)
         
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.LastName)
+            @Html.DisplayNameFor(model => model.Player.LastName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.LastName)
+            @Html.DisplayFor(model => model.Player.LastName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.MembershipType)
+            @Html.DisplayNameFor(model => model.Player.MembershipType)
       
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.MembershipType)
+            @Html.DisplayFor(model => model.Player.MembershipType)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DateOfBirth)
+            @Html.DisplayNameFor(model => model.Player.DateOfBirth)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.DateOfBirth)
+            @Html.DisplayFor(model => model.Player.DateOfBirth)
         </dd>
 
     </dl>
-    <h3>@Html.DisplayFor(model => model.FirstName) Bets!</h3>
+    <h3>@Html.DisplayFor(model => model.Player.FirstName) Bets!</h3>
     
-    @if (@Model.Bets.Count == 0)
+    
+   
+@try
+{
+    @(@Model.Player.Bets ==null)
     {
         <p>No bets yet!</p>
     }
-
     <ul>
-        @foreach (var bets in Model.Bets)
-        {
       
-                <li>@bets.Game</li>
-           
         }
-       
+        @foreach (var bets in Model.Player.Bets)
+        {
+
+            <li>@bets.Game</li>
+
+        }
+
     </ul>
+}
+catch (NullReferenceException e)
+{
+    Console.WriteLine(e);
+    <p>No bets yet!</p>
+}
    
 
 </div>

@@ -24,15 +24,14 @@ namespace Bet.Controllers
 
         public ViewResult Index()
         {
-
-            var player = _context.Players.SingleOrDefault();
-           
-            return View(player);
+            
+            PlayerViewModels viewModels = new PlayerViewModels();
+            return View(viewModels);
         }
 
         public ViewResult Details(int id)
         {
-            var playerViewModel = new PlayerViewModels();
+            PlayerViewModels playerViewModel = new PlayerViewModels();
             playerViewModel.Player = _context.Players.SingleOrDefault(p => p.Id == id); 
             return View(playerViewModel);
 
