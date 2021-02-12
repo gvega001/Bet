@@ -30,7 +30,6 @@ namespace Bet.Models.ViewModels
 
     public class NewPlayerViewModels
     {
-        public IEnumerable<MembershipTypes> MembershipTypes { get; set; }
         public Player Player { get; set; }
 
     }

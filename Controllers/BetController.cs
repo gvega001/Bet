@@ -38,15 +38,21 @@ namespace Bet.Controllers
             
             return View(betViewModel);
         }
-
-        public ActionResult Create()
+        [HttpPost]
+        public ActionResult Create(NewBetViewModels betViewModel)
         {
+            _context.Bets.Add(betViewModel.Bet);
+            _context.SaveChanges();
 
             return View();
+          
         }
-
-        public ActionResult Edit()
+        [HttpPut]
+        public ActionResult Edit(NewBetViewModels betViewModel)
         {
+            _context.Bets.Add(betViewModel.Bet);
+            _context.SaveChanges();
+
             return View();
         }
     }

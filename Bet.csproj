@@ -267,6 +267,10 @@
     <Compile Include="Migrations\202102120212390_NewBetViewModelAdded.Designer.cs">
       <DependentUpon>202102120212390_NewBetViewModelAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102120248256_NewBetViewModelRevised.cs" />
+    <Compile Include="Migrations\202102120248256_NewBetViewModelRevised.Designer.cs">
+      <DependentUpon>202102120248256_NewBetViewModelRevised.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bet.cs" />
@@ -363,6 +367,7 @@
     <Content Include="Views\ConsoleBetGame\Details.cshtml" />
     <Content Include="Views\ConsoleBetGame\New.cshtml" />
     <Content Include="Views\Player\Edit.cshtml" />
+    <Content Include="Views\Bet\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -437,6 +442,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102120212390_NewBetViewModelAdded.resx">
       <DependentUpon>202102120212390_NewBetViewModelAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102120248256_NewBetViewModelRevised.resx">
+      <DependentUpon>202102120248256_NewBetViewModelRevised.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

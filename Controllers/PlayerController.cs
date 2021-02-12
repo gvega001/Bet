@@ -37,21 +37,22 @@ namespace Bet.Controllers
             return View(playerViewModel);
 
         }
-
-        public ActionResult Edit(string id)
+        [HttpPost]
+        public ActionResult Create(NewPlayerViewModels viewModel)
         {
-            var player = _context.Players.SingleOrDefault(p => p.Id == id);
-
-            return View(player);
-        }
-        public ActionResult Create()
-        {
-            
-            var viewModel = new NewPlayerViewModels();
-
-
-            return View(viewModel);
+            _context.Players.Add(viewModel.Player);
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Player");
         }
 
+        [HttpPut]
+        public ActionResult Edit(NewPlayerViewModels viewModel)
+        {
+            _context.Players.Add(viewModel.Player);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Player");
+        }
+    
     }
 }
