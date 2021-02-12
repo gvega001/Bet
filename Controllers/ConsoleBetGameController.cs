@@ -43,7 +43,7 @@ namespace Bet.Controllers
         public ActionResult New()
         {
             var groupView = new ConsoleBetGameViewModel();
-            return View(groupView);
+            return View(groupView.Game);
         }
         [HttpPost]
         public ActionResult Create(GroupImpl gGroup)
