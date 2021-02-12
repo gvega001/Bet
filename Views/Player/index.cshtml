@@ -12,35 +12,35 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Model.Player.FirstName)
+            @Html.DisplayNameFor(model => model.Player.FirstName)
         </dt>
 
         <dd>
-            @Model.Player.LastName)
+            @Html.DisplayFor(model => model.Player.FirstName)
         </dd>
 
         <dt>
-            @Model.Player.Bets)
+            @Html.DisplayNameFor(model => model.Player.LastName)
         </dt>
 
         <dd>
-            @Model.Player.MembershipId)
+            @Html.DisplayFor(model => model.Player.LastName)
         </dd>
 
         <dt>
-            @Model.Player.IsSubscribed)
+            @Html.DisplayNameFor(model => model.Player.MembershipType)
         </dt>
 
         <dd>
-            @Model.Player.DateOfBirth)
+            @Html.DisplayFor(model => model.Player.MembershipType)
         </dd>
 
         <dt>
-            @Model.Player.Email)
+            @Html.DisplayNameFor(model => model.Player.DateOfBirth)
         </dt>
 
         <dd>
-            @Model.Player.)
+            @Html.DisplayFor(model => model.Player.DateOfBirth)
         </dd>
 
     </dl>
