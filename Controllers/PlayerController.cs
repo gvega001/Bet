@@ -22,10 +22,10 @@ namespace Bet.Controllers
             _context.Dispose();
         }
 
-        public ViewResult Index(int id)
+        public ViewResult Index()
         {
 
-            var player = _context.Players.SingleOrDefault(p => p.Id == id);
+            var player = _context.Players.SingleOrDefault();
            
             return View(player);
         }
@@ -38,17 +38,17 @@ namespace Bet.Controllers
 
         }
         [HttpPost]
-        public ActionResult Create(NewPlayerViewModels viewModel)
+        public ActionResult Create(Player player)
         {
-            _context.Players.Add(viewModel.Player);
+            _context.Players.Add(player);
             _context.SaveChanges();
             return RedirectToAction("Index", "Player");
         }
 
         [HttpPut]
-        public ActionResult Edit(NewPlayerViewModels viewModel)
+        public ActionResult Edit(Player player)
         {
-            _context.Players.Add(viewModel.Player);
+            _context.Players.Add(player);
             _context.SaveChanges();
 
             return RedirectToAction("Index", "Player");
