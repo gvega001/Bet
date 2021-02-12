@@ -1,16 +1,28 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Data.SqlTypes;
 
 namespace Bet.Models.ViewModels
 {
+    
     public class BetViewModels
     {
-        public BetViewModels()
+        public BetViewModels(Player player)
         {
             
         }
+        public Player Player { get; set; }
         public int Id { get; set; }
+       public IEnumerable<BetImpl> Bets { get; set; }
+       public Game Game { get; set; }
+       public BetImpl Bet { get; set; }
+
+    }
+
+    public class NewBetViewModels
+    {
+        public BetImpl Bet { get; set; }
         [Required]
         public int PlayerId { get; set; }
         [Required]
@@ -25,13 +37,7 @@ namespace Bet.Models.ViewModels
         public double LowestPossibleNumber { get; set; }
 
         public double Guess { get; set; }
-     
-        public Bet Bets { get; set; }
-        public Player Player { get; set; }
-     
-        public Game Game { get; set; }
 
+      
     }
-
-   
 }

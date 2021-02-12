@@ -30,13 +30,10 @@ namespace Bet.Controllers
             return View(player);
         }
 
-        public ActionResult Details(string id)
+        public ViewResult Details(string id)
         {
             var playerViewModel = new PlayerViewModels();
-            playerViewModel.Player = _context.Players.SingleOrDefault(p => p.Id == id);
-            var player = playerViewModel.Player;
-            if (playerViewModel.Player == null )
-                return HttpNotFound();
+            playerViewModel.Player = _context.Players.SingleOrDefault(p => p.Id == id); 
             return View(playerViewModel);
 
         }
@@ -49,8 +46,11 @@ namespace Bet.Controllers
         }
         public ActionResult Create()
         {
+            
+            var viewModel = new NewPlayerViewModels();
 
-            return View();
+
+            return View(viewModel);
         }
 
     }

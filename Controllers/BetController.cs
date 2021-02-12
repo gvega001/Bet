@@ -19,37 +19,34 @@ namespace Bet.Controllers
         {
             _context.Dispose();
         }
-        public ActionResult Index()
+        public ViewResult Index()
         {
-            var betViewModel = new BetViewModels();
-            var bets = betViewModel.Bets;
-            var id = betViewModel.PlayerId;
-            betViewModel.Player = _context.Players.Find(id);
-            betViewModel.Bets = _context.Bets.Find(bets);
+            var player = _context.Players.SingleOrDefault();
+            var betViewModel = new BetViewModels(player);
+         
+            betViewModel.Bet =_context.Bets.SingleOrDefault();
+
+            return View(betViewModel);
+        }
+
+        public ViewResult Details()
+        {
+            var player = _context.Players.SingleOrDefault();
+            var betViewModel = new BetViewModels(player);
+
+            betViewModel.Bet = _context.Bets.SingleOrDefault();
             
-            if (betViewModel.Player == null)
-                return HttpNotFound();
-
             return View(betViewModel);
         }
 
-        public ActionResult Details()
+        public ActionResult Create()
         {
-            var betViewModel = new BetViewModels();
-            var bets = betViewModel.Bets;
-            var id = betViewModel.PlayerId;
-            betViewModel.Player = _context.Players.Find(id);
-            betViewModel.Bets = _context.Bets.Find(bets);
 
-            if (betViewModel.Player == null)
-                return HttpNotFound();
-
-            return View(betViewModel);
+            return View();
         }
 
-        public ActionResult New()
+        public ActionResult Edit()
         {
-
             return View();
         }
     }
