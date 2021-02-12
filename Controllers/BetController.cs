@@ -38,6 +38,7 @@ namespace Bet.Controllers
             
             return View(betViewModel);
         }
+      
         [HttpPost]
         public ActionResult Create(BetImpl bet)
         {
@@ -48,7 +49,6 @@ namespace Bet.Controllers
             return RedirectToAction("Index", "Bet");
 
         }
-        [HttpPut]
         public ActionResult Edit(BetImpl bet)
         {
             _context.Bets.Add(bet);

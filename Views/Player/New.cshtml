@@ -64,19 +64,19 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Player.DateOfBirth, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.DateOfBirth, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Player.DateOfBirth, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Player.DateOfBirth, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.DateOfBirth, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Player.IsSubscribed, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.IsSubscribed, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
-                    @Html.EditorFor(model => model.Player.IsSubscribed)
-                    @Html.ValidationMessageFor(model => model.Player.IsSubscribed, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.IsSubscribed)
+                    @Html.ValidationMessageFor(model => model.IsSubscribed, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>

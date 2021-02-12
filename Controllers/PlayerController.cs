@@ -37,6 +37,11 @@ namespace Bet.Controllers
             return View(playerViewModel);
 
         }
+        public ActionResult New()
+        {
+            var playerView = new NewPlayerViewModels();
+            return View(playerView.Player);
+        }
         [HttpPost]
         public ActionResult Create(Player player)
         {
@@ -45,7 +50,7 @@ namespace Bet.Controllers
             return RedirectToAction("Index", "Player");
         }
 
-        [HttpPut]
+    
         public ActionResult Edit(Player player)
         {
             _context.Players.Add(player);
