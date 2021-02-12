@@ -25,7 +25,6 @@ namespace Bet.Models.ViewModels
             return GetPlayer.Bets;
         }
 
-
     }
 
     public class NewPlayerViewModels

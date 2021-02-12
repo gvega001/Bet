@@ -10,7 +10,7 @@ namespace Bet.Models
 {
     public class Player:User
     {
-      
+        public int Id { get; set; }
         public bool IsSubscribed { get; set; }
         [Required]
         public int MembershipId { get; set; }

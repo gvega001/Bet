@@ -19,14 +19,13 @@ namespace Bet.Controllers
         {
             _context.Dispose();
         }
-        public ViewResult Index()
+        public ViewResult Index(Player player)
         {
-            var player = _context.Players.SingleOrDefault();
-            var betViewModel = new BetViewModels(player);
-         
-            betViewModel.Bet =_context.Bets.SingleOrDefault();
-
-            return View(betViewModel);
+            
+            var bets = _context.Bets.Find(player.Bets);
+            var viewMdodel = new NewBetViewModels();
+            viewMdodel.Bet.PlayerId = 
+            return View(bets);
         }
 
         public ViewResult Details()
