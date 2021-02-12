@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using Bet.Models;
@@ -21,14 +22,12 @@ namespace Bet.Controllers
             _context.Dispose();
         }
 
-        public ActionResult Index(string id)
+        public ViewResult Index(string id)
         {
-            var playerViewModel = new PlayerViewModels();
-               playerViewModel.Player = _context.Players.SingleOrDefault(p => p.Id == id);
-               var player = playerViewModel.Player;
-            if (playerViewModel.Player == null)
-                return HttpNotFound();
-            return View(playerViewModel);
+
+            var player = _context.Players.SingleOrDefault(p => p.Id == id);
+           
+            return View(player);
         }
 
         public ActionResult Details(string id)
@@ -42,10 +41,11 @@ namespace Bet.Controllers
 
         }
 
-        public ActionResult Edit()
+        public ActionResult Edit(string id)
         {
-            var newPlayerViewModel = new NewPlayerViewModels();
-            return View();
+            var player = _context.Players.SingleOrDefault(p => p.Id == id);
+
+            return View(player);
         }
         public ActionResult Create()
         {

@@ -1,4 +1,4 @@
-﻿@model Bet.Models.ViewModels.PlayerViewModels
+﻿@model Bet.Models.Player
 
 @{
     ViewBag.Title = "Index";
@@ -12,35 +12,35 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Player.FirstName)
+            @Html.DisplayNameFor(model => model.FirstName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Player.FirstName)
+            @Html.DisplayFor(model => model.FirstName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Player.LastName)
+            @Html.DisplayNameFor(model => model.LastName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Player.LastName)
+            @Html.DisplayFor(model => model.LastName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Player.MembershipType)
+            @Html.DisplayNameFor(model => model.MembershipType)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Player.MembershipType)
+            @Html.DisplayFor(model => model.MembershipType)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Player.DateOfBirth)
+            @Html.DisplayNameFor(model => model.DateOfBirth)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Player.DateOfBirth)
+            @Html.DisplayFor(model => model.DateOfBirth)
         </dd>
 
     </dl>
