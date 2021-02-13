@@ -17,18 +17,13 @@ namespace Bet.Models
         [StringLength(250)]
         [Display(Name = "Group Name")]
         public string GroupName { get; set; }
+        [Required] public int? PlayerId { get; set; }
         [Required]
-        public Player Player { get; set; }
-        public LinkedList<Player> Players { get; set; }
-        [Required]
-        public int JoinCode { get; set; }
-
-        public BetImpl Bet { get; set; }
+        public string JoinCode { get; set; }
 
         public LinkedList<BetImpl> Bets { get; set; }
 
-        public bool GameIsConfirmed { get; set; }
-        public bool BetsAreConfirmed { get; set; }
+        public int? GameId { get; set; }
 
         //*****======= private fields ******==========
         private string _groupName;
