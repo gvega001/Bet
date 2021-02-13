@@ -35,11 +35,30 @@ namespace Bet.Controllers
        
        
         [HttpPost]
-        public ActionResult Save(GameImpl game)
+        public ActionResult Save(GameImpl gameImpl)
         {
-            if (game.Id == 0)
+            if (!ModelState.IsValid)
             {
-                _context.Games.Add(game);
+                var game = gameImpl;
+                return View("GameForm", game);
+            }
+            if (gameImpl.Id == 0)
+            {
+                _context.Games.Add(gameImpl);
+            }
+            else
+            {
+                var gameImplInDb = _context.Games.Single(g => g.Id == gameImpl.Id);
+                gameImplInDb.Bets = gameImpl.Bets;
+                gameImplInDb.EventDateTime = gameImpl.EventDateTime;
+                gameImplInDb.EventName = gameImpl.EventName;
+                gameImplInDb.LastDateTime = gameImpl.LastDateTime;
+                gameImplInDb.LastDateAndTimeToBest = gameImpl.LastDateTime.ToString();
+                gameImplInDb.DateOfEvent = gameImpl.EventDateTime.ToString();
+                gameImplInDb.Team1Name = gameImpl.Team1Name;
+                gameImplInDb.Team2Name = gameImpl.Team1Name;
+                gameImplInDb.Team1Score = gameImpl.Team1Score;
+                gameImplInDb.Team2Score = gameImpl.Team2Score;
             }
             _context.SaveChanges();
             return RedirectToAction("Index", "ConsoleBetGame");
@@ -50,7 +69,7 @@ namespace Bet.Controllers
             var console = _context.Games.SingleOrDefault(g => g.Id == id);
             var viewModel = new ConsoleBetGameViewModel();
             viewModel.Game = console;
-            return View(console);
+            return RedirectToAction("GameForm", console);
         }
         public ActionResult Edit(int id)
         {

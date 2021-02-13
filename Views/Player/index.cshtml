@@ -8,46 +8,46 @@
 <h2>Index</h2>
 
 <div>
-    <h4>Hello @Html.DisplayFor(model => model.Player.FirstName) !</h4>
+    <h4>Hello @Html.DisplayFor(model => model.FirstName) !</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Player.FirstName)
+            @Html.DisplayNameFor(model => model.FirstName)
 
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Player.FirstName)
+            @Html.DisplayFor(model => model.FirstName)
 
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Player.LastName)
+            @Html.DisplayNameFor(model => model.LastName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Player.LastName)
+            @Html.DisplayFor(model => model.LastName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Player.MembershipType)
+            @Html.DisplayNameFor(model => model.MembershipType)
 
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Player.MembershipType)
+            @Html.DisplayFor(model => model.MembershipType)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Player.DateOfBirth)
+            @Html.DisplayNameFor(model => model.DateOfBirth)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Player.DateOfBirth)
+            @Html.DisplayFor(model => model.DateOfBirth)
         </dd>
 
     </dl>
-    <h3>@Html.DisplayFor(model => model.Player.FirstName) Bets!</h3>
+    <h3>@Html.DisplayFor(model => model.FirstName) Bets!</h3>
 
 
 
@@ -63,7 +63,7 @@
         @foreach (var bets in Model.Player.Bets)
         {
 
-        <li>@bets.Game</li>
+        <li>Bets: @bets.Guess</li>
 
         }
 

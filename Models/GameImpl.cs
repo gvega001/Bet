@@ -12,7 +12,9 @@ namespace Bet.Models
             
         }
         public int Id { get; set; }
-   
+        public string EventName { get; set; }
+        public DateTime? EventDateTime { get; set; }
+        public DateTime? LastDateTime { get; set; }
         public int? GroupId { get; set; }
         [Required]
         [StringLength(250)]
@@ -22,7 +24,6 @@ namespace Bet.Models
         [Required]
         [StringLength(250)]
         public string Team2Name { get; set; }
-      
         public double? SmallestPossibleNumber { get; set; }
         [Range(0,100000.0)]
         public double? LargestPossibleNumber { get; set; }
@@ -36,6 +37,7 @@ namespace Bet.Models
         public bool? LockGame { get; set; }
 
         public bool? GameWon { get; set; }
+
         //*****=======++++++++ fields =========********
         private LinkedList<Bet> _bets;
         private LinkedList<double> _scoresList;

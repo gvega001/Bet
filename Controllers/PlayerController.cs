@@ -66,22 +66,22 @@ namespace Bet.Controllers
         }
         public ActionResult Details(int id)
         {
-            var playerViewModel = new PlayerViewModels();
-            var player= _context.PlayerViewModels.SingleOrDefault(p => p.Id == id);
-            if (player == null)
+            var playerViewModel = _context.PlayerViewModels.SingleOrDefault(p => p.Id == id);
+            
+            if (playerViewModel == null)
             {
                 return HttpNotFound();
             }
+
             
             return View("PlayerForm",playerViewModel);
 
         }
         public ActionResult Edit(int id)
         {
-            var playerViewModel = new PlayerViewModels();
-            var player = _context.PlayerViewModels.SingleOrDefault(p => p.Id == id);
+            var playerViewModel = _context.PlayerViewModels.SingleOrDefault(p => p.Id == id);
 
-            if (player == null)
+            if (playerViewModel == null)
             {
                 return HttpNotFound();
             }

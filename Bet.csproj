@@ -387,6 +387,14 @@
     <Compile Include="Migrations\202102132048566_GroupImplNullablesAddedToModel.Designer.cs">
       <DependentUpon>202102132048566_GroupImplNullablesAddedToModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102132302332_UpdatedGAmeImplModel.cs" />
+    <Compile Include="Migrations\202102132302332_UpdatedGAmeImplModel.Designer.cs">
+      <DependentUpon>202102132302332_UpdatedGAmeImplModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102132328583_UpdatedGAmeImplModelWithDateAndTime.cs" />
+    <Compile Include="Migrations\202102132328583_UpdatedGAmeImplModelWithDateAndTime.Designer.cs">
+      <DependentUpon>202102132328583_UpdatedGAmeImplModelWithDateAndTime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bet.cs" />
@@ -646,6 +654,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102132048566_GroupImplNullablesAddedToModel.resx">
       <DependentUpon>202102132048566_GroupImplNullablesAddedToModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102132302332_UpdatedGAmeImplModel.resx">
+      <DependentUpon>202102132302332_UpdatedGAmeImplModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102132328583_UpdatedGAmeImplModelWithDateAndTime.resx">
+      <DependentUpon>202102132328583_UpdatedGAmeImplModelWithDateAndTime.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
