@@ -30,8 +30,6 @@ namespace Bet.Controllers
         public ActionResult New()
         {
             var game = new GameImpl();
-            var viewModel = new ConsoleBetGameViewModel();
-            viewModel.Game = game;
             return View("GameForm",game);
         }
        
@@ -57,14 +55,13 @@ namespace Bet.Controllers
         public ActionResult Edit(int id)
         {
             var game = _context.Games.SingleOrDefault(g => g.Id == id);
-
+            
             if (game == null)
             {
                 return HttpNotFound();
             }
-            _context.Games.Add(game);
-            _context.SaveChanges();
-            return RedirectToAction("Index", "ConsoleBetGame");
+
+            RedirectToAction("Index", game);
         }
     }
 }

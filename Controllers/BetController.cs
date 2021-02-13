@@ -28,21 +28,19 @@ namespace Bet.Controllers
           
             return View(viewModel);
         }
-        public ActionResult New()
+        public ActionResult New(int id)
         {
-            var player = _context.Players.SingleOrDefault(); 
+            var player = _context.Players.SingleOrDefault(p=>p.PlayerId ==id); 
             var groupView = new BetViewModels(player);
-            return View("BetForm", groupView.Bet);
+            var bet = groupView.Bet;
+            return View("BetForm", bet);
         }
         [HttpPost]
         public ActionResult Save(BetImpl betImpl)
         {
             if (!ModelState.IsValid)
             {
-                var bet = new BetImpl
-                {
-                    
-                };
+                var bet = new BetImpl();
                 return View("BetForm", bet);
             }
 
