@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using Bet.Models;
 using Bet.Models.ViewModels;
 
@@ -22,43 +23,51 @@ namespace Bet.Controllers
             var console = new ConsoleBetGameViewModel();
             var game = new ConsoleBetGameViewModel().Game;
           
-            var group = new ConsoleBetGameViewModel().Group;
             console.Game = _context.Games.Find(game);
-          
-
-            return View(console);
-        }
-        public ActionResult Details()
-        {
-            var console = new ConsoleBetGameViewModel();
-            var game = new ConsoleBetGameViewModel().Game;
-            var bet = new ConsoleBetGameViewModel().Bet;
-            var group = new ConsoleBetGameViewModel().Group;
-            console.Game = _context.Games.Find(game);
-            console.Bet = _context.Bets.Find(bet);
-            console.Group = _context.Groups.Find(group);
 
             return View(console);
         }
         public ActionResult New()
         {
-            var groupView = new ConsoleBetGameViewModel();
-            return View(groupView.Game);
+            var game = new GameImpl();
+            var viewModel = new ConsoleBetGameViewModel();
+            viewModel.Game = game;
+            return View("GameForm",game);
         }
+       
+       
         [HttpPost]
-        public ActionResult Create(GroupImpl gGroup)
+        public ActionResult Save(GameImpl game)
         {
-            _context.Groups.Add(gGroup);
+            if (game.Id == 0)
+            {
+                _context.Games.Add(game);
+            }
             _context.SaveChanges();
-            return RedirectToAction("Index", "Group");
+            return RedirectToAction("Index", "ConsoleBetGame");
         }
 
-
-        public ActionResult Edit(GroupImpl gGroup)
+        public ActionResult Details(int id)
         {
-            _context.Groups.Add(gGroup);
+            var console = _context.Games.SingleOrDefault(g => g.Id == id);
+            var viewModel = new ConsoleBetGameViewModel
+            {
+
+            };
+            viewModel.Game = console;
+            return View(console);
+        }
+        public ActionResult Edit(int id)
+        {
+            var game = _context.Games.SingleOrDefault(g => g.Id == id);
+
+            if (game == null)
+            {
+                return HttpNotFound();
+            }
+            _context.Games.Add(game);
             _context.SaveChanges();
-            return RedirectToAction("Index", "Group");
+            return RedirectToAction("Index", "ConsoleBetGame");
         }
     }
 }

@@ -7,8 +7,12 @@ namespace Bet.Models
 {
     public class GameImpl : Game
     {
+        public GameImpl()
+        {
+            
+        }
         public int Id { get; set; }
-        [Required]
+   
         public int GroupId { get; set; }
         [Required]
         [StringLength(250)]

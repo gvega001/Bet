@@ -367,6 +367,14 @@
     <Compile Include="Migrations\202102130442336_GameImpleGroupIdUpdated.Designer.cs">
       <DependentUpon>202102130442336_GameImpleGroupIdUpdated.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102130548189_GroupImpleModel.cs" />
+    <Compile Include="Migrations\202102130548189_GroupImpleModel.Designer.cs">
+      <DependentUpon>202102130548189_GroupImpleModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102130644144_GameImplDataAnnotationUpdated.cs" />
+    <Compile Include="Migrations\202102130644144_GameImplDataAnnotationUpdated.Designer.cs">
+      <DependentUpon>202102130644144_GameImplDataAnnotationUpdated.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bet.cs" />
@@ -461,7 +469,7 @@
     <Content Include="Views\Group\New.cshtml" />
     <Content Include="Views\ConsoleBetGame\Index.cshtml" />
     <Content Include="Views\ConsoleBetGame\Details.cshtml" />
-    <Content Include="Views\ConsoleBetGame\New.cshtml" />
+    <Content Include="Views\ConsoleBetGame\GameForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -611,6 +619,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102130442336_GameImpleGroupIdUpdated.resx">
       <DependentUpon>202102130442336_GameImpleGroupIdUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102130548189_GroupImpleModel.resx">
+      <DependentUpon>202102130548189_GroupImpleModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102130644144_GameImplDataAnnotationUpdated.resx">
+      <DependentUpon>202102130644144_GameImplDataAnnotationUpdated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

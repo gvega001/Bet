@@ -33,10 +33,7 @@ namespace Bet.Controllers
         public ActionResult New()
         {
             
-            var viewModel = new PlayerViewModels()
-            {
-                
-            };
+            var viewModel = new PlayerViewModels();
             return View("PlayerForm", viewModel);
         }
         [HttpPost]
@@ -73,7 +70,7 @@ namespace Bet.Controllers
                 return HttpNotFound();
             }
 
-            return RedirectToAction("PlayerForm", playerViewModel);
+            return RedirectToAction("Index", playerViewModel);
         }
     }
 }

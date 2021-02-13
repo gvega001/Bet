@@ -7,7 +7,7 @@ namespace Bet.Models
 {
     public class GroupImpl:Group
     {
-
+      
         public int Id { get; set; }
         public int BetId { get; set; }
         [Required]

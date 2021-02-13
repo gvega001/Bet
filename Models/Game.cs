@@ -5,7 +5,7 @@ namespace Bet.Models
 {
     public interface Game
     {
-    
+     
         LinkedList<double> GetScores();
         void SetScore(double score);
         string GetEventName();
