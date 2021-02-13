@@ -461,7 +461,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
-    <Content Include="Views\MessageGenerator\Index.cshtml" />
+    <Content Include="Views\MessageGenerator\Message.cshtml" />
     <Content Include="Views\Player\Index.cshtml" />
     <Content Include="Views\Player\Details.cshtml" />
     <Content Include="Views\Player\PlayerForm.cshtml" />

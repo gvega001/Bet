@@ -21,14 +21,14 @@ namespace Bet.Controllers
         public ActionResult Index()
         {
             var messageGeneratorViewModel = new MessageGeneratorViewModels();
-            return View(messageGeneratorViewModel);
+            return View("Message",messageGeneratorViewModel);
         }
 
-        public ActionResult New()
+        public ActionResult Message()
         {
             var messageGeneratorView = new MessageGeneratorViewModels();
            
-            return View(messageGeneratorView);
+            return View("Message", messageGeneratorView);
         }
 
     }
