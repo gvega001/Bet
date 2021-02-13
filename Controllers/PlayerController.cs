@@ -32,51 +32,51 @@ namespace Bet.Controllers
 
         public ActionResult New()
         {
-            var viewModel = new PlayerFormViewModel
+            
+            var viewModel = new PlayerViewModels()
             {
                 
             };
-            return View("PlayerForm", viewModel.Player);
+            return View("PlayerForm", viewModel);
         }
         [HttpPost]
-        public ActionResult Save(Player player)
+        public ActionResult Save(PlayerViewModels player)
         {
-            if (player.PlayerId == 0)
+            if (player.Id == 0)
             {
 
-                _context.Players.Add(player);
+                _context.PlayerViewModels.Add(player);
             }
 
-            player.MembershipType = MembershipTypes.Enabled;
             _context.SaveChanges();
             return RedirectToAction("Index", "Player");
         }
         public ActionResult Details(int id)
         {
-            PlayerViewModels playerViewModel = new PlayerViewModels();
-            var player= _context.Players.SingleOrDefault(p => p.PlayerId == id);
+            var playerViewModel = new PlayerViewModels();
+            var player= _context.PlayerViewModels.SingleOrDefault(p => p.Id == id);
             if (player == null)
             {
                 return HttpNotFound();
             }
-            playerViewModel.Player = player;
-            return View(player);
+            
+            return View(playerViewModel);
 
         }
         public ActionResult Edit(int id)
         {
-            var player = _context.Players.Include(p => p.MembershipType).SingleOrDefault(p => p.PlayerId == id);
+            var player = _context.PlayerViewModels.Include(p => p.MembershipType).SingleOrDefault(p => p.Id == id);
 
             if (player == null)
             {
                 return HttpNotFound();
             }
-            var playerViewModel = new PlayerFormViewModel
+            var playerViewModel = new PlayerViewModels
             {
-                Player = player
+              
             };
 
-            return RedirectToAction("PlayerForm", player);
+            return RedirectToAction("PlayerForm", playerViewModel);
         }
     }
 }
