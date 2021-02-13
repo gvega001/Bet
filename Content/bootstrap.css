@@ -6831,4 +6831,8 @@ button.close {
     display: none !important;
   }
 }
+.field-validation-error {
+    color: red;
+}
+}
 /*# sourceMappingURL=bootstrap.css.map */
