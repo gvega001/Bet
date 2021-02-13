@@ -6835,7 +6835,7 @@ button.close {
     color: red;
 }
 
-.input-validation-error{
+#input-validation-error{
     border: 2px solid red;
 }
 /*# sourceMappingURL=bootstrap.css.map */
