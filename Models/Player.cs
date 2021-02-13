@@ -21,9 +21,9 @@ namespace Bet.Models
         [DisplayName("Last Name:")]
         public string LastName { get; set; }
         [DisplayName("Membership:")]
-        public MembershipTypes MembershipType { get; set; }
+        public MembershipTypes? MembershipType { get; set; }
         [DisplayName("Date of Birth:")]
-        public DateTime DateOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; }
 
        
         [Display(Name = "Subscribe to newsletter")]

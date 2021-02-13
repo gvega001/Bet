@@ -375,6 +375,10 @@
     <Compile Include="Migrations\202102130644144_GameImplDataAnnotationUpdated.Designer.cs">
       <DependentUpon>202102130644144_GameImplDataAnnotationUpdated.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102131928101_addedNullableNotation.cs" />
+    <Compile Include="Migrations\202102131928101_addedNullableNotation.Designer.cs">
+      <DependentUpon>202102131928101_addedNullableNotation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bet.cs" />
@@ -625,6 +629,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102130644144_GameImplDataAnnotationUpdated.resx">
       <DependentUpon>202102130644144_GameImplDataAnnotationUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102131928101_addedNullableNotation.resx">
+      <DependentUpon>202102131928101_addedNullableNotation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

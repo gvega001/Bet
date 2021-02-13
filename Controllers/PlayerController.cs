@@ -49,12 +49,11 @@ namespace Bet.Controllers
             }
             if (player.Id == 0)
             {
-
                 _context.PlayerViewModels.Add(player);
             }
             else
             {
-                var playerInDb = _context.PlayerViewModels.Single(p=>p.Player.PlayerId==player.Id);
+                var playerInDb = _context.PlayerViewModels.Single(p=>p.Id ==player.Id);
                 playerInDb.FirstName = player.FirstName;
                 playerInDb.LastName = player.LastName;
                 player.DateOfBirth = player.DateOfBirth;

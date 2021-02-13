@@ -23,5 +23,13 @@ namespace Bet.Controllers
             var messageGeneratorViewModel = new MessageGeneratorViewModels();
             return View(messageGeneratorViewModel);
         }
+
+        public ActionResult New()
+        {
+            var messageGeneratorView = new MessageGeneratorViewModels();
+           
+            return View(messageGeneratorView);
+        }
+
     }
 }
