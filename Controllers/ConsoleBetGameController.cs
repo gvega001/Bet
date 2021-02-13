@@ -50,10 +50,7 @@ namespace Bet.Controllers
         public ActionResult Details(int id)
         {
             var console = _context.Games.SingleOrDefault(g => g.Id == id);
-            var viewModel = new ConsoleBetGameViewModel
-            {
-
-            };
+            var viewModel = new ConsoleBetGameViewModel();
             viewModel.Game = console;
             return View(console);
         }

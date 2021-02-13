@@ -25,33 +25,44 @@ namespace Bet.Controllers
             return View(groupViewModel);
         }
 
-        public ActionResult Details()
-        {
-            var groupViewModel = new GroupViewModels();
-            var bets = _context.Bets.Find(groupViewModel.Bets);
-            var player = _context.Players.Find(groupViewModel.Players);
-            var game = _context.Games.FindAsync(groupViewModel);
-            return View(groupViewModel);
-        }
         public ActionResult New()
         {
+            var group = new GroupImpl();
             var groupView = new GroupViewModels();
-            return View(groupView.Group);
+            groupView.Group = group;
+            return View("GroupForm",groupView.Group);
         }
         [HttpPost]
-        public ActionResult Create(GroupImpl gGroup)
+        public ActionResult Save(GroupImpl gGroup)
         {
-            _context.Groups.Add(gGroup);
+            if (gGroup.Id == 0)
+            {
+                _context.Groups.Add(gGroup);
+            }
+            
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Group");
+        }
+        public ActionResult Details(int id)
+        {
+            var group = _context.Groups.SingleOrDefault(g => g.Id == id);
+            var groupViewModel = new GroupViewModels();
+            groupViewModel.Group = group;
+            return View(groupViewModel);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var group = _context.Groups.SingleOrDefault(g => g.Id == id);
+            if (group == null)
+            {
+                return HttpNotFound();
+            }
+            _context.Groups.Add(group);
             _context.SaveChanges();
             return RedirectToAction("Index", "Group");
         }
 
-
-        public ActionResult Edit(GroupImpl gGroup)
-        {
-            _context.Groups.Add(gGroup);
-            _context.SaveChanges();
-            return RedirectToAction("Index", "Group");
-        }
+      
     }
 }

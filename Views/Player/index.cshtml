@@ -1,5 +1,4 @@
-﻿@using Bet.Models
-@model global::Bet.Models.ViewModels.PlayerViewModels
+﻿@model Bet.Models.ViewModels.PlayerViewModels
 
 @{
     ViewBag.Title = "Index";
@@ -14,12 +13,12 @@
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Player.FirstName)
-       
+
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Player.FirstName)
-        
+
         </dd>
 
         <dt>
@@ -32,7 +31,7 @@
 
         <dt>
             @Html.DisplayNameFor(model => model.Player.MembershipType)
-      
+
         </dt>
 
         <dd>
@@ -49,22 +48,22 @@
 
     </dl>
     <h3>@Html.DisplayFor(model => model.Player.FirstName) Bets!</h3>
-    
-    
-   
-@try
+
+
+
+    @try
 {
     @(@Model.Player.Bets ==null)
     {
-        <p>No bets yet!</p>
+    <p>No bets yet!</p>
     }
     <ul>
-      
+
         }
         @foreach (var bets in Model.Player.Bets)
         {
 
-            <li>@bets.Game</li>
+        <li>@bets.Game</li>
 
         }
 
@@ -75,7 +74,7 @@ catch (NullReferenceException e)
     Console.WriteLine(e);
     <p>No bets yet!</p>
 }
-   
+
 
 </div>
 

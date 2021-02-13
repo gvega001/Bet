@@ -466,7 +466,7 @@
     <Content Include="Views\Bet\New.cshtml" />
     <Content Include="Views\Group\Index.cshtml" />
     <Content Include="Views\Group\Details.cshtml" />
-    <Content Include="Views\Group\New.cshtml" />
+    <Content Include="Views\Group\GroupForm.cshtml" />
     <Content Include="Views\ConsoleBetGame\Index.cshtml" />
     <Content Include="Views\ConsoleBetGame\Details.cshtml" />
     <Content Include="Views\ConsoleBetGame\GameForm.cshtml" />
