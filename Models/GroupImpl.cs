@@ -12,7 +12,7 @@ namespace Bet.Models
             
         }
         public int Id { get; set; }
-        public int BetId { get; set; }
+        public int? BetId { get; set; }
         [Required]
         [StringLength(250)]
         [Display(Name = "Group Name")]

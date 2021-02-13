@@ -53,7 +53,7 @@ namespace Bet.Controllers
             else
             {
                 var betInDb = _context.Bets.Single(b => b.Id == betImpl.Id);
-                betInDb.Game = betImpl.Game;
+       
                 betInDb.LowestPossibleNumber = betImpl.LowestPossibleNumber;
                 betInDb.MaxPossibleNumber = betImpl.MaxPossibleNumber;
                 betInDb.MoneyBet = betImpl.MoneyBet;
