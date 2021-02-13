@@ -44,6 +44,15 @@ namespace Bet.Controllers
 
                 _context.PlayerViewModels.Add(player);
             }
+            else
+            {
+                var playerInDb = _context.PlayerViewModels.Single(p=>p.Id ==player.Id);
+                playerInDb.FirstName = player.FirstName;
+                playerInDb.LastName = player.LastName;
+                player.DateOfBirth = player.DateOfBirth;
+                playerInDb.IsSubscribed = player.IsSubscribed;
+                
+            }
 
             _context.SaveChanges();
             return RedirectToAction("Index", "Player");
