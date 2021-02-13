@@ -39,6 +39,14 @@ namespace Bet.Controllers
         [HttpPost]
         public ActionResult Save(PlayerViewModels player)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new PlayerViewModels()
+                {
+                 Player   = player.Player
+                };
+                return View("PlayerForm",viewModel);
+            }
             if (player.Id == 0)
             {
 
@@ -46,7 +54,7 @@ namespace Bet.Controllers
             }
             else
             {
-                var playerInDb = _context.PlayerViewModels.Single(p=>p.Id ==player.Id);
+                var playerInDb = _context.PlayerViewModels.Single(p=>p.Player.PlayerId==player.Id);
                 playerInDb.FirstName = player.FirstName;
                 playerInDb.LastName = player.LastName;
                 player.DateOfBirth = player.DateOfBirth;

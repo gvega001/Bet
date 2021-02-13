@@ -25,7 +25,7 @@ namespace Bet.Models.ViewModels
 
         [Display(Name = "Subscribe to newsletter")]
         public bool IsSubscribed { get; set; }
-        [Required]
+      
         public int MembershipId { get; set; }
 
     }
