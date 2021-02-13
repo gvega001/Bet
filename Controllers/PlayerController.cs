@@ -43,21 +43,11 @@ namespace Bet.Controllers
         {
             if (player.PlayerId == 0)
             {
+
                 _context.Players.Add(player);
             }
-            else
-            {
-                var playerInDb = _context.Players.SingleOrDefault(p => p.Id == player.Id);
-                playerInDb.Bets = player.Bets;
-                playerInDb.DateOfBirth = player.DateOfBirth;
-                playerInDb.FirstName = player.FirstName;
-                playerInDb.LastName = player.LastName;
-                playerInDb.MembershipType = MembershipTypes.Enabled;
-                playerInDb.MembershipId = player.MembershipId;
-                playerInDb.IsSubscribed = player.IsSubscribed;
 
-            }
-           
+            player.MembershipType = MembershipTypes.Enabled;
             _context.SaveChanges();
             return RedirectToAction("Index", "Player");
         }
