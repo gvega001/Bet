@@ -45,8 +45,10 @@ namespace Bet.Controllers
         }
       
         [HttpPost]
-        public ActionResult Create(BetImpl bet)
+        public ActionResult Save(BetImpl bet)
         {
+            var betId = bet.Id;
+
             _context.Bets.Add(bet);
             _context.SaveChanges();
 

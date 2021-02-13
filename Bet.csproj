@@ -463,7 +463,7 @@
     <Content Include="Views\Player\PlayerForm.cshtml" />
     <Content Include="Views\Bet\Index.cshtml" />
     <Content Include="Views\Bet\Details.cshtml" />
-    <Content Include="Views\Bet\New.cshtml" />
+    <Content Include="Views\Bet\BetForm.cshtml" />
     <Content Include="Views\Group\Index.cshtml" />
     <Content Include="Views\Group\Details.cshtml" />
     <Content Include="Views\Group\GroupForm.cshtml" />
