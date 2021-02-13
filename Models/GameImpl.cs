@@ -8,6 +8,7 @@ namespace Bet.Models
     public class GameImpl : Game
     {
         public int Id { get; set; }
+        [Required]
         public int GroupId { get; set; }
         [Required]
         [StringLength(250)]
@@ -17,16 +18,13 @@ namespace Bet.Models
         [Required]
         [StringLength(250)]
         public string Team2Name { get; set; }
-        public double PlayerGuess { get; set; }
-        [Range(0,1.0)]
+      
         public double SmallestPossibleNumber { get; set; }
         [Range(0,100000.0)]
         public double LargestPossibleNumber { get; set; }
         [Required]
         public LinkedList<BetImpl> Bets { get; set; }
-        [Required]
-        public Group Group { get; set; }
-
+     
         public bool GameConfirmed { get; set; }
 
         public bool BetsConfirmed { get; set; }
