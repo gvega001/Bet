@@ -35,33 +35,59 @@ namespace Bet.Controllers
             return View("BetForm", groupView.Bet);
         }
         [HttpPost]
-        public ActionResult Save(BetImpl bet)
+        public ActionResult Save(BetImpl betImpl)
         {
+            if (!ModelState.IsValid)
+            {
+                var bet = new BetImpl
+                {
+                    
+                };
+                return View("BetForm", bet);
+            }
 
-            var betId = bet.Id;
-
-            _context.Bets.Add(bet);
+            if (betImpl.Id == 0)
+            {
+                _context.Bets.Add(betImpl);
+            }
+            else
+            {
+                var betInDb = _context.Bets.Single(b => b.Id == betImpl.Id);
+                betInDb.Game = betImpl.Game;
+                betInDb.LowestPossibleNumber = betImpl.LowestPossibleNumber;
+                betInDb.MaxPossibleNumber = betImpl.MaxPossibleNumber;
+                betInDb.MoneyBet = betImpl.MoneyBet;
+                betInDb.PlayerId = betImpl.PlayerId;
+                betInDb.Guess = betImpl.Guess;
+            }
+            
             _context.SaveChanges();
-
 
             return RedirectToAction("Index", "Bet");
 
         }
-        public ViewResult Details()
+        public ActionResult Details(int id)
         {
-            var player = _context.Players.SingleOrDefault();
-            var betViewModel = new BetViewModels(player);
+            var bet = _context.Bets.SingleOrDefault(b=>b.PlayerId==id);
+            if (bet == null)
+            {
+                return HttpNotFound();
+            }
+            var betViewModel =  new BetFormViewModels
+            {
+                Bet = bet
+            };
 
-            betViewModel.Bet = _context.Bets.SingleOrDefault();
-            
-            return View(betViewModel);
+            return View("BetForm",bet);
         }
         
-        public ActionResult Edit(BetImpl bet)
+        public ActionResult Edit(int id)
         {
-            _context.Bets.Add(bet);
-            _context.SaveChanges();
-
+            var bet = _context.Bets.SingleOrDefault(b => b.PlayerId == id);
+            if (bet == null)
+            {
+                return HttpNotFound();
+            }
 
             return RedirectToAction("Index", "Bet");
         }

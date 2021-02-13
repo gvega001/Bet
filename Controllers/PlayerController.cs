@@ -41,7 +41,7 @@ namespace Bet.Controllers
         {
             if (!ModelState.IsValid)
             {
-                var viewModel = new PlayerViewModels()
+                var viewModel = new PlayerViewModels
                 {
                  Player   = player.Player
                 };
@@ -74,7 +74,7 @@ namespace Bet.Controllers
                 return HttpNotFound();
             }
             
-            return View(playerViewModel);
+            return View("PlayerForm",playerViewModel);
 
         }
         public ActionResult Edit(int id)

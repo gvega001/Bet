@@ -20,9 +20,9 @@ namespace Bet.Models.ViewModels
 
     }
 
-    public class NewBetViewModels
+    public class BetFormViewModels
     {
-        public NewBetViewModels()
+        public BetFormViewModels()
         {
             
         }

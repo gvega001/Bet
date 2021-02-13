@@ -1,4 +1,4 @@
-﻿@model Bet.Models.ViewModels.BetViewModels
+﻿@model Bet.Models.ViewModels.BetFormViewModels
 
 @{
     ViewBag.Title = "Details";
@@ -15,7 +15,7 @@
         <h4>BetViewModels</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.Bet.Id)
 
         <div class="form-group">
             @Html.LabelFor(model => model.Bet, htmlAttributes: new { @class = "control-label col-md-2" })
