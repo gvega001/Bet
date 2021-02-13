@@ -61,7 +61,7 @@ namespace Bet.Controllers
                 return HttpNotFound();
             }
 
-            RedirectToAction("Index", game);
+            return RedirectToAction("Index", game);
         }
     }
 }
