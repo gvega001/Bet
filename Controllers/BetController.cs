@@ -32,7 +32,20 @@ namespace Bet.Controllers
         {
             var player = _context.Players.SingleOrDefault(); 
             var groupView = new BetViewModels(player);
-            return View(groupView.Bet);
+            return View("BetForm", groupView.Bet);
+        }
+        [HttpPost]
+        public ActionResult Save(BetImpl bet)
+        {
+
+            var betId = bet.Id;
+
+            _context.Bets.Add(bet);
+            _context.SaveChanges();
+
+
+            return RedirectToAction("Index", "Bet");
+
         }
         public ViewResult Details()
         {
@@ -43,19 +56,7 @@ namespace Bet.Controllers
             
             return View(betViewModel);
         }
-      
-        [HttpPost]
-        public ActionResult Save(BetImpl bet)
-        {
-            var betId = bet.Id;
-
-            _context.Bets.Add(bet);
-            _context.SaveChanges();
-
-
-            return RedirectToAction("Index", "Bet");
-
-        }
+        
         public ActionResult Edit(BetImpl bet)
         {
             _context.Bets.Add(bet);
