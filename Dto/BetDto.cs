@@ -3,9 +3,9 @@ using System.Data.SqlTypes;
 
 namespace Bet.Models.DTO
 {
-    public class BetDTO
+    public class BetDto
     {
-   
+        public int Id { get; set; }
         [Required]
         public int PlayerId { get; set; }
         [Required]

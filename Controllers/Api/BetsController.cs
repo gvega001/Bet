@@ -20,13 +20,13 @@ namespace Bet.Controllers.Api
             _context = new ApplicationDbContext();
         }
         // GET /api/bets
-        public IEnumerable<BetDTO> GetBets()
+        public IEnumerable<BetDto> GetBets()
         {
-            return _context.Bets.ToList().Select(Mapper.Map<BetImpl,BetDTO>);
+            return _context.Bets.ToList().Select(Mapper.Map<BetImpl,BetDto>);
         }
 
         //GET /api/bets/1
-        public BetDTO GetBet(int id)
+        public BetDto GetBet(int id)
         {
             var bet = _context.Bets.SingleOrDefault(b => b.Id == id);
 
@@ -35,12 +35,12 @@ namespace Bet.Controllers.Api
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
 
-            return Mapper.Map<BetImpl,BetDTO>(bet);
+            return Mapper.Map<BetImpl,BetDto>(bet);
         }
 
         //POST /api/bets
         [System.Web.Mvc.HttpPost]
-        public BetDTO CreateBet(BetDTO betDto)
+        public BetDto CreateBet(BetDto betDto)
         {
             if (!ModelState.IsValid)
             {
@@ -48,18 +48,17 @@ namespace Bet.Controllers.Api
 
             }
 
-            var bet = Mapper.Map<BetDTO, BetImpl>(betDto);
+            var bet = Mapper.Map<BetDto, BetImpl>(betDto);
             _context.Bets.Add(bet);
             _context.SaveChanges();
-
-            betDto.PlayerId = bet.PlayerId;
-
+            
+            betDto.Id = bet.Id;
             return betDto;
         }
 
         // PUT /api/bets/1
         [System.Web.Http.HttpPut]
-        public void UpdateBet(int id, BetDTO betDto)
+        public void UpdateBet(int id, BetDto betDto)
         {
             if (!ModelState.IsValid)
             {

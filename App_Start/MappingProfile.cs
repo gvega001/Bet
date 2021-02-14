@@ -10,8 +10,8 @@ namespace Bet
         public MappingProfile()
         {
            
-            Mapper.CreateMap<BetImpl,BetDTO>();
-            Mapper.CreateMap<BetDTO, BetImpl>();
+            Mapper.CreateMap<BetImpl,BetDto>();
+            Mapper.CreateMap<BetDto, BetImpl>();
         }
 
     }
