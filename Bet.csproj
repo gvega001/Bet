@@ -181,6 +181,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Api\BetsController.cs" />
     <Compile Include="Controllers\BetController.cs" />
     <Compile Include="Controllers\ConsoleBetGameController.cs" />
     <Compile Include="Controllers\GroupController.cs" />
