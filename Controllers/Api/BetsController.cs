@@ -26,7 +26,7 @@ namespace Bet.Controllers.Api
         }
 
         //GET /api/bets/1
-        public BetImpl GetBet(int id)
+        public BetDTO GetBet(int id)
         {
             var bet = _context.Bets.SingleOrDefault(b => b.Id == id);
 
@@ -35,26 +35,31 @@ namespace Bet.Controllers.Api
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
 
-            return bet;
+            return Mapper.Map<BetImpl,BetDTO>(bet);
         }
 
         //POST /api/bets
         [System.Web.Mvc.HttpPost]
-        public BetImpl CreateBet(BetImpl bet)
+        public BetDTO CreateBet(BetDTO betDto)
         {
             if (!ModelState.IsValid)
             {
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
 
             }
+
+            var bet = Mapper.Map<BetDTO, BetImpl>(betDto);
             _context.Bets.Add(bet);
             _context.SaveChanges();
-            return bet;
+
+            betDto.PlayerId = bet.PlayerId;
+
+            return betDto;
         }
 
         // PUT /api/bets/1
         [System.Web.Http.HttpPut]
-        public void UpdatedBet(int id, BetImpl bet)
+        public void UpdateBet(int id, BetDTO betDto)
         {
             if (!ModelState.IsValid)
             {
@@ -66,10 +71,9 @@ namespace Bet.Controllers.Api
             {
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
-            betInDb.Group = bet.Group;
-            betInDb.PlayerId = bet.PlayerId;
-            betInDb.Guess = bet.Guess;
-            betInDb.MoneyBet = bet.MoneyBet;
+
+            Mapper.Map(betDto, betInDb);
+           
             _context.SaveChanges();
         }
 
