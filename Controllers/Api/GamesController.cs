@@ -1,5 +1,10 @@
-﻿using System.Web.Http;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Web.Http;
 using System.Web.Mvc;
+using AutoMapper;
+using Bet.DTO;
 using Bet.Models;
 
 namespace Bet.Controllers.Api
@@ -14,9 +19,74 @@ namespace Bet.Controllers.Api
         }
 
         // GET /api/games
-        public ActionResult Index()
+        public IEnumerable<GameDto> GetGames()
         {
-            return View();
+            return _context.Games.ToList().Select(Mapper.Map<GameImpl, GameDto>);
+        }
+        
+        //Get /api/games/1
+        public GameDto GetBet(int id)
+        {
+            var game = _context.Games.SingleOrDefault(g => g.Id == id);
+
+            if (game == null)
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+
+            return Mapper.Map<GameImpl, GameDto>(game);
+        }
+
+        //POST /api/bets
+        [System.Web.Mvc.HttpPost]
+        public GameDto CreateBet(GameDto gameDto)
+        {
+            if (Equals(!ModelState.IsValid))
+            {
+                throw new HttpResponseException(HttpStatusCode.BadRequest);
+            }
+
+            var game = Mapper.Map<GameDto, GameImpl>(gameDto);
+            _context.Games.Add(game);
+            _context.SaveChanges();
+
+            gameDto.Id = game.Id;
+            return gameDto;
+        }
+
+        //PUT /api/games/1
+        [System.Web.Http.HttpPut]
+        public void UpdateGame(int id, GameDto gameDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                throw new HttpResponseException(HttpStatusCode.BadRequest);
+            }
+
+            var gameInDb = _context.Games.SingleOrDefault(g => g.Id == id);
+            if (gameInDb == null)
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+
+            Mapper.Map(gameDto, gameInDb);
+
+            _context.SaveChanges();
+        }
+
+        //DELETE /api/games/1
+        [System.Web.Http.HttpDelete]
+        public void DeletGame(int id)
+        {
+            var gameInDb = _context.Games.SingleOrDefault(g => g.Id == id);
+            if (gameInDb == null)
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+
+            _context.Games.Remove(gameInDb);
+            _context.SaveChanges();
+
         }
     }
 }
