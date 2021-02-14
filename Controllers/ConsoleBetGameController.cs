@@ -69,7 +69,7 @@ namespace Bet.Controllers
             var console = _context.Games.SingleOrDefault(g => g.Id == id);
             var viewModel = new ConsoleBetGameViewModel();
             viewModel.Game = console;
-            return RedirectToAction("GameForm", console);
+            return View("GameForm", console);
         }
         public ActionResult Edit(int id)
         {
