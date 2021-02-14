@@ -5,7 +5,9 @@ using System.Net;
 using System.Web.Mvc;
 using System.Web.Http;
 using System.Web.Routing;
+using AutoMapper;
 using Bet.Models;
+using Bet.Models.DTO;
 
 namespace Bet.Controllers.Api
 {
@@ -18,9 +20,9 @@ namespace Bet.Controllers.Api
             _context = new ApplicationDbContext();
         }
         // GET /api/bets
-        public IEnumerable<BetImpl> GetBets()
+        public IEnumerable<BetDTO> GetBets()
         {
-            return _context.Bets.ToList();
+            return _context.Bets.ToList().Select(Mapper.Map<BetImpl,BetDTO>);
         }
 
         //GET /api/bets/1
