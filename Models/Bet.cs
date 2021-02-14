@@ -6,17 +6,10 @@ namespace Bet.Models
 {
     public interface Bet
     {
-        SqlMoney GetMoneyBet();
-        void SetMoneyBet(SqlMoney betMoney);
-        Group GetGroup();
-        void SetGroup(Group setGroup);
         double GetMaxNumber();
         void SetMaxNumber(double maxNumber);
         double GetSmallestNumber();
         void SetSmallestNumber(double minNumber);
-        bool IsBetConfirmed();
-        bool ConfirmBet(LinkedList<Player> atLeastTwoPlayers);
 
-        bool PaymentsConfirmed(LinkedList<Player> playersPaymentList);
     }
 }

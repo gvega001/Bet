@@ -5,38 +5,7 @@ namespace Bet.Models.ViewModels
 {
     public class ConsoleBetGameViewModel
     {
-        public ConsoleBetGameViewModel()
-        {
-
-        }
         public int Id { get; set; }
-        public int GroupId { get; set; }
-        public HashSet<string> Teams { get; set; }
-      
-        [StringLength(250)]
-        public string TeamName { get; set; }
-        public double TeamScore { get; set; }
-
-        public double PlayerGuess { get; set; }
-        [Range(0, 1.0)]
-        public double SmallestPossibleNumber { get; set; }
-        [Range(0, 100000.0)]
-        public double LargestPossibleNumber { get; set; }
-        [Required]
-        public LinkedList<BetImpl> Bets { get; set; }
-        [Required]
-        public GroupImpl Group { get; set; }
-
-        public bool GameConfirmed { get; set; }
-
-        public bool BetsConfirmed { get; set; }
-
-        public bool LockGame { get; set; }
-
-        public bool GameWon { get; set; }
-        public Player Player { get; set; }
-        public GameImpl Game { get; set; }
-        public BetImpl Bet { get; set; }
-       
+        public GameImpl GameImpl { get; set; }
     }
 }

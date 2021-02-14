@@ -7,11 +7,11 @@ namespace Bet.DTO
     public class BetDto
     {
         public int Id { get; set; }
-        [Required]
+
         public int PlayerId { get; set; }
-        [Required]
-        public Group Group { get; set; }
-        [Required]
+
+        public int? GroupId { get; set; }
+
         [Range(0, 1000)]
         [Display(Name = "Amount: ")]
         public SqlMoney? MoneyBet { get; set; }

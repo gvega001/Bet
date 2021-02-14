@@ -14,11 +14,11 @@ namespace Bet.Models
             
         }
         public int Id { get; set; }
-        [Required]
+  
         public int PlayerId { get; set; }
-        [Required]
+    
         public int? GroupId { get; set; }
-        [Required]
+    
         [Range(0,1000)]
         [Display(Name = "Amount: ")]
         public SqlMoney? MoneyBet { get; set; }

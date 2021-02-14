@@ -21,11 +21,8 @@ namespace Bet.Controllers
         public ActionResult Index()
         {
             var console = new ConsoleBetGameViewModel();
-            var game = new ConsoleBetGameViewModel().Game;
           
-            console.Game = _context.Games.Find(game);
-
-            return View(console);
+            return View(console.GameImpl);
         }
         public ActionResult New()
         {
@@ -68,7 +65,7 @@ namespace Bet.Controllers
         {
             var console = _context.Games.SingleOrDefault(g => g.Id == id);
             var viewModel = new ConsoleBetGameViewModel();
-            viewModel.Game = console;
+            viewModel.GameImpl = console;
             return View("GameForm", console);
         }
         public ActionResult Edit(int id)

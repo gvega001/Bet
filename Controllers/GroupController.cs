@@ -21,16 +21,14 @@ namespace Bet.Controllers
         public ActionResult Index()
         {
             var groupViewModel = new GroupViewModels();
-            groupViewModel.Player = _context.Players.SingleOrDefault();
             return View(groupViewModel);
         }
 
         public ActionResult New()
         {
             var group = new GroupImpl();
-            var groupView = new GroupViewModels();
-            groupView.Group = group;
-            return View("GroupForm",groupView.Group);
+          
+            return View("GroupForm",group);
         }
         [HttpPost]
         public ActionResult Save(GroupImpl gGroup)
@@ -47,7 +45,7 @@ namespace Bet.Controllers
         {
             var group = _context.Groups.SingleOrDefault(g => g.Id == id);
             var groupViewModel = new GroupViewModels();
-            groupViewModel.Group = group;
+            groupViewModel.GroupImpl = group;
             return View(groupViewModel);
         }
 
