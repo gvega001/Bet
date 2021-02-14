@@ -25,7 +25,7 @@ namespace Bet.Controllers.Api
         }
         
         //Get /api/games/1
-        public GameDto GetBet(int id)
+        public GameDto GetGame(int id)
         {
             var game = _context.Games.SingleOrDefault(g => g.Id == id);
 
@@ -37,9 +37,9 @@ namespace Bet.Controllers.Api
             return Mapper.Map<GameImpl, GameDto>(game);
         }
 
-        //POST /api/bets
+        //POST /api/games
         [System.Web.Mvc.HttpPost]
-        public GameDto CreateBet(GameDto gameDto)
+        public GameDto CreateGame(GameDto gameDto)
         {
             if (Equals(!ModelState.IsValid))
             {
@@ -76,7 +76,7 @@ namespace Bet.Controllers.Api
 
         //DELETE /api/games/1
         [System.Web.Http.HttpDelete]
-        public void DeletGame(int id)
+        public void DeleteGame(int id)
         {
             var gameInDb = _context.Games.SingleOrDefault(g => g.Id == id);
             if (gameInDb == null)
