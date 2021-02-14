@@ -401,6 +401,7 @@
     <Compile Include="Models\Bet.cs" />
     <Compile Include="Models\BetImpl.cs" />
     <Compile Include="Models\ConsoleBetGame.cs" />
+    <Compile Include="Models\DTO\BetDTO.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\GameImpl.cs" />
     <Compile Include="Models\Group.cs" />
