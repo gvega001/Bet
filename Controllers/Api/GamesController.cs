@@ -24,7 +24,7 @@ namespace Bet.Controllers.Api
             return _context.Games.ToList().Select(Mapper.Map<GameImpl, GameDto>);
         }
         
-        //Get /api/games/1
+        //GET /api/games/1
         public GameDto GetGame(int id)
         {
             var game = _context.Games.SingleOrDefault(g => g.Id == id);
