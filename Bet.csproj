@@ -187,6 +187,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\BetsController.cs" />
     <Compile Include="Controllers\Api\GamesController.cs" />
+    <Compile Include="Controllers\Api\GroupsController.cs" />
     <Compile Include="Controllers\BetController.cs" />
     <Compile Include="Controllers\ConsoleBetGameController.cs" />
     <Compile Include="Controllers\GroupController.cs" />
