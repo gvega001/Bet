@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Bet.Models;
-using Bet.Models.DTO;
 using System;
+using Bet.DTO;
 
 namespace Bet
 {
@@ -12,6 +12,8 @@ namespace Bet
            
             Mapper.CreateMap<BetImpl,BetDto>();
             Mapper.CreateMap<BetDto, BetImpl>();
+            Mapper.CreateMap<GameImpl, GameDto>();
+            Mapper.CreateMap<GameDto, GameImpl>();
         }
 
     }

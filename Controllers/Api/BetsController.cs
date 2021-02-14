@@ -6,8 +6,8 @@ using System.Web.Mvc;
 using System.Web.Http;
 using System.Web.Routing;
 using AutoMapper;
+using Bet.DTO;
 using Bet.Models;
-using Bet.Models.DTO;
 
 namespace Bet.Controllers.Api
 {

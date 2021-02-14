@@ -1,7 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Data.SqlTypes;
+using Bet.Models;
 
-namespace Bet.Models.DTO
+namespace Bet.DTO
 {
     public class BetDto
     {

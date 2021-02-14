@@ -8,7 +8,7 @@ namespace Bet.Controllers
 {
     public class BetController : Controller
     {
-        // GET
+      
         private ApplicationDbContext _context;
         public BetController()
         {
