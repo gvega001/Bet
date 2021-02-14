@@ -404,6 +404,10 @@
     <Compile Include="Migrations\202102132328583_UpdatedGAmeImplModelWithDateAndTime.Designer.cs">
       <DependentUpon>202102132328583_UpdatedGAmeImplModelWithDateAndTime.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102142335369_BetImplModeUpdated.cs" />
+    <Compile Include="Migrations\202102142335369_BetImplModeUpdated.Designer.cs">
+      <DependentUpon>202102142335369_BetImplModeUpdated.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bet.cs" />
@@ -670,6 +674,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102132328583_UpdatedGAmeImplModelWithDateAndTime.resx">
       <DependentUpon>202102132328583_UpdatedGAmeImplModelWithDateAndTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102142335369_BetImplModeUpdated.resx">
+      <DependentUpon>202102142335369_BetImplModeUpdated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

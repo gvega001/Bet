@@ -17,7 +17,7 @@ namespace Bet.Models
         [Required]
         public int PlayerId { get; set; }
         [Required]
-        public Group Group { get; set; }
+        public int? GroupId { get; set; }
         [Required]
         [Range(0,1000)]
         [Display(Name = "Amount: ")]
