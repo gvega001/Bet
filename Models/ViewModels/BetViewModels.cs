@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Data.SqlTypes;
+using Bet.DTO;
 
 namespace Bet.Models.ViewModels
 {
@@ -10,7 +11,6 @@ namespace Bet.Models.ViewModels
     {
    
         public int Id { get; set; }
-
 
     }
 

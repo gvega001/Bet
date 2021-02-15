@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
+using System.Web.Mvc;
 using AutoMapper;
 using Bet.DTO;
 using Bet.Models;
@@ -17,9 +18,11 @@ namespace Bet.Controllers.Api
         {
             _context = new ApplicationDbContext();
         }
+
         // GET /api/bets
         public IEnumerable<BetDto> GetBets()
         {
+
             return _context.Bets.ToList().Select(Mapper.Map<BetImpl,BetDto>);
         }
 
