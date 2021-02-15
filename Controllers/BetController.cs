@@ -19,20 +19,17 @@ namespace Bet.Controllers
         {
             _context.Dispose();
         }
-        public ViewResult Index()
+        public ViewResult Index(int id)
         {
+            var bet = _context.Bets.SingleOrDefault(b => b.Id == id);
 
-            var player = _context.Players.SingleOrDefault();
-            
-            var viewModel = new BetViewModels(player);
           
-            return View(viewModel);
+            return View(bet);
         }
         public ActionResult New(int id)
         {
-            var player = _context.Players.SingleOrDefault(p=>p.PlayerId ==id); 
-            var groupView = new BetViewModels(player);
-            var bet = groupView.Bet;
+           
+            var bet = _context.Bets.SingleOrDefault(b => b.Id == id);
             return View("BetForm", bet);
         }
         [HttpPost]

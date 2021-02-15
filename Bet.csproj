@@ -412,6 +412,10 @@
     <Compile Include="Migrations\202102142357098_BetImplModeUpdated2.Designer.cs">
       <DependentUpon>202102142357098_BetImplModeUpdated2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102150013523_BetImplModeUpdated3.cs" />
+    <Compile Include="Migrations\202102150013523_BetImplModeUpdated3.Designer.cs">
+      <DependentUpon>202102150013523_BetImplModeUpdated3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bet.cs" />
@@ -684,6 +688,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102142357098_BetImplModeUpdated2.resx">
       <DependentUpon>202102142357098_BetImplModeUpdated2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102150013523_BetImplModeUpdated3.resx">
+      <DependentUpon>202102150013523_BetImplModeUpdated3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -15,7 +15,7 @@ namespace Bet.Models
         }
         public int Id { get; set; }
   
-        public int PlayerId { get; set; }
+        public int? PlayerId { get; set; }
     
         public int? GroupId { get; set; }
     
@@ -27,7 +27,7 @@ namespace Bet.Models
         [Range(0,1)]
         public double? LowestPossibleNumber { get; set; }
 
-        public double Guess { get; set; }
+        public double? Guess { get; set; }
         public int? GameId { get; set; }
         //***===========   public fields *********=========
         private readonly Player _player;

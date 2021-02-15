@@ -8,24 +8,15 @@ namespace Bet.Models.ViewModels
     
     public class BetViewModels
     {
-        public BetViewModels(Player player)
-        {
-            
-        }
-        public Player Player { get; set; }
+   
         public int Id { get; set; }
-       public IEnumerable<BetImpl> Bets { get; set; }
-       public Game Game { get; set; }
-       public BetImpl Bet { get; set; }
+
 
     }
 
     public class BetFormViewModels
     {
-        public BetFormViewModels()
-        {
-            
-        }
+   
         public BetImpl Bet { get; set; }
         
     }
