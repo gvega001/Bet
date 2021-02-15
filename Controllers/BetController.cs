@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using Bet.DTO;
 using Bet.Models;
 using Bet.Models.ViewModels;
 
@@ -19,18 +20,21 @@ namespace Bet.Controllers
         {
             _context.Dispose();
         }
-        public ViewResult Index(int id)
+        public ActionResult Index(int id)
         {
-            var bet = _context.Bets.SingleOrDefault(b => b.Id == id);
 
-          
+            var bet = _context.Bets.SingleOrDefault(b => b.Id == id);
+            if (bet == null)
+            {
+                return HttpNotFound();
+            }
+             
             return View(bet);
         }
-        public ActionResult New(int id)
+        public ActionResult New()
         {
            
-            var bet = _context.Bets.SingleOrDefault(b => b.Id == id);
-            return View("BetForm", bet);
+            return View("BetForm");
         }
         [HttpPost]
         public ActionResult Save(BetImpl betImpl)
@@ -48,11 +52,7 @@ namespace Bet.Controllers
             else
             {
                 var betInDb = _context.Bets.Single(b => b.Id == betImpl.Id);
-       
-                betInDb.LowestPossibleNumber = betImpl.LowestPossibleNumber;
-                betInDb.MaxPossibleNumber = betImpl.MaxPossibleNumber;
-                betInDb.MoneyBet = betImpl.MoneyBet;
-                betInDb.PlayerId = betImpl.PlayerId;
+
                 betInDb.Guess = betImpl.Guess;
             }
             
@@ -63,22 +63,18 @@ namespace Bet.Controllers
         }
         public ActionResult Details(int id)
         {
-            var bet = _context.Bets.SingleOrDefault(b=>b.PlayerId==id);
+            var bet = _context.Bets.SingleOrDefault(b=>b.Id==id);
             if (bet == null)
             {
                 return HttpNotFound();
             }
-            var betViewModel =  new BetFormViewModels
-            {
-                Bet = bet
-            };
 
             return View("BetForm",bet);
         }
         
         public ActionResult Edit(int id)
         {
-            var bet = _context.Bets.SingleOrDefault(b => b.PlayerId == id);
+            var bet = _context.Bets.SingleOrDefault(b => b.Id == id);
             if (bet == null)
             {
                 return HttpNotFound();

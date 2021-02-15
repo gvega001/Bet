@@ -1,5 +1,5 @@
 ﻿@using Microsoft.Ajax.Utilities
-@model Bet.Models.ViewModels.GroupViewModels
+@model Bet.Models.GroupImpl
 
 @{
     ViewBag.Title = "Details";
@@ -12,13 +12,6 @@
     <h4>GroupViewModels</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Bet.Id)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Bet.Id)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.GroupName)
@@ -36,21 +29,7 @@
             @Html.DisplayFor(model => model.JoinCode)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.GameIsConfirmed)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.GameIsConfirmed)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BetsAreConfirmed)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BetsAreConfirmed)
-        </dd>
+       
 
     </dl>
 </div>
