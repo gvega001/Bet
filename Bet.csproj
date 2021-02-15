@@ -516,12 +516,13 @@
     <Content Include="Views\ConsoleBetGame\Index.cshtml" />
     <Content Include="Views\ConsoleBetGame\Details.cshtml" />
     <Content Include="Views\ConsoleBetGame\GameForm.cshtml" />
+    <Content Include="Views\Bet\BetForm.cshtml" />
     <Content Include="Views\Bet\Details.cshtml" />
     <Content Include="Views\Bet\Index.cshtml" />
-    <Content Include="Views\Bet\BetForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Bets\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

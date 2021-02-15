@@ -33,7 +33,6 @@ namespace Bet.Controllers
 
         public ActionResult New()
         {
-            
             var viewModel = new PlayerViewModels();
             return View("PlayerForm", viewModel);
         }
