@@ -517,7 +517,6 @@
     <Content Include="Views\ConsoleBetGame\Details.cshtml" />
     <Content Include="Views\ConsoleBetGame\GameForm.cshtml" />
     <Content Include="Views\Bet\BetForm.cshtml" />
-    <Content Include="Views\Bet\Details.cshtml" />
     <Content Include="Views\Bet\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
