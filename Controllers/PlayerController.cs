@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Web.Http;
 using System.Web.Mvc;
 using Bet.Migrations;
 using Bet.Models;
@@ -23,11 +24,11 @@ namespace Bet.Controllers
             _context.Dispose();
         }
 
-        public ViewResult Index()
+        public ViewResult Index(int id)
         {
-            
-            PlayerViewModels viewModels = new PlayerViewModels();
-            return View(viewModels);
+
+            var player = _context.PlayerViewModels.SingleOrDefault(p => p.Id == id);
+            return View(player);
         }
 
         public ActionResult New()
@@ -36,7 +37,7 @@ namespace Bet.Controllers
             var viewModel = new PlayerViewModels();
             return View("PlayerForm", viewModel);
         }
-        [HttpPost]
+        [System.Web.Mvc.HttpPost]
         public ActionResult Save(PlayerViewModels player)
         {
             if (!ModelState.IsValid)

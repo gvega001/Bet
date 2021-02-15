@@ -50,31 +50,5 @@
     <h3>@Html.DisplayFor(model => model.FirstName) Bets!</h3>
 
 
-
-    @try
-{
-    @(@Model.Player.Bets ==null)
-    {
-    <p>No bets yet!</p>
-    }
-    <ul>
-
-        }
-        @foreach (var bets in Model.Player.Bets)
-        {
-
-        <li>Bets: @bets.Guess</li>
-
-        }
-
-    </ul>
-}
-catch (NullReferenceException e)
-{
-    Console.WriteLine(e);
-    <p>No bets yet!</p>
-}
-
-
 </div>
 
