@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
@@ -39,11 +40,11 @@ namespace Bet.Controllers.Api
 
         //POST api/games
         [System.Web.Mvc.HttpPost]
-        public GroupDto CreateGroup(GroupDto groupDto)
+        public IHttpActionResult CreateGroup(GroupDto groupDto)
         {
             if (!ModelState.IsValid)
             {
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
             }
 
             var group = Mapper.Map<GroupDto, GroupImpl>(groupDto);
@@ -51,7 +52,7 @@ namespace Bet.Controllers.Api
             _context.SaveChanges();
 
             groupDto.Id = group.Id;
-            return groupDto;
+            return Created(new Uri(Request.RequestUri+ "/"+ group.Id), groupDto);
         }
 
         //DELETE /api/groups/1
