@@ -38,5 +38,6 @@ namespace Bet.Models
 
         public System.Data.Entity.DbSet<ViewModels.PlayerViewModels> PlayerViewModels { get; set; }
 
+        public System.Data.Entity.DbSet<Bet.DTO.GroupDto> GroupDtoes { get; set; }
     }
 }
