@@ -26,16 +26,16 @@ namespace Bet.Controllers.Api
         }
 
         //GET /api/games/1
-        public GroupDto GetGroup(int id)
+        public IHttpActionResult GetGroup(int id)
         {
             var group = _context.Groups.SingleOrDefault(g => g.Id == id);
 
             if (group == null)
             {
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return BadRequest();
             }
 
-            return Mapper.Map<GroupImpl, GroupDto>(group);
+            return Ok(Mapper.Map<GroupImpl, GroupDto>(group));
         }
 
         //POST api/games
@@ -53,6 +53,26 @@ namespace Bet.Controllers.Api
 
             groupDto.Id = group.Id;
             return Created(new Uri(Request.RequestUri+ "/"+ group.Id), groupDto);
+        }
+       
+        //PUT /api/groups/1
+        [System.Web.Http.HttpPut]
+        public void UpdateGroup(int id, GroupDto groupDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                throw new HttpResponseException(HttpStatusCode.BadRequest);
+            }
+
+            var groupInDb = _context.Groups.SingleOrDefault(g => g.Id == id);
+            if (groupDto == null)
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+
+            Mapper.Map(groupDto, groupDto);
+
+            _context.SaveChanges();
         }
 
         //DELETE /api/groups/1

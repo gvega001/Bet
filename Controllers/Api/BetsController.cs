@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
@@ -23,26 +24,25 @@ namespace Bet.Controllers.Api
         }
 
         //GET /api/bets/1
-        public BetDto GetBet(int id)
+        public IHttpActionResult GetBet(int id)
         {
             var bet = _context.Bets.SingleOrDefault(b => b.Id == id);
 
             if(bet == null)
             {
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return BadRequest();
             }
 
-            return Mapper.Map<BetImpl,BetDto>(bet);
+            return Ok(Mapper.Map<BetImpl, BetDto>(bet));
         }
 
         //POST /api/bets
         [System.Web.Mvc.HttpPost]
-        public BetDto CreateBet(BetDto betDto)
+        public IHttpActionResult CreateBet(BetDto betDto)
         {
             if (!ModelState.IsValid)
             {
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
-
+                return BadRequest();
             }
 
             var bet = Mapper.Map<BetDto, BetImpl>(betDto);
@@ -50,7 +50,7 @@ namespace Bet.Controllers.Api
             _context.SaveChanges();
             
             betDto.Id = bet.Id;
-            return betDto;
+            return Created(new Uri(Request.RequestUri + "/" + bet.Id), betDto);
         }
 
         // PUT /api/bets/1

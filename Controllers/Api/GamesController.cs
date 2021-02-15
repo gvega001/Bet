@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
@@ -25,25 +26,25 @@ namespace Bet.Controllers.Api
         }
         
         //GET /api/games/1
-        public GameDto GetGame(int id)
+        public IHttpActionResult GetGame(int id)
         {
             var game = _context.Games.SingleOrDefault(g => g.Id == id);
 
             if (game == null)
             {
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return BadRequest();
             }
 
-            return Mapper.Map<GameImpl, GameDto>(game);
+            return Ok(Mapper.Map<GameImpl, GameDto>(game));
         }
 
         //POST /api/games
         [System.Web.Mvc.HttpPost]
-        public GameDto CreateGame(GameDto gameDto)
+        public IHttpActionResult CreateGame(GameDto gameDto)
         {
             if (Equals(!ModelState.IsValid))
             {
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
             }
 
             var game = Mapper.Map<GameDto, GameImpl>(gameDto);
@@ -51,7 +52,7 @@ namespace Bet.Controllers.Api
             _context.SaveChanges();
 
             gameDto.Id = game.Id;
-            return gameDto;
+            return Created(new Uri(Request.RequestUri + "/" + game.Id),gameDto);
         }
 
         //PUT /api/games/1
