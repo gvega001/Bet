@@ -511,13 +511,14 @@
     <Content Include="Views\Player\Index.cshtml" />
     <Content Include="Views\Player\Details.cshtml" />
     <Content Include="Views\Player\PlayerForm.cshtml" />
-    <Content Include="Views\Bet\BetForm.cshtml" />
     <Content Include="Views\Group\Details.cshtml" />
     <Content Include="Views\Group\GroupForm.cshtml" />
     <Content Include="Views\ConsoleBetGame\Index.cshtml" />
     <Content Include="Views\ConsoleBetGame\Details.cshtml" />
     <Content Include="Views\ConsoleBetGame\GameForm.cshtml" />
     <Content Include="Views\Bet\Details.cshtml" />
+    <Content Include="Views\Bet\Index.cshtml" />
+    <Content Include="Views\Bet\BetForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
