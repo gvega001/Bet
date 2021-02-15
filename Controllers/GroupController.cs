@@ -16,10 +16,6 @@ namespace Bet.Controllers
             _context = new ApplicationDbContext();
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            _context.Dispose();
-        }
         public ActionResult Index()
         {
             var console = _context.Groups.ToList().Select(Mapper.Map<GroupImpl, GroupDto>);

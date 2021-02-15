@@ -19,11 +19,6 @@ namespace Bet.Controllers
             _context = new ApplicationDbContext();
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            _context.Dispose();
-        }
-
         public ViewResult Index(int id)
         {
 
@@ -36,57 +31,6 @@ namespace Bet.Controllers
             var viewModel = new PlayerViewModels();
             return View("PlayerForm", viewModel);
         }
-        [System.Web.Mvc.HttpPost]
-        public ActionResult Save(PlayerViewModels player)
-        {
-            if (!ModelState.IsValid)
-            {
-                var viewModel = new PlayerViewModels
-                {
-                 Player   = player.Player
-                };
-                return View("PlayerForm",viewModel);
-            }
-            if (player.Id == 0)
-            {
-                _context.PlayerViewModels.Add(player);
-            }
-            else
-            {
-                var playerInDb = _context.PlayerViewModels.Single(p=>p.Id ==player.Id);
-                playerInDb.FirstName = player.FirstName;
-                playerInDb.LastName = player.LastName;
-                player.DateOfBirth = player.DateOfBirth;
-                playerInDb.IsSubscribed = player.IsSubscribed;
-                
-            }
-
-            _context.SaveChanges();
-            return RedirectToAction("Index", "Player");
-        }
-        public ActionResult Details(int id)
-        {
-            var playerViewModel = _context.PlayerViewModels.SingleOrDefault(p => p.Id == id);
-            
-            if (playerViewModel == null)
-            {
-                return HttpNotFound();
-            }
-
-            
-            return View("PlayerForm",playerViewModel);
-
-        }
-        public ActionResult Edit(int id)
-        {
-            var playerViewModel = _context.PlayerViewModels.SingleOrDefault(p => p.Id == id);
-
-            if (playerViewModel == null)
-            {
-                return HttpNotFound();
-            }
-
-            return RedirectToAction("Index", playerViewModel);
-        }
+       
     }
 }
