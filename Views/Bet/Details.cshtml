@@ -1,5 +1,4 @@
-﻿@using Microsoft.Ajax.Utilities
-@model Bet.Models.ViewModels.BetFormViewModels
+﻿@model Bet.DTO.BetDto
 
 @{
     ViewBag.Title = "Details";
@@ -8,48 +7,61 @@
 
 <h2>Details</h2>
 
-@using (Html.BeginForm("Details", "Bet"))
-{
-@Html.AntiForgeryToken()
-
-<div class="form-horizontal">
-    <h4>BetViewModels</h4>
+<div>
+    <h4>BetDto</h4>
     <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @Html.HiddenFor(model => model.Bet.Id)
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PlayerId)
+        </dt>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Bet, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Bet, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Bet, "", new { @class = "text-danger" })
-        </div>
-    </div>
+        <dd>
+            @Html.DisplayFor(model => model.PlayerId)
+        </dd>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Bet.Group, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Bet.Group, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Bet.Group, "", new { @class = "text-danger" })
-        </div>
-    </div>
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupId)
+        </dt>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Bet.Group, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Bet.Group, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Bet.Group, "", new { @class = "text-danger" })
-        </div>
-    </div>
+        <dd>
+            @Html.DisplayFor(model => model.GroupId)
+        </dd>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Bet.Game, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Bet.Game, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Bet.Game, "", new { @class = "text-danger" })
-        </div>
-    </div>
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxPossibleNumber)
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.MaxPossibleNumber)
+        </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.LowestPossibleNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LowestPossibleNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Guess)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Guess)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GameId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameId)
+        </dd>
+
+    </dl>
 </div>
-}
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

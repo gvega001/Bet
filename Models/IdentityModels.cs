@@ -38,10 +38,6 @@ namespace Bet.Models
 
         public System.Data.Entity.DbSet<ViewModels.PlayerViewModels> PlayerViewModels { get; set; }
 
-        public System.Data.Entity.DbSet<ViewModels.BetViewModels> BetViewModels { get; set; }
-
-        public System.Data.Entity.DbSet<ViewModels.GroupViewModels> GroupViewModels { get; set; }
-
-        public System.Data.Entity.DbSet<ViewModels.ConsoleBetGameViewModel> ConsoleBetGameViewModels { get; set; }
+      
     }
 }

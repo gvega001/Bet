@@ -416,6 +416,14 @@
     <Compile Include="Migrations\202102150013523_BetImplModeUpdated3.Designer.cs">
       <DependentUpon>202102150013523_BetImplModeUpdated3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102150506047_BetImpFormsUpdate.cs" />
+    <Compile Include="Migrations\202102150506047_BetImpFormsUpdate.Designer.cs">
+      <DependentUpon>202102150506047_BetImpFormsUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102150517076_BetImpFormsUpdate1.cs" />
+    <Compile Include="Migrations\202102150517076_BetImpFormsUpdate1.Designer.cs">
+      <DependentUpon>202102150517076_BetImpFormsUpdate1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bet.cs" />
@@ -503,15 +511,13 @@
     <Content Include="Views\Player\Index.cshtml" />
     <Content Include="Views\Player\Details.cshtml" />
     <Content Include="Views\Player\PlayerForm.cshtml" />
-    <Content Include="Views\Bet\Index.cshtml" />
-    <Content Include="Views\Bet\Details.cshtml" />
     <Content Include="Views\Bet\BetForm.cshtml" />
-    <Content Include="Views\Group\Index.cshtml" />
     <Content Include="Views\Group\Details.cshtml" />
     <Content Include="Views\Group\GroupForm.cshtml" />
     <Content Include="Views\ConsoleBetGame\Index.cshtml" />
     <Content Include="Views\ConsoleBetGame\Details.cshtml" />
     <Content Include="Views\ConsoleBetGame\GameForm.cshtml" />
+    <Content Include="Views\Bet\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -691,6 +697,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102150013523_BetImplModeUpdated3.resx">
       <DependentUpon>202102150013523_BetImplModeUpdated3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102150506047_BetImpFormsUpdate.resx">
+      <DependentUpon>202102150506047_BetImpFormsUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102150517076_BetImpFormsUpdate1.resx">
+      <DependentUpon>202102150517076_BetImpFormsUpdate1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
