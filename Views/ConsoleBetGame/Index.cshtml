@@ -10,7 +10,7 @@
 <p>
     @Html.ActionLink("Games", "Index")
 </p>
-<table class="table">
+<table id="games" class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.EventName)
@@ -42,11 +42,11 @@
         <th>
             @Html.DisplayNameFor(model => model.LargestPossibleNumber)
         </th>
-       
-      
+
+
     </tr>
 
-@foreach (var item in Model) {
+    @foreach (var item in Model) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.EventName)
@@ -78,11 +78,25 @@
         <td>
             @Html.DisplayFor(modelItem => item.LargestPossibleNumber)
         </td>
+        <td>
+            <button class="btn-link .js-delete">Delete</button>
+        </td>
        
         <td>
-           
         </td>
     </tr>
 }
 
 </table>
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+
+            $("#games .js-delete").on("click",
+                function() {
+                    confirm("Are you sure you want to delete this bet");
+                });
+        });
+    </script>
+}

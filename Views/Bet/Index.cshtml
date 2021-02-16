@@ -10,11 +10,9 @@
 <p>
     @Html.ActionLink("Bets List", "Index")
 </p>
-<table class="table">
+<table id="bets" class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.PlayerId)
-        </th>
+        
         <th>
             @Html.DisplayNameFor(model => model.GroupId)
         </th>
@@ -36,9 +34,6 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.PlayerId)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.GroupId)
         </td>
         <td>
@@ -53,8 +48,24 @@
         <td>
             @Html.DisplayFor(modelItem => item.GameId)
         </td>
-   
+        
+        <td>
+            <button class="btn-link js-delete">Delete</button>
+        </td>
+        
     </tr>
 }
 
 </table>
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+           
+            $("#bets .js-delete").on("click",
+                function() {
+                    confirm("Are you sure you want to delete this bet");
+                });
+        });
+    </script>
+}
