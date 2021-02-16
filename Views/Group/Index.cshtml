@@ -8,11 +8,13 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "New")
+    @Html.ActionLink("Groups", "Index")
 </p>
 <table id="groups" class="table">
     <tr>
-
+        <th>
+            @Html.DisplayNameFor(model => model.BetId)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.GroupName)
         </th>
@@ -28,40 +30,44 @@
         <th></th>
     </tr>
 
+    @foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BetId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GroupName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlayerId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JoinCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GameId)
+        </td>
+        <td>
+        </td>
+        <td>
+            <button data-group-id="@item.Id" class="btn-link js-delete">Delete</button>
+        </td>
+    </tr>
+
+}
+
 </table>
 @section scripts
 {
     <script>
+       
+        $(document).ready(function () {
+           
+            $("#groups").on("click", ".js-delete", function () {
 
-    $(document).ready(function() {
-        $("#groups").dataTable({
-            ajax: {
-                url: "/api/groups",
-                dataSrc: ""
-            },
-            columns: [
-                {
-                    data: "name",
-                    render: function (data, type, group) {
-                        return "<a href= /group/index/" + data.id + "'>" + data.GroupName + "</a>";
-                    }
-                },
-                {
-                    data: "id",
-                    render: function(data) {
-                        return "<button class = 'btn-link js-delete' data-group-id=" + data + ">Delete</button>";
-                    }
-                }
-            ]
+                var button = $(this);
 
-        });
-
-        $("#groups").on("click", ".js-delete", function() {
-
-            var button = $(this);
-
-            bootbox.confirm("Are you sure you want to delete this groups?",
-                function(result) {
+                bootbox.confirm("Are you sure you want to delete this groups?", function(result) {
                     if (result) {
                         $.ajax({
                             url: "/api/groups/" + button.attr("data-group-id"),
@@ -72,5 +78,7 @@
                         });
                     }
                 });
+            });
+        });
     </script>
 }
