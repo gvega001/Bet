@@ -60,7 +60,8 @@
 @section scripts
 {
     <script>
-    $(document).ready(function() {
+        $(document).ready(function () {
+            $("#bets").DataTable();
 
         $("#bets").on("click",".js-delete", function() {
             var button = $(this);
