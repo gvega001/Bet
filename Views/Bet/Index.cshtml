@@ -62,7 +62,7 @@
     <script>
     $(document).ready(function() {
 
-        $("#bets .js-delete").on("click", function() {
+        $("#bets").on("click",".js-delete", function() {
             var button = $(this);
 
                 bootbox.confirm("Are you sure you want to delete this bet?", function(result) {
