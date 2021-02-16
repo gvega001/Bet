@@ -27,7 +27,7 @@ namespace Bet.Controllers.Api
                 return BadRequest();
             }
 
-            return Ok(Mapper.Map<BetImpl, BetDto>(bet)); ;
+            return Ok(Mapper.Map<BetImpl, BetDto>(bet)); 
         }
 
         //GET /api/bets/1

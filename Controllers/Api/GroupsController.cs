@@ -20,9 +20,16 @@ namespace Bet.Controllers.Api
         }
 
         // GET /api/groups
-        public IEnumerable<GroupDto> GetGroups()
+        public IHttpActionResult GetGroups(int playerId, int groupId)
         {
-            return _context.Groups.ToList().Select(Mapper.Map<GroupImpl, GroupDto>);
+            var groups = _context.Groups.SingleOrDefault(g => g.PlayerId == playerId&& g.Id ==groupId);
+
+            if (groups == null)
+            {
+                return BadRequest();
+            }
+
+            return Ok(Mapper.Map<GroupImpl, GroupDto>(groups));
         }
 
         //GET /api/games/1
@@ -39,7 +46,7 @@ namespace Bet.Controllers.Api
         }
 
         //POST api/games
-        [System.Web.Mvc.HttpPost]
+        [HttpPost]
         public IHttpActionResult CreateGroup(GroupDto groupDto)
         {
             if (!ModelState.IsValid)
@@ -56,8 +63,8 @@ namespace Bet.Controllers.Api
         }
        
         //PUT /api/groups/1
-        [System.Web.Http.HttpPut]
-        public void UpdateGroup(int id, GroupDto groupDto)
+        [HttpPut]
+        public IHttpActionResult UpdateGroup(int id, GroupDto groupDto)
         {
             if (!ModelState.IsValid)
             {
@@ -72,12 +79,13 @@ namespace Bet.Controllers.Api
 
             Mapper.Map(groupDto, groupDto);
 
-            _context.SaveChanges();
+            return Ok(_context.SaveChanges());
+
         }
 
         //DELETE /api/groups/1
-        [System.Web.Http.HttpDelete]
-        public void DeleteGroup(int id)
+        [HttpDelete]
+        public IHttpActionResult DeleteGroup(int id)
         {
             var groupInDb = _context.Groups.SingleOrDefault(g => g.Id == id);
             if (groupInDb == null)
@@ -86,7 +94,8 @@ namespace Bet.Controllers.Api
             }
 
             _context.Groups.Remove(groupInDb);
-            _context.SaveChanges();
+            return Ok(_context.SaveChanges());
+
         }
     }
 }
