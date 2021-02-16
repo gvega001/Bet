@@ -3,18 +3,20 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web.Http;
 using System.Web.Mvc;
+using AutoMapper;
+using Bet.DTO;
 using Bet.Migrations;
 using Bet.Models;
 using Bet.Models.ViewModels;
 
 namespace Bet.Controllers
 {
-    public class PlayerController : Controller
+    public class PlayersController : Controller
     {
 
         // GET Player/
         private ApplicationDbContext _context;
-        public PlayerController()
+        public PlayersController()
         {
             _context = new ApplicationDbContext();
         }
@@ -22,13 +24,13 @@ namespace Bet.Controllers
         public ViewResult Index(int id)
         {
 
-            var player = _context.PlayerViewModels.SingleOrDefault(p => p.Id == id);
+            var player = _context.PlayerViewModels.SingleOrDefault(c => c.Id == id);
             return View(player);
         }
 
         public ActionResult New()
         {
-            var viewModel = new PlayerViewModels();
+            var viewModel = new PlayerDto();
             return View("PlayerForm", viewModel);
         }
        
