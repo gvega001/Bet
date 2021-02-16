@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
-using System.Web.ModelBinding;
+using System.Web.Mvc;
 using AutoMapper;
 using Bet.DTO;
 using Bet.Models;
@@ -20,20 +20,12 @@ namespace Bet.Controllers.Api
         }
 
         // GET /api/groups
-
-        public IHttpActionResult GetGroups()
+        public IEnumerable<GroupDto> GetGroups()
         {
-            LinkedList<GroupDto> groupDtos =new LinkedList<GroupDto>();
-            var groups = _context.Groups.ToList();
-            foreach (var eachGroupImpl in groups)
-            {
-                var addGroupDto = Mapper.Map<GroupImpl, GroupDto>(eachGroupImpl);
-                groupDtos.AddLast(addGroupDto);
-            }
-            return Ok (groupDtos) ; 
+            return _context.Groups.ToList().Select(Mapper.Map<GroupImpl, GroupDto>);
         }
 
-        //GET /api/groups/1
+        //GET /api/games/1
         public IHttpActionResult GetGroup(int id)
         {
             var group = _context.Groups.SingleOrDefault(g => g.Id == id);
@@ -46,8 +38,8 @@ namespace Bet.Controllers.Api
             return Ok(Mapper.Map<GroupImpl, GroupDto>(group));
         }
 
-        //POST api/groups
-        [HttpPost]
+        //POST api/games
+        [System.Web.Mvc.HttpPost]
         public IHttpActionResult CreateGroup(GroupDto groupDto)
         {
             if (!ModelState.IsValid)
@@ -64,8 +56,8 @@ namespace Bet.Controllers.Api
         }
        
         //PUT /api/groups/1
-        [HttpPut]
-        public IHttpActionResult UpdateGroup(int id, GroupDto groupDto)
+        [System.Web.Http.HttpPut]
+        public void UpdateGroup(int id, GroupDto groupDto)
         {
             if (!ModelState.IsValid)
             {
@@ -80,13 +72,12 @@ namespace Bet.Controllers.Api
 
             Mapper.Map(groupDto, groupDto);
 
-            return Ok(_context.SaveChanges());
-
+            _context.SaveChanges();
         }
 
         //DELETE /api/groups/1
-        [HttpDelete]
-        public IHttpActionResult DeleteGroup(int id)
+        [System.Web.Http.HttpDelete]
+        public void DeleteGroup(int id)
         {
             var groupInDb = _context.Groups.SingleOrDefault(g => g.Id == id);
             if (groupInDb == null)
@@ -95,8 +86,7 @@ namespace Bet.Controllers.Api
             }
 
             _context.Groups.Remove(groupInDb);
-            return Ok(_context.SaveChanges());
-
+            _context.SaveChanges();
         }
     }
 }
