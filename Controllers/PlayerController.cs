@@ -11,12 +11,12 @@ using Bet.Models.ViewModels;
 
 namespace Bet.Controllers
 {
-    public class PlayersController : Controller
+    public class PlayerController : Controller
     {
 
         // GET Player/
         private ApplicationDbContext _context;
-        public PlayersController()
+        public PlayerController()
         {
             _context = new ApplicationDbContext();
         }

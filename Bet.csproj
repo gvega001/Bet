@@ -518,6 +518,7 @@
     <Content Include="Views\Bet\Index.cshtml" />
     <Content Include="Views\Group\Index.cshtml" />
     <Content Include="Views\ConsoleBetGame\Index.cshtml" />
+    <Content Include="Views\Player\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
