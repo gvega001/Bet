@@ -11,10 +11,10 @@ namespace Bet
             bundles.Add(new ScriptBundle("~/bundles/lib").Include(
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/bootstrap.js",
-                        "~/scripts/bootbox.js",
+                        "~/scripts/BootBox.js",
                         "~/Scripts/respond.js",
-                        "~/scripts/datatables/jquery.datatables.js",
-                        "~/scripts/datatables/datatables.bootstrap.js"
+                        "~/scripts/DataTables/jquery.DataTables.js",
+                        "~/scripts/DataTables/DataTables.bootstrap.js"
                         ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -28,7 +28,7 @@ namespace Bet
           
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/content/datatables/css/datatables.bootstrap.css",
+                      "~/content/DataTables/css/DataTables.bootstrap.css",
                       "~/Content/site.css"));
         }
     }
