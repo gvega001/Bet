@@ -91,18 +91,23 @@
 @section scripts
 {
     <script>
-        $(document).ready(function () {
+    $(document).ready(function() {
 
-            $("#games .js-delete").on("click", function () {
+        $("#games .js-delete").on("click", function() {
                 var button = $(this);
-                    confirm("Are you sure you want to delete this bet");
-                    $.ajax({
-                        url: "/api/games/" + button.attr("data-group-id"),
-                        method: "DELETE",
-                        success: function() {
-                            button.parents("tr").remove();
-                        }
+
+                bootbox.confirm("Are you sure you want to delete this game?", function(result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/api/games/" + button.attr("data-group-id"),
+                            method: "DELETE",
+                            success: function() {
+                                button.parents("tr").remove();
+                            }
+                        });
+                    }
                 });
-        });
-    </script>
-}
+            });
+    });
+        </script>
+    }
