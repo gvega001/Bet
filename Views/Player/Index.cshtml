@@ -8,15 +8,17 @@
 <h2>Index</h2>
 
 <div>
-    <h4>Player</h4>
+    <h4>Hello @Html.DisplayFor(model => model.FirstName) !</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.FirstName)
+
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.FirstName)
+
         </dd>
 
         <dt>
@@ -29,6 +31,7 @@
 
         <dt>
             @Html.DisplayNameFor(model => model.MembershipType)
+
         </dt>
 
         <dd>
@@ -43,23 +46,9 @@
             @Html.DisplayFor(model => model.DateOfBirth)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IsSubscribed)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IsSubscribed)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MembershipId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MembershipId)
-        </dd>
-        
     </dl>
-</div>
+    <h3>@Html.DisplayFor(model => model.FirstName) Bets!</h3>
 
+
+</div>
 

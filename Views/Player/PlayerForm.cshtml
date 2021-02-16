@@ -1,5 +1,5 @@
 ﻿@using Microsoft.Ajax.Utilities
-@model Bet.DTO.PlayerDto
+@model Bet.Models.ViewModels.PlayerViewModels
 
 @{
     ViewBag.Title = "Save";
@@ -8,7 +8,7 @@
 
 <h2>Message</h2>
 
-@using (Html.BeginForm("New","Player"))
+@using (Html.BeginForm("Save","Player"))
 {
 @Html.AntiForgeryToken()
 
@@ -74,3 +74,6 @@
 </div>
 }
 
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
