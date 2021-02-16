@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
-using System.Web.Mvc;
 using AutoMapper;
 using Bet.DTO;
 using Bet.Models;
@@ -18,12 +16,18 @@ namespace Bet.Controllers.Api
         {
             _context = new ApplicationDbContext();
         }
-
+        // get player bets
         // GET /api/bets
-        public IEnumerable<BetDto> GetBets()
+        public IHttpActionResult GetBets(int id)
         {
+            var bet = _context.Bets.SingleOrDefault(b => b.PlayerId == id);
 
-            return _context.Bets.ToList().Select(Mapper.Map<BetImpl,BetDto>);
+            if (bet == null)
+            {
+                return BadRequest();
+            }
+
+            return Ok(Mapper.Map<BetImpl, BetDto>(bet)); ;
         }
 
         //GET /api/bets/1
@@ -40,7 +44,7 @@ namespace Bet.Controllers.Api
         }
 
         //POST /api/bets
-        [System.Web.Mvc.HttpPost]
+        [HttpPost]
         public IHttpActionResult CreateBet(BetDto betDto)
         {
             if (!ModelState.IsValid)
@@ -57,8 +61,8 @@ namespace Bet.Controllers.Api
         }
 
         // PUT /api/bets/1
-        [System.Web.Http.HttpPut]
-        public void UpdateBet(int id, BetDto betDto)
+        [HttpPut]
+        public IHttpActionResult UpdateBet(int id, BetDto betDto)
         {
             if (!ModelState.IsValid)
             {
@@ -72,13 +76,12 @@ namespace Bet.Controllers.Api
             }
 
             Mapper.Map(betDto, betInDb);
-           
-            _context.SaveChanges();
+           return Ok(_context.SaveChanges());
         }
 
         // DELETE /api/bets/1
-        [System.Web.Http.HttpDelete]
-        public void DeleteBet(int id)
+        [HttpDelete]
+        public IHttpActionResult DeleteBet(int id)
         {
             var betInDb = _context.Bets.SingleOrDefault(c => c.Id == id);
             if (betInDb == null)
@@ -87,7 +90,7 @@ namespace Bet.Controllers.Api
             }
 
             _context.Bets.Remove(betInDb);
-            _context.SaveChanges();
+            return Ok(_context.SaveChanges());
         }
 
     }
