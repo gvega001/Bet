@@ -8,22 +8,26 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Groups", "Index")
+    @Html.ActionLink("Create New", "New")
 </p>
 <table id="groups" class="table">
-    <thead>
     <tr>
+
         <th>
             @Html.DisplayNameFor(model => model.GroupName)
         </th>
-        
+        <th>
+            @Html.DisplayNameFor(model => model.PlayerId)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.JoinCode)
         </th>
-        
-        <th>Delete</th>
+        <th>
+            @Html.DisplayNameFor(model => model.GameId)
+        </th>
+        <th></th>
     </tr>
-    </thead>
+
 </table>
 @section scripts
 {
@@ -37,13 +41,13 @@
             },
             columns: [
                 {
-                    data: "groupname",
-                    render: function ( group) {
-                        return "<a href= /group/index/" + group.ID + "'>" + group.name + "</a>";
+                    data: "name",
+                    render: function (data, type, group) {
+                        return "<a href= /group/index/" + data.id + "'>" + data.GroupName + "</a>";
                     }
                 },
                 {
-                    data: "joincode",
+                    data: "id",
                     render: function(data) {
                         return "<button class = 'btn-link js-delete' data-group-id=" + data + ">Delete</button>";
                     }
@@ -68,5 +72,5 @@
                         });
                     }
                 });
-            </script>
-    }
+    </script>
+}
