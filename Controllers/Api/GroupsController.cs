@@ -20,19 +20,20 @@ namespace Bet.Controllers.Api
         }
 
         // GET /api/groups
-        public IHttpActionResult GetGroups(int playerId, int groupId)
+
+        public IHttpActionResult GetGroups()
         {
-            var groups = _context.Groups.SingleOrDefault(g => g.PlayerId == playerId&& g.Id ==groupId);
-
-            if (groups == null)
+            LinkedList<GroupDto> groupDtos =new LinkedList<GroupDto>();
+            var groups = _context.Groups.ToList();
+            foreach (var eachGroupImpl in groups)
             {
-                return BadRequest();
+                var addGroupDto = Mapper.Map<GroupImpl, GroupDto>(eachGroupImpl);
+                groupDtos.AddLast(addGroupDto);
             }
-
-            return Ok(Mapper.Map<GroupImpl, GroupDto>(groups));
+            return Ok (groupDtos) ; 
         }
 
-        //GET /api/games/1
+        //GET /api/groups/1
         public IHttpActionResult GetGroup(int id)
         {
             var group = _context.Groups.SingleOrDefault(g => g.Id == id);
@@ -45,7 +46,7 @@ namespace Bet.Controllers.Api
             return Ok(Mapper.Map<GroupImpl, GroupDto>(group));
         }
 
-        //POST api/games
+        //POST api/groups
         [HttpPost]
         public IHttpActionResult CreateGroup(GroupDto groupDto)
         {

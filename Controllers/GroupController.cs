@@ -18,8 +18,8 @@ namespace Bet.Controllers
 
         public ActionResult Index()
         {
-            var console = _context.Groups.ToList().Select(Mapper.Map<GroupImpl, GroupDto>);
-            return View(console);
+           
+            return View();
         }
 
         public ActionResult New()
