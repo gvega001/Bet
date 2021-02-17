@@ -1,5 +1,5 @@
 ﻿
-@model Bet.DTO.GameDto
+@model Bet.Models.GameImpl
 @{
     ViewBag.Title = "Save";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,7 +7,7 @@
 
 <h2>Save</h2>
 
-@using (Html.BeginForm("New", "ConsoleBetGame"))
+@using (Html.BeginForm("Save", "ConsoleBetGame"))
 {
 @Html.AntiForgeryToken()
 

@@ -22,7 +22,6 @@ namespace Bet.Controllers
 
             return View(console);
         }
-
         public ActionResult New()
         {
             var bet = new BetDto();
@@ -30,5 +29,24 @@ namespace Bet.Controllers
         }
 
 
+       
+
+        public ActionResult Details(int id)
+        {
+            var console = _context.Bets.SingleOrDefault(g => g.Id == id);
+            
+            return View( console);
+        }
+        public ActionResult Edit(int id)
+        {
+            var bet = _context.Bets.SingleOrDefault(g => g.Id == id);
+
+            if (bet == null)
+            {
+                return HttpNotFound();
+            }
+
+            return RedirectToAction("Index", bet);
+        }
     }
 }
