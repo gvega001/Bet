@@ -3,6 +3,8 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web.Http;
 using System.Web.Mvc;
+using AutoMapper;
+using Bet.DTO;
 using Bet.Migrations;
 using Bet.Models;
 using Bet.Models.ViewModels;
@@ -19,74 +21,17 @@ namespace Bet.Controllers
             _context = new ApplicationDbContext();
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            _context.Dispose();
-        }
-
-        public ViewResult Index(int id)
+        public ViewResult Index()
         {
 
-            var player = _context.PlayerViewModels.SingleOrDefault(p => p.Id == id);
-            return View(player);
+            return View();
         }
 
         public ActionResult New()
         {
-            var viewModel = new PlayerViewModels();
+            var viewModel = new PlayerDto();
             return View("PlayerForm", viewModel);
         }
-        [System.Web.Mvc.HttpPost]
-        public ActionResult Save(PlayerViewModels player)
-        {
-            if (!ModelState.IsValid)
-            {
-                var viewModel = new PlayerViewModels
-                {
-                 Player   = player.Player
-                };
-                return View("PlayerForm",viewModel);
-            }
-            if (player.Id == 0)
-            {
-                _context.PlayerViewModels.Add(player);
-            }
-            else
-            {
-                var playerInDb = _context.PlayerViewModels.Single(p=>p.Id ==player.Id);
-                playerInDb.FirstName = player.FirstName;
-                playerInDb.LastName = player.LastName;
-                player.DateOfBirth = player.DateOfBirth;
-                playerInDb.IsSubscribed = player.IsSubscribed;
-                
-            }
-
-            _context.SaveChanges();
-            return RedirectToAction("Index", "Player");
-        }
-        public ActionResult Details(int id)
-        {
-            var playerViewModel = _context.PlayerViewModels.SingleOrDefault(p => p.Id == id);
-            
-            if (playerViewModel == null)
-            {
-                return HttpNotFound();
-            }
-
-            
-            return View("PlayerForm",playerViewModel);
-
-        }
-        public ActionResult Edit(int id)
-        {
-            var playerViewModel = _context.PlayerViewModels.SingleOrDefault(p => p.Id == id);
-
-            if (playerViewModel == null)
-            {
-                return HttpNotFound();
-            }
-
-            return RedirectToAction("Index", playerViewModel);
-        }
+       
     }
 }
