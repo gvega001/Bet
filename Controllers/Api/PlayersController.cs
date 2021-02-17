@@ -31,7 +31,8 @@ namespace Bet.Controllers.Api
                 playerDtos.AddLast(addPlayerDto);
             }
 
-            return Ok(playerDtos);
+            IEnumerable<PlayerDto> iPlayerDtos = playerDtos;
+            return Ok(iPlayerDtos);
         }
         //GET /api/players/1
         public IHttpActionResult GetPlayer(int id)
