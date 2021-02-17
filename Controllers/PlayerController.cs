@@ -21,11 +21,10 @@ namespace Bet.Controllers
             _context = new ApplicationDbContext();
         }
 
-        public ViewResult Index(int id)
+        public ViewResult Index()
         {
 
-            var player = _context.PlayerViewModels.SingleOrDefault(c => c.Id == id);
-            return View(player);
+            return View();
         }
 
         public ActionResult New()

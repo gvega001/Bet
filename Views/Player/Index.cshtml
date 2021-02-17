@@ -1,4 +1,4 @@
-﻿@model Bet.Models.ViewModels.PlayerViewModels
+﻿@model IEnumerable<Bet.DTO.PlayerDto>
 
 @{
     ViewBag.Title = "Index";
@@ -7,59 +7,54 @@
 
 <h2>Index</h2>
 
-<div>
-    <h4>Player</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
             @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
-
-        <dt>
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.LastName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
-
-        <dt>
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.MembershipType)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MembershipType)
-        </dd>
-
-        <dt>
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.DateOfBirth)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DateOfBirth)
-        </dd>
-
-        <dt>
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.IsSubscribed)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IsSubscribed)
-        </dd>
-
-        <dt>
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.MembershipId)
-        </dt>
+        </th>
+        <th></th>
+    </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.MembershipId)
-        </dd>
-        
-    </dl>
-</div>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MembershipType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfBirth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsSubscribed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MembershipId)
+        </td>
+       
+    </tr>
+}
 
-
+</table>

@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
@@ -19,7 +20,20 @@ namespace Bet.Controllers.Api
             _context = new ApplicationDbContext();
         }
         //GET /api/players/1
-        //GET /api/bets/1
+        public IHttpActionResult GetPlayers()
+        {
+            LinkedList<PlayerDto> playerDtos = new LinkedList<PlayerDto>();
+            var players = _context.PlayerViewModels.ToList();
+
+            foreach (var eachPlayerDto in players)
+            {
+                var addPlayerDto = Mapper.Map<PlayerViewModels,PlayerDto >(eachPlayerDto);
+                playerDtos.AddLast(addPlayerDto);
+            }
+
+            return Ok(playerDtos);
+        }
+        //GET /api/players/1
         public IHttpActionResult GetPlayer(int id)
         {
             var player = _context.PlayerViewModels.SingleOrDefault(p => p.Id == id);
