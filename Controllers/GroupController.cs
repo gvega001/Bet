@@ -16,7 +16,7 @@ namespace Bet.Controllers
             _context = new ApplicationDbContext();
         }
 
-        public ActionResult Index()
+        public ViewResult Index()
         {
            
             return View();
