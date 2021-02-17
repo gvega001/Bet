@@ -30,7 +30,9 @@ namespace Bet.Controllers.Api
                 var addGroupDto = Mapper.Map<GroupImpl, GroupDto>(eachGroupImpl);
                 groupDtos.AddLast(addGroupDto);
             }
-            return Ok (groupDtos) ; 
+
+            IEnumerable<GroupDto> iGroupDtos = groupDtos;
+            return Ok (iGroupDtos) ; 
         }
 
         //GET /api/groups/1
