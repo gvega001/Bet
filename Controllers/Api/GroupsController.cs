@@ -24,6 +24,7 @@ namespace Bet.Controllers.Api
         public IHttpActionResult GetGroups()
         {
            var groupDtos = _context.Groups.ToList().Select(Mapper.Map<GroupImpl, GroupDto>);
+
            
             return Ok (groupDtos) ; 
         }
