@@ -188,17 +188,14 @@
     <Compile Include="Controllers\Api\BetsController.cs" />
     <Compile Include="Controllers\Api\GamesController.cs" />
     <Compile Include="Controllers\Api\GroupsController.cs" />
-    <Compile Include="Controllers\Api\PlayersController.cs" />
     <Compile Include="Controllers\BetController.cs" />
     <Compile Include="Controllers\ConsoleBetGameController.cs" />
     <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MessageGeneratorController.cs" />
-    <Compile Include="Controllers\PlayerController.cs" />
     <Compile Include="Dto\GameDto.cs" />
     <Compile Include="Dto\GroupDto.cs" />
-    <Compile Include="Dto\PlayerDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
