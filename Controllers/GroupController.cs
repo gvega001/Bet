@@ -22,7 +22,7 @@ namespace Bet.Controllers
             return View();
         }
 
-        public ActionResult New()
+        public ActionResult Save()
         {
             var group = new GroupDto();
           
