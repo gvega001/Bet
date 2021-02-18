@@ -43,7 +43,7 @@
                 {
                     data: "name",
                     render: function (data, type, group) {
-                        return "<a href= /group/index/" + data.id + "'>" + data.GroupName + "</a>";
+                        return "<a href= /group/index/" + group.id + "'>" + group.GroupName + "</a>";
                     }
                 },
                 {
@@ -60,7 +60,7 @@
 
             var button = $(this);
 
-            bootbox.confirm("Are you sure you want to delete this groups?",
+             bootbox.confirm("Are you sure you want to delete this groups?",
                 function(result) {
                     if (result) {
                         $.ajax({
