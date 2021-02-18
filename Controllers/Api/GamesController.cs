@@ -22,17 +22,8 @@ namespace Bet.Controllers.Api
         // GET /api/games
         public IHttpActionResult GetGames()
         {
-            LinkedList<GameDto> gamesDtos = new LinkedList<GameDto>();
-            var games = _context.Games.ToList();
-
-            foreach (var eachGame in gamesDtos)
-            {
-                var addGameDto = Mapper.Map<GameDto ,GameImpl> (eachGame);
-                gamesDtos.AddLast(eachGame);
-            }
-
-            IEnumerable<GameDto> iGameDtos = gamesDtos;
-            return Ok(iGameDtos);
+            IEnumerable<GameDto> gameDtos = _context.Games.ToList().Select((Mapper.Map<GameImpl, GameDto>));
+            return Ok(gameDtos);
         }
         
         //GET /api/games/1

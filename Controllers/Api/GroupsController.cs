@@ -23,16 +23,9 @@ namespace Bet.Controllers.Api
 
         public IHttpActionResult GetGroups()
         {
-            LinkedList<GroupDto> groupDtos =new LinkedList<GroupDto>();
-            var groups = _context.Groups.ToList();
-            foreach (var eachGroupImpl in groups)
-            {
-                var addGroupDto = Mapper.Map<GroupImpl, GroupDto>(eachGroupImpl);
-                groupDtos.AddLast(addGroupDto);
-            }
-
-            IEnumerable<GroupDto> iGroupDtos = groupDtos;
-            return Ok (iGroupDtos) ; 
+           var groupDtos = _context.Groups.ToList().Select(Mapper.Map<GroupImpl, GroupDto>);
+           
+            return Ok (groupDtos) ; 
         }
 
         //GET /api/groups/1
