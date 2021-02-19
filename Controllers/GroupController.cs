@@ -15,7 +15,10 @@ namespace Bet.Controllers
         {
             _context = new ApplicationDbContext();
         }
-
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
         public ViewResult Index()
         {
            
@@ -28,7 +31,24 @@ namespace Bet.Controllers
           
             return View("GroupForm",group);
         }
-       
-      
+
+        public ActionResult Details(int id)
+        {
+            var groups = _context.Groups.SingleOrDefault(g => g.Id == id);
+            if (groups ==null)
+            {
+                return HttpNotFound("No groups returned");
+            }
+            var groupDtos= _context.Groups.Select(Mapper.Map<GroupImpl,GroupDto>).SingleOrDefault(g => g.Id == id);
+            return View(groupDtos);
+        }
+        public ActionResult Save(int id)
+        {
+            var group = new GroupDto();
+
+            return View("GroupForm", group);
+        }
+
+
     }
 }
