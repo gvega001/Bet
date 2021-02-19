@@ -9,25 +9,19 @@ namespace Bet.Models
 {
     public class BetImpl: Bet
     {
-        public BetImpl()
-        {
-            
-        }
         public int Id { get; set; }
 
         public int? GroupId { get; set; }
 
         public string GameName { get; set; }
-        [Range(0,1000)]
+        [Range(0, 1000)]
         [Display(Name = "Bet Amount: ")]
         public int MoneyBet { get; set; }
-        [Range(0,100000.0)]
-        public double? MaxPossibleNumber { get; set; }
-        [Range(0,1)]
-        public double? LowestPossibleNumber { get; set; }
+        [Range(0, 100000.0)]
 
         public double? Guess { get; set; }
         public int? GameId { get; set; }
+
         //***===========   public fields *********=========
         private readonly Player _player;
         private Group _betGroup;
