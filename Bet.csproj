@@ -427,6 +427,10 @@
     <Compile Include="Migrations\202102180138176_playerDtoAndPlayerControllersDeleted.Designer.cs">
       <DependentUpon>202102180138176_playerDtoAndPlayerControllersDeleted.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102190157510_BetImplDtoUpdated.cs" />
+    <Compile Include="Migrations\202102190157510_BetImplDtoUpdated.Designer.cs">
+      <DependentUpon>202102190157510_BetImplDtoUpdated.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bet.cs" />
@@ -883,6 +887,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102180138176_playerDtoAndPlayerControllersDeleted.resx">
       <DependentUpon>202102180138176_playerDtoAndPlayerControllersDeleted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102190157510_BetImplDtoUpdated.resx">
+      <DependentUpon>202102190157510_BetImplDtoUpdated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
