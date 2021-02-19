@@ -18,22 +18,25 @@ namespace Bet.Controllers
 
         public ActionResult Index()
         {
-            var console = _context.Bets.ToList().Select(Mapper.Map<BetImpl, BetDto>);
+            
 
-            return View(console);
+            return View();
         }
         public ActionResult New()
         {
             var bet = new BetDto();
             return View("BetForm", bet);
         }
+        public ActionResult Save()
+        {
+            var bet = new BetDto();
 
-
-       
+            return View("BetForm", bet);
+        }
 
         public ActionResult Details(int id)
         {
-            var console = _context.Bets.SingleOrDefault(g => g.Id == id);
+            var console = _context.Bets.Select(Mapper.Map<BetImpl,BetDto>).SingleOrDefault(g => g.Id == id);
             
             return View( console);
         }
