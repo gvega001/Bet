@@ -22,52 +22,54 @@
     </tbody>
 </table>
 @section scripts
-{<script>
-     $(document).ready(function () {
-         $("#bets").DataTable({
-             ajax: {
-                 url: "/api/bets",
-                 dataSrc: ""
-             },
-             columns: [
-                 {
-                     data: "name",
-                     render: function(data,type, bet) {
-                         return "<a href=' /bet/details/" + bet.id + "'>" + bet.name + "</a>";
+{
+    <script>
+        $(document).ready(function () {
+            $("#bets").DataTable({
+                ajax: {
+                    url: "/api/bets",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "name",
+                        render: function(data,type, bet) {
+                            return "<a href=' /bet/details/" + bet.id + "'>" + bet.name + "</a>";
 
-                     }
-                 },
-                 {
-                     data: "id"
-                 },
-                 {
-                     data: "id"
-                 },
-                 {
-                     data: "id",
-                     render: function(data) {
-                         return "<button class= 'btn-link js-delete' data-bet-id=" + data + ">Delete</button>";
-                     }
-                 }
-             ]
-         });
+                        }
+                    },
+                    {
+                        data: "id"
+                    },
+                    {
+                        data: "id"
+                    },
+                    {
+                        data: "id",
+                        render: function(data) {
+                            return "<button class= 'btn-link js-delete' data-bet-id=" + data + ">Delete</button>";
+                        }
+                    }
+                ]
+            });
 
-         $("#groups").on("click"," .js-delete",
-             function () {
-                 var button = $(this);
+            $("#groups").on("click"," .js-delete",
+                function () {
+                    var button = $(this);
 
-                 bootbox.confirm("Are you sure you want to delete this bets", function(result) {
-                     if (result) {
-                         $.ajax({
-                             url: "/api/bets/" + $(this).attr("data-bet-id"),
-                             method: "DELETE",
-                             success: function () {
-                                 button.parents("tr").remove();
-                             }
-                         });
-                     }
-                 });
+                    bootbox.confirm("Are you sure you want to delete this bets", function(result) {
+                        if (result) {
+                            $.ajax({
+                                url: "/api/bets/" + $(this).attr("data-bet-id"),
+                                method: "DELETE",
+                                success: function () {
+                                    button.parents("tr").remove();
+                                }
+                            });
+                        }
+                    });
                    
-             });
-     });
- </script>}
+                });
+        });
+    </script>
+}
