@@ -7,6 +7,7 @@ using Bet.Models.ViewModels;
 
 namespace Bet.Controllers
 {
+   
     public class GameController : Controller
     {
         // GET
