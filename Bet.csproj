@@ -189,7 +189,7 @@
     <Compile Include="Controllers\Api\GamesController.cs" />
     <Compile Include="Controllers\Api\GroupsController.cs" />
     <Compile Include="Controllers\BetController.cs" />
-    <Compile Include="Controllers\ConsoleBetGameController.cs" />
+    <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -696,14 +696,15 @@
     <Content Include="Views\MessageGenerator\Message.cshtml" />
     <Content Include="Views\Player\PlayerForm.cshtml" />
     <Content Include="Views\Group\GroupForm.cshtml" />
-    <Content Include="Views\ConsoleBetGame\GameForm.cshtml" />
+    <Content Include="Views\Game\GameForm.cshtml" />
     <Content Include="Views\Bet\BetForm.cshtml" />
     <Content Include="Views\Bet\Index.cshtml" />
-    <Content Include="Views\ConsoleBetGame\Index.cshtml" />
+    <Content Include="Views\Game\Index.cshtml" />
     <Content Include="Views\Group\Index.cshtml" />
     <Content Include="Views\Player\Index.cshtml" />
     <Content Include="Views\Group\Details.cshtml" />
     <Content Include="Views\Bet\Details.cshtml" />
+    <Content Include="Views\Game\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

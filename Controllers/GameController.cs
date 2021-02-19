@@ -7,54 +7,54 @@ using Bet.Models.ViewModels;
 
 namespace Bet.Controllers
 {
-    public class BetController : Controller
+    public class GameController : Controller
     {
+        // GET
         private ApplicationDbContext _context;
-
-        public BetController()
+        public GameController()
         {
             _context = new ApplicationDbContext();
         }
+
         protected override void Dispose(bool disposing)
         {
             _context.Dispose();
         }
-
-
         public ActionResult Index()
         {
-            
 
             return View();
         }
         public ActionResult New()
         {
-            var bet = new BetDto();
-            return View("BetForm", bet);
+            var game = new GameDto();
+            return View("GameForm",game);
         }
+       
+       
+      
         public ActionResult Save()
         {
-            var bet = new BetDto();
-
-            return View("BetForm", bet);
+            var game = new GameDto();
+            return View("GameForm", game);
         }
 
         public ActionResult Details(int id)
         {
-            var console = _context.Bets.Select(Mapper.Map<BetImpl,BetDto>).SingleOrDefault(g => g.Id == id);
+            var console = _context.Games.Select(Mapper.Map<GameImpl,GameDto>).SingleOrDefault(g => g.Id == id);
             
-            return View( console);
+            return View("GameForm", console);
         }
         public ActionResult Edit(int id)
         {
-            var bet = _context.Bets.SingleOrDefault(g => g.Id == id);
-
-            if (bet == null)
+            var game = _context.Games.SingleOrDefault(g => g.Id == id);
+            
+            if (game == null)
             {
                 return HttpNotFound();
             }
 
-            return RedirectToAction("Index", bet);
+            return RedirectToAction("Index", game);
         }
     }
 }

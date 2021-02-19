@@ -1,0 +1,91 @@
+﻿@model IEnumerable<Bet.DTO.GameDto>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+
+<table id="games" class="table">
+    <tr>
+        <th>Event Name</th>
+        <th>Event Date</th>
+        <th>Last Date To Bet</th>
+        <th>Team 1 Name</th>
+        <th>Score 1</th>
+        <th>Team 2 Score</th>
+        <th>Team 2 Name</th>
+        <th>Smallest Bet Amount</th>
+        <th>Max Bet</th>
+        <th> Delete</th>
+    </tr>
+    <tbody></tbody>
+
+
+</table>
+
+@section scripts
+{<script>
+     $(document).ready(function () {
+         $("#games").DataTable({
+             ajax: {
+                 url: "/api/games",
+                 dataSrc: ""
+             },
+             columns: [
+                 {
+                     data: "name",
+                     render: function(data,type, game) {
+                         return "<a href=' /game/details/" + game.id + "'>" + data + "</a>";
+
+                     }
+                 }, 
+                 {
+                     data: "name"
+                 },
+                 {
+                     data: "data"
+                 },
+                 {
+                     data: "id"
+                 },
+                 {
+                     data: "id"
+                 },
+                 {
+                     data: "id"
+                 },
+                 {
+                     data: "id"
+                 },
+                 {
+                     data: "id",
+                     render: function(data) {
+                         return "<button class= 'btn-link js-delete' data-game-id=" + data + ">Delete</button>";
+                     }
+                 }
+             ]
+         });
+
+         $("#games").on("click"," .js-delete",
+             function () {
+                 var button = $(this);
+
+                 bootbox.confirm("Are you sure you want to delete this game", function(result) {
+                     if (result) {
+                         $.ajax({
+                             url: "/api/games/" + $(this).attr("data-game-id"),
+                             method: "DELETE",
+                             success: function () {
+                                 button.parents("tr").remove();
+                             }
+                         });
+                     }
+                 });
+                   
+             });
+     });
+ </script>
+}
