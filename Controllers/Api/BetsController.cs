@@ -10,6 +10,7 @@ using Bet.Models;
 
 namespace Bet.Controllers.Api
 {
+ 
     public class BetsController : ApiController
     {
         private ApplicationDbContext _context;
@@ -17,6 +18,10 @@ namespace Bet.Controllers.Api
         public BetsController()
         {
             _context = new ApplicationDbContext();
+        }
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
         }
 
         // GET /api/bets

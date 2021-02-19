@@ -7,6 +7,7 @@ using Bet.Models.ViewModels;
 
 namespace Bet.Controllers
 {
+    [Authorize]
     public class BetController : Controller
     {
         private ApplicationDbContext _context;
