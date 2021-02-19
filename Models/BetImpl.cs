@@ -9,6 +9,10 @@ namespace Bet.Models
 {
     public class BetImpl: Bet
     {
+        public BetImpl()
+        {
+            
+        }
         public int Id { get; set; }
 
         public int? GroupId { get; set; }

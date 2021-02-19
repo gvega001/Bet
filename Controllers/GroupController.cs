@@ -34,11 +34,7 @@ namespace Bet.Controllers
 
         public ActionResult Details(int id)
         {
-            var groups = _context.Groups.SingleOrDefault(g => g.Id == id);
-            if (groups ==null)
-            {
-                return HttpNotFound("No groups returned");
-            }
+            
             var groupDtos= _context.Groups.Select(Mapper.Map<GroupImpl,GroupDto>).SingleOrDefault(g => g.Id == id);
             return View(groupDtos);
         }
@@ -49,6 +45,16 @@ namespace Bet.Controllers
             return View("GroupForm", group);
         }
 
+        public ActionResult Edit(int id)
+        {
+            var bet = _context.Groups.SingleOrDefault(g => g.Id == id);
 
+            if (bet == null)
+            {
+                return HttpNotFound();
+            }
+
+            return RedirectToAction("Index", bet);
+        }
     }
 }
