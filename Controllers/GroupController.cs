@@ -7,7 +7,7 @@ using Bet.Models.ViewModels;
 
 namespace Bet.Controllers
 {
-    [Authorize]
+
     public class GroupController : Controller
     {
         // GET private ApplicationDbContext _context;
