@@ -1,9 +1,11 @@
-﻿using System.Linq;
+﻿using System.CodeDom;
+using System.Linq;
 using System.Web.Http.Results;
 using System.Web.Mvc;
 using System.Web.Security;
 using Antlr.Runtime.Misc;
 using AutoMapper;
+using Bet.Controllers.Api;
 using Bet.DTO;
 using Bet.Models;
 using Bet.Models.ViewModels;
@@ -32,12 +34,14 @@ namespace Bet.Controllers
         public ActionResult New()
         {
             var bet = new BetDto();
+          
             return View("BetForm", bet);
         }
-        public ActionResult Save(int id)
+        public ActionResult Save(int id, BetDto betDto)
         {
             var bet = _context.Bets.Select(Mapper.Map<BetImpl, BetDto>).SingleOrDefault(b => b.Id == id);
-
+            var betsUpdated = new BetsController();
+            betsUpdated.UpdateBet(id,betDto);
             return View("Save", bet);
         }
         public ActionResult Details(int id)

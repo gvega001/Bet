@@ -58,9 +58,10 @@ namespace Bet.Controllers.Api
 
             _context.Bets.Add(bet);
             _context.SaveChanges();
-            
+
             betDto.Id = bet.Id;
             return Created(new Uri(Request.RequestUri + "/" + bet.Id), betDto);
+           
         }
 
         // PUT /api/bets/1
