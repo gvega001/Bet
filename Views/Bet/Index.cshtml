@@ -6,7 +6,9 @@
 }
 
 <h2>Bets</h2>
-
+<p>
+    @Html.ActionLink("Make Bet","New", "Bet", null, new{@class="btn btn-primary"})
+</p>
 <table id="bets" class="table">
     <thead>
     <tr>
@@ -42,7 +44,7 @@
                         data: "id"
                     },
                     {
-                        data: "id"
+                        data: "bet"
                     },
                     {
                         data: "id",

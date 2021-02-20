@@ -17,10 +17,10 @@ namespace Bet.DTO
         [StringLength(250)]
         public string Team1Name { get; set; }
         public double Team1Score { get; set; }
-        public double Team2Score { get; set; }
         [Required]
         [StringLength(250)]
         public string Team2Name { get; set; }
+        public double Team2Score { get; set; }
         public double? SmallestPossibleNumber { get; set; }
         [Range(0, 100000.0)]
         public double? LargestPossibleNumber { get; set; }
