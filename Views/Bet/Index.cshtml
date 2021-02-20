@@ -12,7 +12,7 @@
 <table id="bets" class="table">
     <thead>
     <tr>
-        <th>Group</th>
+        <th>Name</th>
         <th>Guess</th>
         <th>Bet Amount</th>
         <th>Delete</th>
@@ -36,7 +36,7 @@
                     {
                         data: "name",
                         render: function(data,type, bet) {
-                            return "<a href=' /bet/details/" + bet.id + "'>" + bet.name + "</a>";
+                            return "<a href=' /bet/details/" + bet.id + "'>" +bet.name + "</a>";
 
                         }
                     },
