@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
+using Antlr.Runtime.Misc;
 using AutoMapper;
 using Bet.DTO;
 using Bet.Models;
@@ -20,10 +21,14 @@ namespace Bet.Controllers
         {
             _context.Dispose();
         }
-        public ViewResult Index()
+        public ActionResult Index()
         {
-           
-            return View();
+
+            if (User.IsInRole(RoleName.CanMakeBets) || User.IsInRole(RoleName.CanMangeUsers))
+            {
+                return View();
+            }
+            return HttpNotFound();
         }
 
         public ActionResult New()
