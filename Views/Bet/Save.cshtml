@@ -79,7 +79,7 @@
                         if (result) {
                             $.ajax({
                                 url: "/api/bets/" + $(this).attr("data-bet-id"),
-                                method: "UPDATE",
+                                method: "PUT",
                                 success: function() {
                                     button.parents("tr").remove();
                                 }

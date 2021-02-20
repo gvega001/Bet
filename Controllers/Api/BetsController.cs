@@ -55,6 +55,7 @@ namespace Bet.Controllers.Api
             }
 
             var bet = Mapper.Map<BetDto, BetImpl>(betDto);
+
             _context.Bets.Add(bet);
             _context.SaveChanges();
             

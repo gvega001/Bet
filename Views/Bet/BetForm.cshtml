@@ -74,7 +74,7 @@
                         if (result) {
                             $.ajax({
                                 url: "/api/bets/"+ $(this).attr("data-bet-id"),
-                                method: "CREATE",
+                                method: "POST",
                                 success: function() {
                                     button.parents("tr").remove();
                                 }
