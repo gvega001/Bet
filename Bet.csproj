@@ -443,6 +443,10 @@
     <Compile Include="Migrations\202102200206122_GAmeUpdated.Designer.cs">
       <DependentUpon>202102200206122_GAmeUpdated.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102200322059_AddDateOfBirthToApplicationUser.cs" />
+    <Compile Include="Migrations\202102200322059_AddDateOfBirthToApplicationUser.Designer.cs">
+      <DependentUpon>202102200322059_AddDateOfBirthToApplicationUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bet.cs" />
@@ -914,6 +918,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102200206122_GAmeUpdated.resx">
       <DependentUpon>202102200206122_GAmeUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102200322059_AddDateOfBirthToApplicationUser.resx">
+      <DependentUpon>202102200322059_AddDateOfBirthToApplicationUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
