@@ -6,12 +6,13 @@ namespace Bet.DTO
 {
     public class BetDto
     {
+        public string GameName { get; set; }
+        [Range(0, 1000)]
         public int Id { get; set; }
 
         public int? GroupId { get; set; }
 
-        public string GameName { get; set; }
-        [Range(0, 1000)]
+      
         [Display(Name = "Bet Amount: ")]
         public int MoneyBet { get; set; }
         [Range(0, 100000.0)]
