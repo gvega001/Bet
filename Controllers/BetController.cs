@@ -34,17 +34,17 @@ namespace Bet.Controllers
             var bet = new BetDto();
             return View("BetForm", bet);
         }
-        public ActionResult Save()
+        public ActionResult Save(int id)
         {
-            var bet = new BetDto();
+            var bet = _context.Bets.Select(Mapper.Map<BetImpl, BetDto>).SingleOrDefault(g => g.Id == id);
 
-            return View("BetForm", bet);
+            return View("Save", bet);
         }
         public ActionResult Details(int id)
         {
             var console = _context.Bets.Select(Mapper.Map<BetImpl,BetDto>).SingleOrDefault(g => g.Id == id);
             
-            return View("BetForm", console);
+            return View("Save", console);
         }
         public ActionResult Edit(int id)
         {
