@@ -1,5 +1,8 @@
 ﻿using System.Linq;
+using System.Web.Http.Results;
 using System.Web.Mvc;
+using System.Web.Security;
+using Antlr.Runtime.Misc;
 using AutoMapper;
 using Bet.DTO;
 using Bet.Models;
@@ -24,28 +27,38 @@ namespace Bet.Controllers
 
         public ActionResult Index()
         {
-            
-
-            return View();
+            if (User.IsInRole(RoleName.CanMakeBets)||User.IsInRole(RoleName.CanMangeUsers))
+            {
+                return View();
+            }
+            return HttpNotFound();
+          
         }
+        [Authorize(Roles = RoleName.CanMakeBets)]
+        [Authorize(Roles = RoleName.CanMangeUsers)]
         public ActionResult New()
         {
             var bet = new BetDto();
             return View("BetForm", bet);
         }
+        [Authorize(Roles = RoleName.CanMakeBets)]
+        [Authorize(Roles = RoleName.CanMangeUsers)]
         public ActionResult Save()
         {
             var bet = new BetDto();
 
             return View("BetForm", bet);
         }
-
+        [Authorize(Roles = RoleName.CanMakeBets)]
+        [Authorize(Roles = RoleName.CanMangeUsers)]
         public ActionResult Details(int id)
         {
             var console = _context.Bets.Select(Mapper.Map<BetImpl,BetDto>).SingleOrDefault(g => g.Id == id);
             
             return View( console);
         }
+        [Authorize(Roles = RoleName.CanMakeBets)]
+        [Authorize(Roles = RoleName.CanMangeUsers)]
         public ActionResult Edit(int id)
         {
             var bet = _context.Bets.SingleOrDefault(g => g.Id == id);
