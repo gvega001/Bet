@@ -36,7 +36,7 @@ namespace Bet.Controllers
         }
         public ActionResult Save(int id)
         {
-            var bet = _context.Bets.Select(Mapper.Map<BetImpl, BetDto>).SingleOrDefault(g => g.Id == id);
+            var bet = _context.Bets.Select(Mapper.Map<BetImpl, BetDto>).SingleOrDefault(b => b.Id == id);
 
             return View("Save", bet);
         }
