@@ -7,11 +7,11 @@
 
 <h2>Save</h2>
 
-@using (Html.BeginForm("Save", "ConsoleBetGame"))
+@using (Html.BeginForm("New", "Game"))
 {
 @Html.AntiForgeryToken()
 
-<div class="form-horizontal">
+<div id="games" class="form-horizontal">
     <h4>GameImpl</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -71,14 +71,35 @@
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group ">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
+            <button class="btn-link js-create">Create</button>
         </div>
     </div>
 </div>
 }
+@section scripts
+{
+    <script>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+        $("#games").on("click",
+            " .js-create",
+            function () {
+                var button = $(this);
+
+                bootbox.confirm("Are you sure you want to update this bets",
+                    function (result) {
+                        if (result) {
+                            $.ajax({
+                                url: "/api/games/" + $(this).attr("data-bet-id"),
+                                method: "POST",
+                                success: function () {
+                                    button.parents("tr").remove();
+                                }
+                            });
+                        }
+                    });
+
+            });
+    </script>
+}

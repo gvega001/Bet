@@ -8,11 +8,11 @@
 
 <h2>Message</h2>
 
-@using (Html.BeginForm("Save", "Group"))
+@using (Html.BeginForm("New", "Group"))
 {
 @Html.AntiForgeryToken()
 
-<div class="form-horizontal">
+<div id="groups" class="form-horizontal">
     <h4>Groups</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -24,7 +24,13 @@
             @Html.ValidationMessageFor(model => model.GroupName, "", new { @class = "text-danger" })
         </div>
     </div>
-
+    <div class="form-group">
+        @Html.LabelFor(model => model.GameId, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.GameId, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.GameId, "", new { @class = "text-danger" })
+        </div>
+    </div>
     <div class="form-group">
         @Html.LabelFor(model => model.JoinCode, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -33,13 +39,41 @@
         </div>
     </div>
     <div class="form-group">
+        @Html.LabelFor(model => model.PlayerId, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.PlayerId, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.PlayerId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group ">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
+            <button class="btn-link js-create">Create</button>
         </div>
     </div>
 </div>
 }
+@section scripts
+{
+    <script>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+        $("#groups").on("click",
+            " .js-create",
+            function () {
+                var button = $(this);
+
+                bootbox.confirm("Are you sure you want to update this bets",
+                    function (result) {
+                        if (result) {
+                            $.ajax({
+                                url: "/api/groups/" + $(this).attr("data-group-id"),
+                                method: "POST",
+                                success: function () {
+                                    button.parents("tr").remove();
+                                }
+                            });
+                        }
+                    });
+
+            });
+    </script>
+}
