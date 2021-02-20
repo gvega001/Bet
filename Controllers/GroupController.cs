@@ -23,12 +23,7 @@ namespace Bet.Controllers
         }
         public ActionResult Index()
         {
-
-            if (User.IsInRole(RoleName.CanMakeBets) || User.IsInRole(RoleName.CanMangeUsers))
-            {
-                return View();
-            }
-            return HttpNotFound();
+            return View();
         }
 
         public ActionResult New()
