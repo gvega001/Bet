@@ -20,9 +20,10 @@ namespace Bet.Controllers.Api
         }
 
         // GET /api/games
-        public IEnumerable<GameDto> GetGames()
+        public IHttpActionResult GetGames()
         {
-            return _context.Games.ToList().Select(Mapper.Map<GameImpl, GameDto>);
+            IEnumerable<GameDto> gameDtos = _context.Games.ToList().Select((Mapper.Map<GameImpl, GameDto>));
+            return Ok(gameDtos);
         }
         
         //GET /api/games/1
@@ -57,7 +58,7 @@ namespace Bet.Controllers.Api
 
         //PUT /api/games/1
         [System.Web.Http.HttpPut]
-        public void UpdateGame(int id, GameDto gameDto)
+        public IHttpActionResult UpdateGame(int id, GameDto gameDto)
         {
             if (!ModelState.IsValid)
             {
@@ -72,12 +73,12 @@ namespace Bet.Controllers.Api
 
             Mapper.Map(gameDto, gameInDb);
 
-            _context.SaveChanges();
+            return Ok(_context.SaveChanges());
         }
 
         //DELETE /api/games/1
         [System.Web.Http.HttpDelete]
-        public void DeleteGame(int id)
+        public IHttpActionResult DeleteGame(int id)
         {
             var gameInDb = _context.Games.SingleOrDefault(g => g.Id == id);
             if (gameInDb == null)
@@ -86,7 +87,7 @@ namespace Bet.Controllers.Api
             }
 
             _context.Games.Remove(gameInDb);
-            _context.SaveChanges();
+            return Ok(_context.SaveChanges());
 
         }
     }

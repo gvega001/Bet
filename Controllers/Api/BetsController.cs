@@ -10,6 +10,7 @@ using Bet.Models;
 
 namespace Bet.Controllers.Api
 {
+ 
     public class BetsController : ApiController
     {
         private ApplicationDbContext _context;
@@ -18,13 +19,18 @@ namespace Bet.Controllers.Api
         {
             _context = new ApplicationDbContext();
         }
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
 
         // GET /api/bets
-        public IEnumerable<BetDto> GetBets()
+        public IHttpActionResult GetBets()
         {
-
-            return _context.Bets.ToList().Select(Mapper.Map<BetImpl,BetDto>);
+            IEnumerable<BetDto> betDtos = _context.Bets.ToList().Select(Mapper.Map<BetImpl, BetDto>);
+            return Ok(betDtos);
         }
+         
 
         //GET /api/bets/1
         public IHttpActionResult GetBet(int id)
