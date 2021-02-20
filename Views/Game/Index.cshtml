@@ -13,14 +13,19 @@
 
 <table id="games" class="table">
     <tr>
-        <th>Game</th>
         <th>Event Name</th>
+        <th>Date of Event</th>  
+        <th>Last Bet Date</th>
         <th>Team 1 Name</th>
         <th>Score 1</th>
         <th>Team 2 Name</th>
         <th>Team 2 Score</th>
-        <th>Event Date</th>
-        <th>Last Date To Bet</th>
+        <th>Smallest Bet</th>
+        <th>Largest Bet</th>
+        <th>Confirmed</th>
+        <th>Bets Confirmed</th>
+        <th>Game Lock</th>
+        <th>Game Won</th>
         <th> Delete</th>
     </tr>
     <tbody></tbody>
@@ -45,25 +50,38 @@
                      }
                  }, 
                  {
-                     data: "name"
-                 },
-                 {
-                     data: "id"
-                 },
-                 {
-                     data: "id"
-                 },
-                 {
-                     data: "id"
-                 },
-                 {
-                     data: "name"
+                     data: "date"
                  },
                  {
                      data: "date"
                  },
                  {
-                     data: "date",
+                     data: "name"
+                 },
+                 {
+                     data: "id"
+                 },
+                 {
+                     data: "name"
+                 },
+
+                 {
+                     data: "id"
+                 },
+                 {
+                     data: "id"
+                 },
+                 {
+                     data: "id"
+                 },
+                 {
+                     data: "id"
+                 },
+                 {
+                     data: "id"
+                 },
+                 {
+                     data: "name",
                      render: function(data) {
                          return "<button class= 'btn-link js-delete' data-game-id=" + data + ">Delete</button>";
                      }
