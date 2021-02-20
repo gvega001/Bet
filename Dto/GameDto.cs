@@ -7,8 +7,9 @@ namespace Bet.DTO
 {
     public class GameDto
     {
-        public int Id { get; set; }
         public string EventName { get; set; }
+        public int Id { get; set; }
+     
         public DateTime? EventDateTime { get; set; }
         public DateTime? LastDateTime { get; set; }
         public int? GroupId { get; set; }
