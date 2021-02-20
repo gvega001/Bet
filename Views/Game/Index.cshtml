@@ -7,18 +7,20 @@
 
 <h2>Game</h2>
 
+<p>
+    @Html.ActionLink("Create Game","New", "Game", null, new{@class="btn btn-primary"})
+</p>
 
 <table id="games" class="table">
     <tr>
+        <th>Game</th>
         <th>Event Name</th>
-        <th>Event Date</th>
-        <th>Last Date To Bet</th>
         <th>Team 1 Name</th>
         <th>Score 1</th>
-        <th>Team 2 Score</th>
         <th>Team 2 Name</th>
-        <th>Smallest Bet Amount</th>
-        <th>Max Bet</th>
+        <th>Team 2 Score</th>
+        <th>Event Date</th>
+        <th>Last Date To Bet</th>
         <th> Delete</th>
     </tr>
     <tbody></tbody>
@@ -38,12 +40,12 @@
                  {
                      data: "name",
                      render: function(data,type, game) {
-                         return "<a href=' /game/details/" + game.id + "'>" + data + "</a>";
+                         return "<a href=' /game/details/" + game.id + "'>" + game.name + "</a>";
 
                      }
                  }, 
                  {
-                     data: "id"
+                     data: "name"
                  },
                  {
                      data: "id"
@@ -55,13 +57,13 @@
                      data: "id"
                  },
                  {
-                     data: "id"
+                     data: "name"
                  },
                  {
-                     data: "id"
+                     data: "date"
                  },
                  {
-                     data: "id",
+                     data: "date",
                      render: function(data) {
                          return "<button class= 'btn-link js-delete' data-game-id=" + data + ">Delete</button>";
                      }

@@ -26,7 +26,7 @@ namespace Bet.Controllers
             return View();
         }
 
-        public ActionResult Save()
+        public ActionResult New()
         {
             var group = new GroupDto();
           

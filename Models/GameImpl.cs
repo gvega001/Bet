@@ -20,7 +20,7 @@ namespace Bet.Models
         [StringLength(250)]
         public string Team1Name { get; set; }
         public double Team1Score { get; set; }
-        public double Team2Score { get; set; }
+      
         [Required]
         [StringLength(250)]
         public string Team2Name { get; set; }

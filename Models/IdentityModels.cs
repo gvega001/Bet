@@ -37,6 +37,6 @@ namespace Bet.Models
         }
 
         public System.Data.Entity.DbSet<ViewModels.PlayerViewModels> PlayerViewModels { get; set; }
-        
+
     }
 }
