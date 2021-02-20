@@ -37,7 +37,7 @@ namespace Bet.Controllers
         {
             
             var groupDtos= _context.Groups.Select(Mapper.Map<GroupImpl,GroupDto>).SingleOrDefault(g => g.Id == id);
-            return View(groupDtos);
+            return View("GroupForm",groupDtos);
         }
         public ActionResult Save(int id)
         {

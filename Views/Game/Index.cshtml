@@ -14,18 +14,6 @@
 <table id="games" class="table">
     <tr>
         <th>Event Name</th>
-        <th>Date of Event</th>  
-        <th>Last Bet Date</th>
-        <th>Team 1 Name</th>
-        <th>Score 1</th>
-        <th>Team 2 Name</th>
-        <th>Team 2 Score</th>
-        <th>Smallest Bet</th>
-        <th>Largest Bet</th>
-        <th>Confirmed</th>
-        <th>Bets Confirmed</th>
-        <th>Game Lock</th>
-        <th>Game Won</th>
         <th> Delete</th>
     </tr>
     <tbody></tbody>
@@ -44,13 +32,14 @@
              columns: [
                  {
                      data: "name",
-                     render: function(data,type, game) {
+                     render: function(data, type, game) {
                          return "<a href=' /game/details/" + game.id + "'>" + game.name + "</a>";
 
                      }
                  },
+               
                  {
-                     data: "name",
+                     data: "id",
                      render: function(data) {
                          return "<button class= 'btn-link js-delete' data-game-id=" + data + ">Delete</button>";
                      }

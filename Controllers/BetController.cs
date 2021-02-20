@@ -44,7 +44,7 @@ namespace Bet.Controllers
         {
             var console = _context.Bets.Select(Mapper.Map<BetImpl,BetDto>).SingleOrDefault(g => g.Id == id);
             
-            return View( console);
+            return View("BetForm", console);
         }
         public ActionResult Edit(int id)
         {
