@@ -23,7 +23,7 @@ namespace Bet.Models
         [DisplayName("Membership:")]
         public MembershipTypes? MembershipType { get; set; }
         [DisplayName("Date of Birth:")]
-        public DateTime? DateOfBirth { get; set; }
+      
 
        
         [Display(Name = "Subscribe to newsletter")]
