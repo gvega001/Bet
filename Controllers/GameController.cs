@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using AutoMapper;
+using Bet.Controllers.Api;
 using Bet.DTO;
 using Bet.Models;
 using Bet.Models.ViewModels;
@@ -33,16 +34,21 @@ namespace Bet.Controllers
             return View("GameForm",game);
         }
 
-        public ActionResult Save()
+        public ActionResult Save(int id, GameDto gameDto)
         {
-            var game = new GameDto();
-            return View("GameForm", game);
+
+            var game = _context.Games.Select(Mapper.Map<GameImpl, GameDto>).SingleOrDefault(g => g.Id == id);
+            var gamesUpdated = new GamesController();
+
+            gamesUpdated.UpdateGame(id, gameDto);
+
+            return View("Save", game);
         }
         public ActionResult Details(int id)
         {
             var console = _context.Games.Select(Mapper.Map<GameImpl,GameDto>).SingleOrDefault(g => g.Id == id);
             
-            return View("GameForm", console);
+            return View("Details", console);
         }
         public ActionResult Edit(int id)
         {
