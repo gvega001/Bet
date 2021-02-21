@@ -43,7 +43,6 @@
                         data: "name",
                         render: function(data,type, group) {
                             return "<a href=' /group/save/" + group.id + "'>" + group.name + "</a>";
-
                         }
                     },
                     {
@@ -69,7 +68,7 @@
                                 url: "/api/groups/" + $(this).attr("data-group-id"),
                                 method: "DELETE",
                                 success: function () {
-                                    button.parents("tr").remove();
+                                    table.row(button.parents("tr")).remove().draw();
                                 }
                             });
                         }
