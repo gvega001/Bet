@@ -727,6 +727,7 @@
     <Content Include="Views\Bet\Save.cshtml" />
     <Content Include="Views\Game\Details.cshtml" />
     <Content Include="Views\Bet\Details.cshtml" />
+    <Content Include="Views\Group\Save.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

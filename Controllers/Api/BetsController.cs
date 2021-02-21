@@ -94,8 +94,8 @@ namespace Bet.Controllers.Api
             }
 
             _context.Bets.Remove(betInDb);
-            _context.SaveChanges();
-            return Ok();
+           
+            return Ok(_context.SaveChanges());
         }
 
     }
