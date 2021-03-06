@@ -196,6 +196,7 @@
     <Compile Include="Controllers\MessageGeneratorController.cs" />
     <Compile Include="Dto\GameDto.cs" />
     <Compile Include="Dto\GroupDto.cs" />
+    <Compile Include="Dto\NewBetDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
