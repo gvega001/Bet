@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
-using System.Web.ModelBinding;
+using System.Web.Mvc;
 using AutoMapper;
 using Bet.DTO;
 using Bet.Models;
@@ -43,7 +43,8 @@ namespace Bet.Controllers.Api
         }
 
         //POST api/groups
-        [HttpPost]
+        [System.Web.Mvc.HttpPost]
+
         public IHttpActionResult CreateGroup(GroupDto groupDto)
         {
             if (!ModelState.IsValid)
@@ -58,9 +59,10 @@ namespace Bet.Controllers.Api
             groupDto.Id = group.Id;
             return Created(new Uri(Request.RequestUri+ "/"+ group.Id), groupDto);
         }
-       
+
         //PUT /api/groups/1
-        [HttpPut]
+        [System.Web.Mvc.HttpPost]
+
         public IHttpActionResult UpdateGroup(int id, GroupDto groupDto)
         {
             if (!ModelState.IsValid)
@@ -81,7 +83,8 @@ namespace Bet.Controllers.Api
         }
 
         //DELETE /api/groups/1
-        [HttpDelete]
+        [System.Web.Mvc.HttpPost]
+
         public IHttpActionResult DeleteGroup(int id)
         {
             var groupInDb = _context.Groups.SingleOrDefault(g => g.Id == id);
