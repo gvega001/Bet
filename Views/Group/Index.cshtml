@@ -42,13 +42,13 @@
                     {
                         data: "name",
                         render: function(data,type, group) {
-                            return "<a href=' /group/save/" + group.id + "'>" + group.name + "</a>";
+                            return "<a href=' /group/details/" + group.id + "'>" + group.Name + "</a>";
+
                         }
                     },
                     {
                         data:"id"
                     },
-
                     {
                         data: "name",
                         render: function(data) {
@@ -68,7 +68,7 @@
                                 url: "/api/groups/" + $(this).attr("data-group-id"),
                                 method: "DELETE",
                                 success: function () {
-                                    table.row(button.parents("tr")).remove().draw();
+                                    button.parents("tr").remove();
                                 }
                             });
                         }

@@ -1,5 +1,5 @@
 ﻿
-@model Bet.DTO.GameDto
+@model Bet.Models.GameImpl
 @{
     ViewBag.Title = "Save";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,11 +7,11 @@
 
 <h2>Save</h2>
 
-@using (Html.BeginForm("Save", "Game"))
+@using (Html.BeginForm("Save", "ConsoleBetGame"))
 {
 @Html.AntiForgeryToken()
 
-<div id="games" class="form-horizontal">
+<div class="form-horizontal">
     <h4>GameImpl</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -71,35 +71,14 @@
         </div>
     </div>
 
-    <div class="form-group ">
+    <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <button class="btn-link js-save">Save</button>
+            <input type="submit" value="Save" class="btn btn-default" />
         </div>
     </div>
 </div>
 }
-@section scripts
-{
-    <script>
 
-        $("#games").on("click",
-            " .js-save",
-            function () {
-                var button = $(this);
-
-                bootbox.confirm("Are you sure you want to update this game",
-                    function (result) {
-                        if (result) {
-                            $.ajax({
-                                url: "/api/games/" + $(this).attr("data-game-id"),
-                                method: "PUT",
-                                success: function () {
-                                    button.parents("tr").remove();
-                                }
-                            });
-                        }
-                    });
-
-            });
-    </script>
-}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

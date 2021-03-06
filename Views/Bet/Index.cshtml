@@ -12,7 +12,7 @@
 <table id="bets" class="table">
     <thead>
     <tr>
-        <th>Game</th>
+        <th>Group</th>
         <th>Guess</th>
         <th>Bet Amount</th>
         <th>Delete</th>
@@ -27,7 +27,7 @@
 {
     <script>
         $(document).ready(function () {
-            var table =$("#bets").DataTable({
+            $("#bets").DataTable({
                 ajax: {
                     url: "/api/bets",
                     dataSrc: ""
@@ -36,7 +36,7 @@
                     {
                         data: "name",
                         render: function(data,type, bet) {
-                            return "<a href=' /bet/save/" + bet.id + "'>" +bet.name + "</a>";
+                            return "<a href=' /bet/details/" + bet.id + "'>" + bet.name + "</a>";
 
                         }
                     },
@@ -55,7 +55,7 @@
                 ]
             });
 
-            $("#bets").on("click"," .js-delete",
+            $("#groups").on("click"," .js-delete",
                 function () {
                     var button = $(this);
 
@@ -65,7 +65,7 @@
                                 url: "/api/bets/" + $(this).attr("data-bet-id"),
                                 method: "DELETE",
                                 success: function () {
-                                    table.row(button.parents("tr")).remove().draw();
+                                    button.parents("tr").remove();
                                 }
                             });
                         }

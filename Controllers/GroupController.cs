@@ -1,9 +1,7 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
 using Antlr.Runtime.Misc;
 using AutoMapper;
-using Bet.Controllers.Api;
 using Bet.DTO;
 using Bet.Models;
 using Bet.Models.ViewModels;
@@ -25,7 +23,12 @@ namespace Bet.Controllers
         }
         public ActionResult Index()
         {
-            return View();
+
+            if (User.IsInRole(RoleName.CanMakeBets) || User.IsInRole(RoleName.CanMangeUsers))
+            {
+                return View();
+            }
+            return HttpNotFound();
         }
 
         public ActionResult New()
@@ -35,22 +38,19 @@ namespace Bet.Controllers
             return View("GroupForm",group);
         }
 
-       
-        public ActionResult Save(int id, GroupDto groupDto)
-        {
-            var group = _context.Groups.Select(Mapper.Map<GroupImpl, GroupDto>).SingleOrDefault(g => g.Id == id);
-            var groupsUpdated= new GroupsController();
-
-            groupsUpdated.UpdateGroup(id, groupDto);
-
-            return View("Save", group);
-        }
         public ActionResult Details(int id)
         {
-
-            var groupDtos = _context.Groups.Select(Mapper.Map<GroupImpl, GroupDto>).SingleOrDefault(g => g.Id == id);
-            return View("Save", groupDtos);
+            
+            var groupDtos= _context.Groups.Select(Mapper.Map<GroupImpl,GroupDto>).SingleOrDefault(g => g.Id == id);
+            return View(groupDtos);
         }
+        public ActionResult Save(int id)
+        {
+            var group = new GroupDto();
+
+            return View("GroupForm", group);
+        }
+
         public ActionResult Edit(int id)
         {
             var bet = _context.Groups.SingleOrDefault(g => g.Id == id);

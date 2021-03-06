@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using AutoMapper;
-using Bet.Controllers.Api;
 using Bet.DTO;
 using Bet.Models;
 using Bet.Models.ViewModels;
@@ -22,34 +21,41 @@ namespace Bet.Controllers
         {
             _context.Dispose();
         }
-
+        [Authorize(Roles = RoleName.CanMakeBets)]
+        [Authorize(Roles = RoleName.CanMangeUsers)]
         public ActionResult Index()
         {
-            return View();
 
+            if (User.IsInRole(RoleName.CanMakeBets) || User.IsInRole(RoleName.CanMangeUsers))
+            {
+                return View("List");
+            }
+            return HttpNotFound();
         }
+        [Authorize(Roles = RoleName.CanMakeBets)]
+        [Authorize(Roles = RoleName.CanMangeUsers)]
         public ActionResult New()
         {
             var game = new GameDto();
             return View("GameForm",game);
         }
-
-        public ActionResult Save(int id, GameDto gameDto)
+        [Authorize(Roles = RoleName.CanMakeBets)]
+        [Authorize(Roles = RoleName.CanMangeUsers)]
+        public ActionResult Save()
         {
-
-            var game = _context.Games.Select(Mapper.Map<GameImpl, GameDto>).SingleOrDefault(g => g.Id == id);
-            var gamesUpdated = new GamesController();
-
-            gamesUpdated.UpdateGame(id, gameDto);
-
-            return View("Save", game);
+            var game = new GameDto();
+            return View("GameForm", game);
         }
+        [Authorize(Roles = RoleName.CanMakeBets)]
+        [Authorize(Roles = RoleName.CanMangeUsers)]
         public ActionResult Details(int id)
         {
             var console = _context.Games.Select(Mapper.Map<GameImpl,GameDto>).SingleOrDefault(g => g.Id == id);
             
-            return View("Details", console);
+            return View("GameForm", console);
         }
+        [Authorize(Roles = RoleName.CanMakeBets)]
+        [Authorize(Roles = RoleName.CanMangeUsers)]
         public ActionResult Edit(int id)
         {
             var game = _context.Games.SingleOrDefault(g => g.Id == id);

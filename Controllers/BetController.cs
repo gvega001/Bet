@@ -1,11 +1,9 @@
-﻿using System.CodeDom;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Http.Results;
 using System.Web.Mvc;
 using System.Web.Security;
 using Antlr.Runtime.Misc;
 using AutoMapper;
-using Bet.Controllers.Api;
 using Bet.DTO;
 using Bet.Models;
 using Bet.Models.ViewModels;
@@ -26,30 +24,41 @@ namespace Bet.Controllers
             _context.Dispose();
         }
 
+
         public ActionResult Index()
         {
-            return View();
+            if (User.IsInRole(RoleName.CanMakeBets)||User.IsInRole(RoleName.CanMangeUsers))
+            {
+                return View();
+            }
+            return HttpNotFound();
+          
         }
-        
+        [Authorize(Roles = RoleName.CanMakeBets)]
+        [Authorize(Roles = RoleName.CanMangeUsers)]
         public ActionResult New()
         {
             var bet = new BetDto();
-          
             return View("BetForm", bet);
         }
-        public ActionResult Save(int id, BetDto betDto)
+        [Authorize(Roles = RoleName.CanMakeBets)]
+        [Authorize(Roles = RoleName.CanMangeUsers)]
+        public ActionResult Save()
         {
-            var bet = _context.Bets.Select(Mapper.Map<BetImpl, BetDto>).SingleOrDefault(b => b.Id == id);
-            var betsUpdated = new BetsController();
-            betsUpdated.UpdateBet(id,betDto);
-            return View("Save", bet);
+            var bet = new BetDto();
+
+            return View("BetForm", bet);
         }
+        [Authorize(Roles = RoleName.CanMakeBets)]
+        [Authorize(Roles = RoleName.CanMangeUsers)]
         public ActionResult Details(int id)
         {
             var console = _context.Bets.Select(Mapper.Map<BetImpl,BetDto>).SingleOrDefault(g => g.Id == id);
             
-            return View("Save", console);
+            return View( console);
         }
+        [Authorize(Roles = RoleName.CanMakeBets)]
+        [Authorize(Roles = RoleName.CanMangeUsers)]
         public ActionResult Edit(int id)
         {
             var bet = _context.Bets.SingleOrDefault(g => g.Id == id);
