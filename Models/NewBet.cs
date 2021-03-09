@@ -1,21 +1,22 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using Bet.DTO;
 
-namespace Bet.DTO
+namespace Bet.Models
 {
-    public class NewBetDto
+    public class NewBet : Bet
     {
         public int Id { get; set; }
 
         public GameDto Game { get; set; }
 
         public GroupDto Group { get; set; }
+
         [Range(0, 1000)]
         [Display(Name = "Bet Amount: ")]
         public int MoneyBet { get; set; }
-        [Range(0, 100000.0)]
 
-        public double? Guess { get; set; }
+        [Range(0, 100000.0)] public double? Guess { get; set; }
+
         public double GetMaxNumber()
         {
             throw new System.NotImplementedException();
