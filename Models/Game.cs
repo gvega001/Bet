@@ -12,10 +12,7 @@ namespace Bet.Models
         void SetEventName(string eventName);
         double GetGuess();
         void SetGuess(double guess);
-        double GetSmallestPossibleGuess();
-        void SetSmallestPossibleGuess(double smallestPossibleGuess);
-        double GetBiggestPossibleGuess();
-        void SetBiggestPossibleGuess(double biggestPossibleGuess);
+      
         LinkedList <Bet> GetBet();
         void SetBets(LinkedList<Bet> betsSets);
 

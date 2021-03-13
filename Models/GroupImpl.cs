@@ -11,6 +11,17 @@ namespace Bet.Models
         {
             
         }
+
+        public GroupImpl(int id, int? betId, string groupName, int? playerId, int joinCode, LinkedList<BetImpl> bets, int? gameId)
+        {
+            Id = id;
+            BetId = betId;
+            GroupName = groupName;
+            PlayerId = playerId;
+            JoinCode = joinCode;
+            Bets = bets;
+            GameId = gameId;
+        }
         public int Id { get; set; }
         public int? BetId { get; set; }
         [Required]
