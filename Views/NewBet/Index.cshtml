@@ -37,7 +37,9 @@
 @section scripts
 {
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
+            var vm = {};
+
             var games = new Bloodhound({
                 datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
                 queryTokenizer: Bloodhound.tokenizers.whitespace,
@@ -55,7 +57,10 @@
                 name: 'games',
                 display: 'name',
                 source: games
+            }).on("typeahead:select", function(e, games) {
+                vm.gameId = games.id;
             });
+
             var groups = new Bloodhound({
                 datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
                 queryTokenizer: Bloodhound.tokenizers.whitespace,
@@ -73,6 +78,8 @@
                 name: 'groups',
                 display: 'names',
                 source: groups
+            }).on("typeahead:select", function(f, groups) {
+                vm.groupId = groups.id;
             });
     });
     </script>
