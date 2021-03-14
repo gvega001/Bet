@@ -11,24 +11,38 @@ namespace Bet.Models
         {
             
         }
-        public int Id { get; set; }
+
+        public GameImpl(LinkedList<Bet> bets, LinkedList<double> scoresList, string eventName, double guess, double smallestPossibleNumber, double largestNumberPossible, Bet bet, GameStatus gameStatus, bool isGameConfirmed, bool isGameLocked, bool isBetConfirmedByAll, Group @group, bool isBetWon)
+        {
+            _bets = bets;
+            _scoresList = scoresList;
+            _eventName = eventName;
+            _guess = guess;
+            _smallestPossibleNumber = smallestPossibleNumber;
+            _largestNumberPossible = largestNumberPossible;
+            _bet = bet;
+            _gameStatus = gameStatus;
+            _isGameConfirmed = isGameConfirmed;
+            _isGameLocked = isGameLocked;
+            _isBetConfirmedByAll = isBetConfirmedByAll;
+            _group = @group;
+            _isBetWon = isBetWon;
+        }
+
         public string EventName { get; set; }
+        public int Id { get; set; }
+
         public DateTime? EventDateTime { get; set; }
         public DateTime? LastDateTime { get; set; }
-        public int? GroupId { get; set; }
-        [Required]
+       [Required]
         [StringLength(250)]
         public string Team1Name { get; set; }
         public double Team1Score { get; set; }
-        public double Team2Score { get; set; }
         [Required]
         [StringLength(250)]
         public string Team2Name { get; set; }
-        public double? SmallestPossibleNumber { get; set; }
-        [Range(0,100000.0)]
-        public double? LargestPossibleNumber { get; set; }
-        [Required]
-        public LinkedList<BetImpl> Bets { get; set; }
+        public double Team2Score { get; set; }
+
      
         public bool? GameConfirmed { get; set; }
 
@@ -126,21 +140,14 @@ namespace Bet.Models
             return _smallestPossibleNumber;
         }
 
-        public void SetSmallestPossibleGuess(double smallestNumberPossible)
-        {
-            this._bet.SetSmallestNumber(smallestNumberPossible);
-        }
+     
 
         public double GetBiggestPossibleGuess()
         {
             return _largestNumberPossible;
         }
 
-        public void SetBiggestPossibleGuess(double largestNumberPossible)
-        {
-            this._bet.SetMaxNumber(largestNumberPossible);
-        }
-
+       
         public LinkedList<Bet> GetBet()
         {
             return _bets;
@@ -170,17 +177,7 @@ namespace Bet.Models
             return _isGameLocked;
         }
 
-        public bool IsValidGuess()
-        {
-            if (_guess <= _bet.GetMaxNumber() && _guess >= _bet.GetSmallestNumber())
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+      
 
         public bool IsBetWon()
         {
@@ -223,7 +220,17 @@ namespace Bet.Models
         {
             return _isGameConfirmed;
         }
-        
+
+        public bool IsValidGuess()
+        {
+            if (IsValidGuess())
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         public string LastDateAndTimeToBest { get; set; }
         
     }

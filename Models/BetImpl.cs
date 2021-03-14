@@ -13,22 +13,53 @@ namespace Bet.Models
         {
             
         }
+
+        public BetImpl(int id, int moneyBet, double? guess, string team)
+        {
+            Id = id;
+            MoneyBet = moneyBet;
+            Guess = guess;
+            Team = team;
+        }
+
+        public BetImpl(Player player, Group betGroup, Random betId, SqlMoney betMoney, double maxScorePossible, double lowestScorePossible, Game game)
+        {
+            _player = player;
+            _betGroup = betGroup;
+            _betId = betId;
+            _betMoney = betMoney;
+            _maxScorePossible = maxScorePossible;
+            _lowestScorePossible = lowestScorePossible;
+            _game = game;
+        }
+
+        public BetImpl(Player player, Group betGroup, Random betId, SqlMoney betMoney, double maxScorePossible, double lowestScorePossible, Game game, int id, int moneyBet, double? guess, string team)
+        {
+            _player = player;
+            _betGroup = betGroup;
+            _betId = betId;
+            _betMoney = betMoney;
+            _maxScorePossible = maxScorePossible;
+            _lowestScorePossible = lowestScorePossible;
+            _game = game;
+            Id = id;
+            MoneyBet = moneyBet;
+            Guess = guess;
+            Team = team;
+        }
+
         public int Id { get; set; }
-  
-        public int? PlayerId { get; set; }
-    
-        public int? GroupId { get; set; }
-    
-        [Range(0,1000)]
-        [Display(Name = "Amount: ")]
-        public SqlMoney? MoneyBet { get; set; }
-        [Range(0,100000.0)]
-        public double? MaxPossibleNumber { get; set; }
-        [Range(0,1)]
-        public double? LowestPossibleNumber { get; set; }
+
+
+        [Range(0, 1000)]
+        [Display(Name = "Bet Amount: ")]
+        public int MoneyBet { get; set; }
+        [Range(0, 100000.0)]
 
         public double? Guess { get; set; }
-        public int? GameId { get; set; }
+
+        public string Team { get; set; }
+
         //***===========   public fields *********=========
         private readonly Player _player;
         private Group _betGroup;
@@ -149,7 +180,7 @@ namespace Bet.Models
         {
             foreach (var confirmPaymentPlayer in playersPaymentList)
             {
-                if (_game.IsGameConfirmed() == true)
+                if (_game.GameConfirmed == true)
                 {
                     return true;
                 }

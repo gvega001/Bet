@@ -1,4 +1,6 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 using System.Security.AccessControl;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -11,6 +13,8 @@ namespace Bet.Models
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+        [Required]
+        public DateTime DateOfBirth { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -26,6 +30,7 @@ namespace Bet.Models
         public DbSet<BetImpl> Bets { get; set; }
         public DbSet<GameImpl> Games { get; set; }
         public DbSet<GroupImpl> Groups { get; set; }
+        public DbSet<NewBet> MakeBets { get; set;  }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -37,6 +42,5 @@ namespace Bet.Models
         }
 
         public System.Data.Entity.DbSet<ViewModels.PlayerViewModels> PlayerViewModels { get; set; }
-
     }
 }

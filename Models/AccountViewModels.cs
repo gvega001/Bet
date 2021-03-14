@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Bet.Models
@@ -64,6 +65,9 @@ namespace Bet.Models
 
     public class RegisterViewModel
     {
+        [Required]
+        [Display(Name = "Date of Birth")]
+        public DateTime DateOfBirth { get; set; }
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

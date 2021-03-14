@@ -45,7 +45,7 @@ namespace Bet.Models
 
         public void  SetResultsMessage()
         {
-            _resultMessage = _game.IsBetWon().ToString();
+            _resultMessage = _game.GameWon.ToString();
         }
     }
 }
