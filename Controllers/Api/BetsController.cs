@@ -10,6 +10,7 @@ using Bet.Models;
 
 namespace Bet.Controllers.Api
 {
+ 
     public class BetsController : ApiController
     {
         private ApplicationDbContext _context;
@@ -17,6 +18,10 @@ namespace Bet.Controllers.Api
         public BetsController()
         {
             _context = new ApplicationDbContext();
+        }
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
         }
 
         // GET /api/bets
@@ -50,16 +55,18 @@ namespace Bet.Controllers.Api
             }
 
             var bet = Mapper.Map<BetDto, BetImpl>(betDto);
+
             _context.Bets.Add(bet);
             _context.SaveChanges();
-            
+
             betDto.Id = bet.Id;
             return Created(new Uri(Request.RequestUri + "/" + bet.Id), betDto);
+           
         }
 
         // PUT /api/bets/1
         [System.Web.Http.HttpPut]
-        public void UpdateBet(int id, BetDto betDto)
+        public IHttpActionResult UpdateBet(int id, BetDto betDto)
         {
             if (!ModelState.IsValid)
             {
@@ -73,13 +80,12 @@ namespace Bet.Controllers.Api
             }
 
             Mapper.Map(betDto, betInDb);
-           
-            _context.SaveChanges();
+           return Ok(_context.SaveChanges());
         }
 
         // DELETE /api/bets/1
         [System.Web.Http.HttpDelete]
-        public void DeleteBet(int id)
+        public IHttpActionResult DeleteBet(int id)
         {
             var betInDb = _context.Bets.SingleOrDefault(c => c.Id == id);
             if (betInDb == null)
@@ -88,7 +94,8 @@ namespace Bet.Controllers.Api
             }
 
             _context.Bets.Remove(betInDb);
-            _context.SaveChanges();
+           
+            return Ok(_context.SaveChanges());
         }
 
     }

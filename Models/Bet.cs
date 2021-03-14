@@ -10,6 +10,8 @@ namespace Bet.Models
         void SetMaxNumber(double maxNumber);
         double GetSmallestNumber();
         void SetSmallestNumber(double minNumber);
+   
 
+      
     }
 }

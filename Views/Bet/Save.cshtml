@@ -1,16 +1,18 @@
 ﻿@model Bet.DTO.BetDto
 
 @{
-    ViewBag.Title = "BetForm";
+    ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>BetForm</h2>
-@using (Html.BeginForm("New", "Bet"))
+<h2>Update Bet</h2>
+
+@using (Html.BeginForm("Save", "Bet"))
 {
+    @Html.AntiForgeryToken()
 
     <div id="bets" class="form-horizontal">
-        <h4>BetImpl</h4>
+        <h4>Save Bet</h4>
         <hr/>
         @Html.ValidationSummary(true, "", new {@class = "text-danger"})
 
@@ -37,7 +39,13 @@
                 @Html.ValidationMessageFor(model => model.MoneyBet, "", new {@class = "text-danger"})
             </div>
         </div>
-
+        <div class="form-group">
+            @Html.LabelFor(model => model.Id, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Id, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.Id, "", new {@class = "text-danger"})
+            </div>
+        </div>
         <div class="form-group">
             @Html.LabelFor(model => model.GameId, htmlAttributes: new {@class = "control-label col-md-2"})
             <div class="col-md-10">
@@ -52,31 +60,29 @@
                 @Html.ValidationMessageFor(model => model.GroupId, "", new {@class = "text-danger"})
             </div>
         </div>
-
         <div class="form-group ">
             <div class="col-md-offset-2 col-md-10">
-                <button class="btn-link js-create">Create</button>
+                <button class="btn-link js-save">Save</button>
             </div>
         </div>
     </div>
-
 }
 @section scripts
 {
     <script>
 
         $("#bets").on("click",
-            " .js-create",
-            function () {
+            " .js-save",
+            function() {
                 var button = $(this);
 
                 bootbox.confirm("Are you sure you want to update this bets",
-                    function (result) {
+                    function(result) {
                         if (result) {
                             $.ajax({
                                 url: "/api/bets/" + $(this).attr("data-bet-id"),
-                                method: "POST",
-                                success: function () {
+                                method: "PUT",
+                                success: function() {
                                     button.parents("tr").remove();
                                 }
                             });
