@@ -469,6 +469,10 @@
     <Compile Include="Migrations\202103131851490_modelsUpdatedAll.Designer.cs">
       <DependentUpon>202103131851490_modelsUpdatedAll.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103140130198_modelsUpdatedBets.cs" />
+    <Compile Include="Migrations\202103140130198_modelsUpdatedBets.Designer.cs">
+      <DependentUpon>202103140130198_modelsUpdatedBets.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bet.cs" />
@@ -960,6 +964,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103131851490_modelsUpdatedAll.resx">
       <DependentUpon>202103131851490_modelsUpdatedAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103140130198_modelsUpdatedBets.resx">
+      <DependentUpon>202103140130198_modelsUpdatedBets.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

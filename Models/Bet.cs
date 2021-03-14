@@ -17,7 +17,8 @@ namespace Bet.Models
         [Range(0, 100000.0)]
 
         double? Guess { get; set; }
-      
+
+        string Team { get; set; }
 
     }
 }

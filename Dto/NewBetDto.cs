@@ -10,30 +10,20 @@ namespace Bet.DTO
         public GameDto Game { get; set; }
 
         public GroupDto Group { get; set; }
-        [Range(0, 1000)]
-        [Display(Name = "Bet Amount: ")]
-        public int MoneyBet { get; set; }
-        [Range(0, 100000.0)]
 
-        public double? Guess { get; set; }
-        public double GetMaxNumber()
+        public BetDto Bet { get; set; }
+
+        public NewBetDto()
         {
-            throw new System.NotImplementedException();
+            
         }
 
-        public void SetMaxNumber(double maxNumber)
+        public NewBetDto(int id, GameDto game, GroupDto @group, BetDto bet)
         {
-            throw new System.NotImplementedException();
-        }
-
-        public double GetSmallestNumber()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void SetSmallestNumber(double minNumber)
-        {
-            throw new System.NotImplementedException();
+            Id = id;
+            Game = game;
+            Group = @group;
+            Bet = bet;
         }
 
     }
