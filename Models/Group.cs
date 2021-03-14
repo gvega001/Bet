@@ -8,9 +8,7 @@ namespace Bet.Models
     
         string GetGroupName();
         void SetGroupName(string groupName);
-        Player GetPlayer();
-        void SetPlayer(Player player);
-        LinkedList<Player> GetPlayers();
+     
         int GetJoinCode(Group group);
         void JoinGroupWithJoinCode(int joinCode, Player player);
         bool GetIsBetOutComeConfirmed();

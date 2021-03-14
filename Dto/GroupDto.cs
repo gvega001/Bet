@@ -6,18 +6,28 @@ namespace Bet.DTO
 {
     public class GroupDto
     {
+        public GroupDto()
+        {
+            
+        }
+
+        public GroupDto(int id, string groupName, int joinCode, LinkedList<BetImpl> bets)
+        {
+            Id = id;
+            GroupName = groupName;
+            JoinCode = joinCode;
+            Bets = bets;
+        }
+        
         public int Id { get; set; }
-        public int? BetId { get; set; }
         [Required]
         [StringLength(250)]
         [Display(Name = "Group Name")]
         public string GroupName { get; set; }
-        public int? PlayerId { get; set; }
         [Required]
         public int JoinCode { get; set; }
 
         public LinkedList<BetImpl> Bets { get; set; }
 
-        public int? GameId { get; set; }
     }
 }
