@@ -30,6 +30,8 @@ namespace Bet
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/content/DataTables/css/DataTables.bootstrap.css",
+                      "~/content/datatables/css/datatables.bootstrap.css",
+                      "~/content/typeahead.css",
                       "~/Content/site.css"));
         }
     }
