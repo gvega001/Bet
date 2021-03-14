@@ -22,11 +22,21 @@ namespace Bet.Controllers.Api
         {
             var bet = _context.Bets.Single(
                 b => b.Id == newBets.Bet.Id);
+
+            if (bet == null)
+                return BadRequest("No Bet");
+
             var game = _context.Games.Single(
                 g => g.Id == newBets.Game.Id);
 
+            if (game == null)
+                return BadRequest("No Game");
+
             var group = _context.Groups.Single(
                 g => g.Id == newBets.Group.Id);
+
+            if (group == null)
+                return BadRequest("No Group");
 
             BetDto betDto = Mapper.Map<BetImpl, BetDto>(bet);
             GameDto gameDto = Mapper.Map<GameImpl, GameDto>(game);
@@ -40,8 +50,10 @@ namespace Bet.Controllers.Api
                 Group =  groupDto
 
             };
-            return Ok(_context.MakeBets.Add(newBet)) ;
+            _context.MakeBets.Add(newBet);
+            _context.SaveChanges();
 
+            return Ok();
         }
     }
 }
