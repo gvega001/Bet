@@ -14,7 +14,8 @@ namespace Bet
                         "~/scripts/BootBox.js",
                         "~/Scripts/respond.js",
                         "~/scripts/DataTables/jquery.DataTables.js",
-                        "~/scripts/DataTables/DataTables.bootstrap.js"
+                        "~/scripts/DataTables/DataTables.bootstrap.js",
+                        "~/scripts/typeahead.bundle.js"
                         ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
