@@ -88,6 +88,10 @@
                 vm.groupId = groups.id;
             });
 
+            $.validator.addMethod("validBet", function() {
+                return vm.gameId && vm.groupId !== 0;
+            });
+
             $("#newBet").validate({
                 submitHandler: function(e) {
                     e.preventDefault();
