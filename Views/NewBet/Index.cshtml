@@ -11,30 +11,26 @@
     <div class="form-group">
         <label>Game</label>
         <div class="tt-container">
-            <input id="games" required type="text" value="" class="form-control"/>
+            <input id="games" name="game" data-rule-ValidGame="true" required type="text" value="" class="form-control"/>
         </div>
     </div>
     <div class="form-group">
         <label>Group</label>
         <div class="tt-container">
-            <input id="groups" required type="text" value="" class="form-control" />
+            <input id="groups" name="group" data-rule-ValidGroup="true" required type="text" value="" class="form-control" />
         </div>
     </div>
     <div class="form-group">
         <label>Bet Amount</label>
-        <input type="text" required value="" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label>Bet Amount</label>
-        <input type="text" required value="" class="form-control" />
+        <input type="text" name="betAmount" required value="" class="form-control" />
     </div>
     <div class="form-group">
         <label>Select Team</label>
-        <input type="text" required value="" class="form-control" />
+        <input type="text" name="team" required value="" class="form-control" />
     </div>
     <div class="form-group">
         <label>Guess</label>
-        <input type="text" required value="" class="form-control" />
+        <input type="text" name="quess" required value="" class="form-control" />
     </div>
     <button class="btn btn-primary">Make Bet</button>
 </form>
@@ -90,12 +86,10 @@
 
             $.validator.addMethod("validBet", function() {
                 return vm.gameId && vm.groupId !== 0;
-            });
+            },"Please select a valid game and group");
 
-            $("#newBet").validate({
-                submitHandler: function(e) {
-                    e.preventDefault();
-
+           var validator= $("#newBet").validate({
+                submitHandler: function() {
                     $.ajax({
                             url: "/api/newBets",
                             method: "post",
@@ -103,11 +97,16 @@
                         })
                         .done(function() {
                             toastr.success("Bet!");
+
+                            $("#games").typeahead("val", "");
+                            $("#groups").typeahead("val", "");
+                            vm = { gameId: [], groupId: [] }
+                            validator.resetForm();
                         })
                         .fail(function() {
                             toastr.fail("Something unexpected happened.");
                         });
-
+                    return false;
                 }
             });
 
