@@ -14,12 +14,11 @@ namespace Bet.Models
             
         }
 
-        public BetImpl(int id, int moneyBet, double? guess, int? gameId, string team)
+        public BetImpl(int id, int moneyBet, double? guess, string team)
         {
             Id = id;
             MoneyBet = moneyBet;
             Guess = guess;
-            GameId = gameId;
             Team = team;
         }
 
@@ -34,7 +33,7 @@ namespace Bet.Models
             _game = game;
         }
 
-        public BetImpl(Player player, Group betGroup, Random betId, SqlMoney betMoney, double maxScorePossible, double lowestScorePossible, Game game, int id, int moneyBet, double? guess, int? gameId, string team)
+        public BetImpl(Player player, Group betGroup, Random betId, SqlMoney betMoney, double maxScorePossible, double lowestScorePossible, Game game, int id, int moneyBet, double? guess, string team)
         {
             _player = player;
             _betGroup = betGroup;
@@ -46,10 +45,9 @@ namespace Bet.Models
             Id = id;
             MoneyBet = moneyBet;
             Guess = guess;
-            GameId = gameId;
             Team = team;
         }
-        
+
         public int Id { get; set; }
 
 
@@ -59,7 +57,7 @@ namespace Bet.Models
         [Range(0, 100000.0)]
 
         public double? Guess { get; set; }
-        public int? GameId { get; set; }
+
         public string Team { get; set; }
 
         //***===========   public fields *********=========

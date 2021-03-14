@@ -12,28 +12,23 @@ namespace Bet.DTO
 
         }
 
-        public BetDto(string gameName, int id, int? groupId, int moneyBet, double? guess, int? gameId)
+        public BetDto(int id, int moneyBet, double? guess, string team)
         {
-            GameName = gameName;
             Id = id;
-            GroupId = groupId;
             MoneyBet = moneyBet;
             Guess = guess;
-            GameId = gameId;
+            Team = team;
         }
-        public string GameName { get; set; }
-        [Range(0, 1000)]
         public int Id { get; set; }
 
-        public int? GroupId { get; set; }
 
-      
+        [Range(0, 1000)]
         [Display(Name = "Bet Amount: ")]
         public int MoneyBet { get; set; }
         [Range(0, 100000.0)]
 
         public double? Guess { get; set; }
-        
-        public int? GameId { get; set; }
+
+        public string Team { get; set; }
     }
 }

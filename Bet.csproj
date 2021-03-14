@@ -482,6 +482,10 @@
     <Compile Include="Migrations\202103140235290_modelsUpdatedGroupDto.Designer.cs">
       <DependentUpon>202103140235290_modelsUpdatedGroupDto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103140448521_modelsUpdatedBetDto.cs" />
+    <Compile Include="Migrations\202103140448521_modelsUpdatedBetDto.Designer.cs">
+      <DependentUpon>202103140448521_modelsUpdatedBetDto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bet.cs" />
@@ -986,6 +990,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103140235290_modelsUpdatedGroupDto.resx">
       <DependentUpon>202103140235290_modelsUpdatedGroupDto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103140448521_modelsUpdatedBetDto.resx">
+      <DependentUpon>202103140448521_modelsUpdatedBetDto.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
