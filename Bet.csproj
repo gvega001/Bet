@@ -755,6 +755,10 @@
     <Content Include="Views\Bet\Details.cshtml" />
     <Content Include="Views\Game\Details.cshtml" />
     <Content Include="Views\NewBet\Index.cshtml" />
+    <Content Include="Views\NewBet\Details.cshtml" />
+    <Content Include="Views\NewBet\Create.cshtml" />
+    <Content Include="Views\NewBet\Edit.cshtml" />
+    <Content Include="Views\NewBet\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
