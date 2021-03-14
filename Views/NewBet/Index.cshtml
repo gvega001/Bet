@@ -9,44 +9,12 @@
 
 <form>
     <div class="form-group">
-        <label>Event Name</label>
-        <input type="text" value="" class="form-control" />
+        <label>Game</label>
+        <input id="games" type="text" value="" class="form-control" />
     </div>
     <div class="form-group">
-        <label>Date of Event</label>
-        <input type="datetime" value="" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label>Last Bet Date</label>
-        <input type="datetime" value="" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label>Last Bet Date</label>
-        <input type="datetime" value="" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label>Home Team</label>
-        <input type="text" value="" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label>Home Team Score</label>
-        <input type="text" value="" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label>Visitor Team</label>
-        <input type="text" value="" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label>Visitor Team Score</label>
-        <input type="text" value="" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label>Group Name</label>
-        <input type="text" value="" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label>Group Joint Code</label>
-        <input type="text" value="" class="form-control" />
+        <label>Group Join Code</label>
+        <input id="groups" type="text" value="" class="form-control" />
     </div>
     <div class="form-group">
         <label>Bet Amount</label>
@@ -66,3 +34,46 @@
     </div>
     <button class="btn btn-primary">Make Bet</button>
 </form>
+@section scripts
+{
+    <script>
+        $(document).ready(function() {
+            var games = new Bloodhound({
+                datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                prefetch: '../data/films/post_1960.json',
+                remote: {
+                    url: 'api/games?query=%QUERY',
+                    wildcard: '%QUERY'
+                }
+            });
+
+            $('#games').typeahead({
+                minLength: 3,
+                highlight: true
+            }, {
+                name: 'games',
+                display: 'name',
+                source: games
+            });
+            var groups = new Bloodhound({
+                datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                prefetch: '../data/films/post_1960.json',
+                remote: {
+                    url: 'api/groups?query=%QUERY',
+                    wildcard: '%QUERY'
+                }
+            });
+
+            $('#groups').typeahead({
+                minLength: 3,
+                highlight: true
+            }, {
+                name: 'groups',
+                display: 'names',
+                source: groups
+            });
+    });
+    </script>
+}
