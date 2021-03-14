@@ -182,7 +182,7 @@ namespace Bet.Models
         {
             foreach (var confirmPaymentPlayer in playersPaymentList)
             {
-                if (_game.IsGameConfirmed() == true)
+                if (_game.GameConfirmed == true)
                 {
                     return true;
                 }
