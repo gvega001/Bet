@@ -18,7 +18,7 @@ namespace Bet.Controllers.Api
         }
         // GET
         [System.Web.Mvc.HttpPost]
-        public IHttpActionResult CreateNewBets(NewBetDto newBets)
+        public IHttpActionResult Index(NewBetDto newBets)
         {
             var bet = _context.Bets.Single(
                 b => b.Id == newBets.Bet.Id);

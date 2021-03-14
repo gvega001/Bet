@@ -8,7 +8,7 @@ using Bet.Models.ViewModels;
 
 namespace Bet.Controllers
 {
-
+    
     public class GroupController : Controller
     {
         // GET private ApplicationDbContext _context;
@@ -24,7 +24,7 @@ namespace Bet.Controllers
         public ActionResult Index()
         {
 
-            if (User.IsInRole(RoleName.CanMakeBets) || User.IsInRole(RoleName.CanMangeUsers))
+            if (User != null)
             {
                 return View();
             }
