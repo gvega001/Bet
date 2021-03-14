@@ -188,16 +188,17 @@
     <Compile Include="Controllers\Api\BetsController.cs" />
     <Compile Include="Controllers\Api\GamesController.cs" />
     <Compile Include="Controllers\Api\GroupsController.cs" />
-    <Compile Include="Controllers\Api\NewBetsController.cs" />
+    <Compile Include="Controllers\Api\PlayersController.cs" />
     <Compile Include="Controllers\BetController.cs" />
-    <Compile Include="Controllers\GameController.cs" />
+    <Compile Include="Controllers\ConsoleBetGameController.cs" />
     <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MessageGeneratorController.cs" />
+    <Compile Include="Controllers\PlayerController.cs" />
     <Compile Include="Dto\GameDto.cs" />
     <Compile Include="Dto\GroupDto.cs" />
-    <Compile Include="Dto\NewBetDto.cs" />
+    <Compile Include="Dto\PlayerDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -425,42 +426,6 @@
     <Compile Include="Migrations\202102150517076_BetImpFormsUpdate1.Designer.cs">
       <DependentUpon>202102150517076_BetImpFormsUpdate1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202102180138176_playerDtoAndPlayerControllersDeleted.cs" />
-    <Compile Include="Migrations\202102180138176_playerDtoAndPlayerControllersDeleted.Designer.cs">
-      <DependentUpon>202102180138176_playerDtoAndPlayerControllersDeleted.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202102190157510_BetImplDtoUpdated.cs" />
-    <Compile Include="Migrations\202102190157510_BetImplDtoUpdated.Designer.cs">
-      <DependentUpon>202102190157510_BetImplDtoUpdated.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202102190207468_BetImplDtoUpdated2.cs" />
-    <Compile Include="Migrations\202102190207468_BetImplDtoUpdated2.Designer.cs">
-      <DependentUpon>202102190207468_BetImplDtoUpdated2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202102200050568_SeedUsers.cs" />
-    <Compile Include="Migrations\202102200050568_SeedUsers.Designer.cs">
-      <DependentUpon>202102200050568_SeedUsers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202102200206122_GAmeUpdated.cs" />
-    <Compile Include="Migrations\202102200206122_GAmeUpdated.Designer.cs">
-      <DependentUpon>202102200206122_GAmeUpdated.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202102200322059_AddDateOfBirthToApplicationUser.cs" />
-    <Compile Include="Migrations\202102200322059_AddDateOfBirthToApplicationUser.Designer.cs">
-      <DependentUpon>202102200322059_AddDateOfBirthToApplicationUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202102200401595_PlayerUpdatedRemoveDOB.cs" />
-    <Compile Include="Migrations\202102200401595_PlayerUpdatedRemoveDOB.Designer.cs">
-      <DependentUpon>202102200401595_PlayerUpdatedRemoveDOB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202102200405068_RequiredSetForDateOfBirthUser.cs" />
-    <Compile Include="Migrations\202102200405068_RequiredSetForDateOfBirthUser.Designer.cs">
-      <DependentUpon>202102200405068_RequiredSetForDateOfBirthUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103060327537_NewBetDto.cs" />
-    <Compile Include="Migrations\202103060327537_NewBetDto.Designer.cs">
-      <DependentUpon>202103060327537_NewBetDto.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bet.cs" />
@@ -477,7 +442,6 @@
     <Compile Include="Models\MessageGenerator.cs" />
     <Compile Include="Models\MessageGeneratorImpl.cs" />
     <Compile Include="Models\Player.cs" />
-    <Compile Include="Models\RoleName.cs" />
     <Compile Include="Models\ViewModels\BetViewModels.cs" />
     <Compile Include="Models\ViewModels\ConsoleBetGameViewModel.cs" />
     <Compile Include="Models\ViewModels\GroupViewModels.cs" />
@@ -723,15 +687,12 @@
     <Content Include="Views\MessageGenerator\Message.cshtml" />
     <Content Include="Views\Player\PlayerForm.cshtml" />
     <Content Include="Views\Group\GroupForm.cshtml" />
-    <Content Include="Views\Game\GameForm.cshtml" />
+    <Content Include="Views\ConsoleBetGame\GameForm.cshtml" />
     <Content Include="Views\Bet\BetForm.cshtml" />
     <Content Include="Views\Bet\Index.cshtml" />
-    <Content Include="Views\Game\Index.cshtml" />
+    <Content Include="Views\ConsoleBetGame\Index.cshtml" />
     <Content Include="Views\Group\Index.cshtml" />
     <Content Include="Views\Player\Index.cshtml" />
-    <Content Include="Views\Group\Details.cshtml" />
-    <Content Include="Views\Bet\Details.cshtml" />
-    <Content Include="Views\Game\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -917,33 +878,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102150517076_BetImpFormsUpdate1.resx">
       <DependentUpon>202102150517076_BetImpFormsUpdate1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202102180138176_playerDtoAndPlayerControllersDeleted.resx">
-      <DependentUpon>202102180138176_playerDtoAndPlayerControllersDeleted.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202102190157510_BetImplDtoUpdated.resx">
-      <DependentUpon>202102190157510_BetImplDtoUpdated.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202102190207468_BetImplDtoUpdated2.resx">
-      <DependentUpon>202102190207468_BetImplDtoUpdated2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202102200050568_SeedUsers.resx">
-      <DependentUpon>202102200050568_SeedUsers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202102200206122_GAmeUpdated.resx">
-      <DependentUpon>202102200206122_GAmeUpdated.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202102200322059_AddDateOfBirthToApplicationUser.resx">
-      <DependentUpon>202102200322059_AddDateOfBirthToApplicationUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202102200401595_PlayerUpdatedRemoveDOB.resx">
-      <DependentUpon>202102200401595_PlayerUpdatedRemoveDOB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202102200405068_RequiredSetForDateOfBirthUser.resx">
-      <DependentUpon>202102200405068_RequiredSetForDateOfBirthUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103060327537_NewBetDto.resx">
-      <DependentUpon>202103060327537_NewBetDto.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

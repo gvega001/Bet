@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Dynamic;
 
 namespace Bet.Models
@@ -8,22 +10,26 @@ namespace Bet.Models
      
         LinkedList<double> GetScores();
         void SetScore(double score);
-        string GetEventName();
-        void SetEventName(string eventName);
-        double GetGuess();
-        void SetGuess(double guess);
-        double GetSmallestPossibleGuess();
-        void SetSmallestPossibleGuess(double smallestPossibleGuess);
-        double GetBiggestPossibleGuess();
-        void SetBiggestPossibleGuess(double biggestPossibleGuess);
-        LinkedList <Bet> GetBet();
-        void SetBets(LinkedList<Bet> betsSets);
+        string EventName { get; set; }
+        int Id { get; set; }
+        DateTime? EventDateTime { get; set; }
+        DateTime? LastDateTime { get; set; }
+        [Required]
+        [StringLength(250)]
+        string Team1Name { get; set; }
+        double Team1Score { get; set; }
+        [Required]
+        [StringLength(250)]
+        string Team2Name { get; set; }
+        double Team2Score { get; set; }
 
-        void Reset();
-        bool IsGameLocked();
-        bool IsValidGuess();
-        bool IsBetWon();
-        bool IsBetLost();
-        bool IsGameConfirmed();
+
+        bool? GameConfirmed { get; set; }
+
+        bool? BetsConfirmed { get; set; }
+
+        bool? LockGame { get; set; }
+
+        bool? GameWon { get; set; }
     }
 }

@@ -30,6 +30,7 @@ namespace Bet.Models
         public DbSet<BetImpl> Bets { get; set; }
         public DbSet<GameImpl> Games { get; set; }
         public DbSet<GroupImpl> Groups { get; set; }
+        public DbSet<NewBet> MakeBets { get; set;  }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -41,6 +42,5 @@ namespace Bet.Models
         }
 
         public System.Data.Entity.DbSet<ViewModels.PlayerViewModels> PlayerViewModels { get; set; }
-
     }
 }

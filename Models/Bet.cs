@@ -1,17 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data.SqlTypes;
 
 namespace Bet.Models
 {
     public interface Bet
     {
-        double GetMaxNumber();
-        void SetMaxNumber(double maxNumber);
-        double GetSmallestNumber();
-        void SetSmallestNumber(double minNumber);
-   
 
-      
+        int Id { get; set; }
+
+        
+        [Range(0, 1000)]
+        [Display(Name = "Bet Amount: ")]
+        int MoneyBet { get; set; }
+        [Range(0, 100000.0)]
+
+        double? Guess { get; set; }
+
+        string Team { get; set; }
+
     }
 }

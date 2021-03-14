@@ -1,34 +1,37 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Web.Http;
 using System.Web.Mvc;
 using AutoMapper;
 using Bet.DTO;
+using Bet.Migrations;
 using Bet.Models;
 using Bet.Models.ViewModels;
 
 namespace Bet.Controllers
 {
-    public class GroupController : Controller
+    public class PlayerController : Controller
     {
-        // GET private ApplicationDbContext _context;
+
+        // GET Player/
         private ApplicationDbContext _context;
-        public GroupController()
+        public PlayerController()
         {
             _context = new ApplicationDbContext();
         }
 
         public ViewResult Index()
         {
-           
+
             return View();
         }
 
         public ActionResult New()
         {
-            var group = new GroupDto();
-          
-            return View("GroupForm",group);
+            var viewModel = new PlayerDto();
+            return View("PlayerForm", viewModel);
         }
        
-      
     }
 }

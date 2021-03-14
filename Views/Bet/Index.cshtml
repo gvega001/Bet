@@ -6,72 +6,78 @@
 }
 
 <h2>Bets</h2>
+
 <p>
-    @Html.ActionLink("Make Bet","New", "Bet", null, new{@class="btn btn-primary"})
+    @Html.ActionLink("Bets List", "Index")
 </p>
 <table id="bets" class="table">
-    <thead>
     <tr>
-        <th>Group</th>
-        <th>Guess</th>
-        <th>Bet Amount</th>
-        <th>Delete</th>
-
+        
+        <th>
+            @Html.DisplayNameFor(model => model.GroupId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaxPossibleNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LowestPossibleNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Guess)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GameId)
+        </th>
+        <th></th>
     </tr>
-    </thead>
-    <tbody>
 
-    </tbody>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GroupId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaxPossibleNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LowestPossibleNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Guess)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GameId)
+        </td>
+        
+        <td>
+            <button data-group-id ="@item.Id" class="btn-link js-delete">Delete</button>
+        </td>
+        
+    </tr>
+}
+
 </table>
 @section scripts
 {
     <script>
         $(document).ready(function () {
-            $("#bets").DataTable({
-                ajax: {
-                    url: "/api/bets",
-                    dataSrc: ""
-                },
-                columns: [
-                    {
-                        data: "name",
-                        render: function(data,type, bet) {
-                            return "<a href=' /bet/details/" + bet.id + "'>" + bet.name + "</a>";
 
-                        }
-                    },
-                    {
-                        data: "id"
-                    },
-                    {
-                        data: "id"
-                    },
-                    {
-                        data: "id",
-                        render: function(data) {
-                            return "<button class= 'btn-link js-delete' data-bet-id=" + data + ">Delete</button>";
-                        }
+            $("#bets").on("click", ".js-delete", function () {
+
+                var button = $(this);
+
+                bootbox.confirm("Are you sure you want to delete this bet?", function(result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/api/bets/" + button.attr("data-group-id"),
+                            method: "DELETE",
+                            success: function() {
+                                button.parents("tr").remove();
+                            }
+                        });
                     }
-                ]
-            });
-
-            $("#groups").on("click"," .js-delete",
-                function () {
-                    var button = $(this);
-
-                    bootbox.confirm("Are you sure you want to delete this bets", function(result) {
-                        if (result) {
-                            $.ajax({
-                                url: "/api/bets/" + $(this).attr("data-bet-id"),
-                                method: "DELETE",
-                                success: function () {
-                                    button.parents("tr").remove();
-                                }
-                            });
-                        }
-                    });
-                   
                 });
+            });
         });
     </script>
-}
+    }

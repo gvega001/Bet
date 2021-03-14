@@ -10,7 +10,7 @@ using Bet.Models.ViewModels;
 
 namespace Bet.Controllers
 {
-    
+    [Authorize]
     public class BetController : Controller
     {
         private ApplicationDbContext _context;
@@ -27,38 +27,34 @@ namespace Bet.Controllers
 
         public ActionResult Index()
         {
-            if (User.IsInRole(RoleName.CanMakeBets)||User.IsInRole(RoleName.CanMangeUsers))
+            if (User!=null)
             {
                 return View();
             }
             return HttpNotFound();
           
         }
-        [Authorize(Roles = RoleName.CanMakeBets)]
-        [Authorize(Roles = RoleName.CanMangeUsers)]
+      
         public ActionResult New()
         {
             var bet = new BetDto();
             return View("BetForm", bet);
         }
-        [Authorize(Roles = RoleName.CanMakeBets)]
-        [Authorize(Roles = RoleName.CanMangeUsers)]
+      
         public ActionResult Save()
         {
             var bet = new BetDto();
 
             return View("BetForm", bet);
         }
-        [Authorize(Roles = RoleName.CanMakeBets)]
-        [Authorize(Roles = RoleName.CanMangeUsers)]
+       
         public ActionResult Details(int id)
         {
             var console = _context.Bets.Select(Mapper.Map<BetImpl,BetDto>).SingleOrDefault(g => g.Id == id);
             
             return View( console);
         }
-        [Authorize(Roles = RoleName.CanMakeBets)]
-        [Authorize(Roles = RoleName.CanMangeUsers)]
+      
         public ActionResult Edit(int id)
         {
             var bet = _context.Bets.SingleOrDefault(g => g.Id == id);

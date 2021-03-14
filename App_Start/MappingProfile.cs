@@ -16,6 +16,7 @@ namespace Bet
             Mapper.CreateMap<GameDto, GameImpl>();
             Mapper.CreateMap<GroupImpl, GroupDto>();
             Mapper.CreateMap<GroupDto, GroupImpl>();
+
         }
 
     }

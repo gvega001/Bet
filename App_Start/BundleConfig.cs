@@ -14,7 +14,9 @@ namespace Bet
                         "~/scripts/BootBox.js",
                         "~/Scripts/respond.js",
                         "~/scripts/DataTables/jquery.DataTables.js",
-                        "~/scripts/DataTables/DataTables.bootstrap.js"
+                        "~/scripts/DataTables/DataTables.bootstrap.js",
+                        "~/scripts/typeahead.bundle.js",
+                        "~/scripts/toaster.js"
                         ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -29,6 +31,9 @@ namespace Bet
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/content/DataTables/css/DataTables.bootstrap.css",
+                      "~/content/datatables/css/datatables.bootstrap.css",
+                      "~/content/typeahead.css",
+                      "~/content/toaster.css",
                       "~/Content/site.css"));
         }
     }
