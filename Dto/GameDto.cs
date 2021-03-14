@@ -12,7 +12,7 @@ namespace Bet.DTO
      
         public DateTime? EventDateTime { get; set; }
         public DateTime? LastDateTime { get; set; }
-        public int? GroupId { get; set; }
+  
         [Required]
         [StringLength(250)]
         public string Team1Name { get; set; }
@@ -21,12 +21,7 @@ namespace Bet.DTO
         [StringLength(250)]
         public string Team2Name { get; set; }
         public double Team2Score { get; set; }
-        public double? SmallestPossibleNumber { get; set; }
-        [Range(0, 100000.0)]
-        public double? LargestPossibleNumber { get; set; }
-        [Required]
-        public LinkedList<BetImpl> Bets { get; set; }
-
+       
         public bool? GameConfirmed { get; set; }
 
         public bool? BetsConfirmed { get; set; }
